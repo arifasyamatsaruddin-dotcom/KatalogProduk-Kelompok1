@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab - Sneaker Labs</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header/Navigation -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">SNEAKER LABS</div>
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-link">Koleksi</a>
+                <a href="catalog.html" class="nav-link">Katalog</a>
+                <a href="kolaborasi.html" class="nav-link">Kolaborasi</a>
+                <a href="lab.html" class="nav-link active">Lab</a>
+            </nav>
+            <div class="search-container">
+                <input type="text" class="search-input" placeholder="Cari sneaker..." id="searchInput">
+                <button class="search-btn" id="searchBtn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                </button>
+            </div>
+            <div class="header-icons">
+                <button class="icon-btn wishlist-btn" title="Wishlist" id="wishlistBtn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                    </svg>
+                    <span class="wishlist-count">0</span>
+                </button>
+                <button class="icon-btn cart-btn" title="Shopping Cart" id="cartPanelBtn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="9" cy="21" r="1"></circle>
+                        <circle cx="20" cy="21" r="1"></circle>
+                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                    </svg>
+                    <span class="cart-count">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <h1>THE LABORATORY</h1>
+        <p>Eksplorasi proses, research, dan development di balik setiap creation Sneaker Labs</p>
+    </section>
+
+    <!-- Lab Info Container -->
+    <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 3rem 2rem;">
+        <!-- Section 1: Design Process -->
+        <section style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-bottom: 4rem; align-items: center;">
+            <div>
+                <h2 style="font-size: 1.8rem; font-weight: 800; margin-bottom: 1rem;">Design Process</h2>
+                <p style="color: #666; font-size: 1.05rem; line-height: 1.6; margin-bottom: 1.5rem;">
+                    Setiap sneaker di Sneaker Labs melalui proses desain yang ketat. Dari sketsa awal hingga produksi final, kami memastikan setiap detail sempurna dan sesuai dengan visi kami untuk tech-wear aesthetic yang minimalis namun impactful.
+                </p>
+                <ul style="list-style: none; padding: 0;">
+                    <li style="padding: 0.5rem 0; border-bottom: 1px solid #eee;"><strong>1. Konsep & Research</strong> - Riset tren global dan insight lokal</li>
+                    <li style="padding: 0.5rem 0; border-bottom: 1px solid #eee;"><strong>2. Sketsa & Ideasi</strong> - Brainstorming dan iterasi desain</li>
+                    <li style="padding: 0.5rem 0; border-bottom: 1px solid #eee;"><strong>3. Prototype</strong> - Pembuatan sample untuk testing</li>
+                    <li style="padding: 0.5rem 0;"><strong>4. Produksi</strong> - Manufaktur dengan quality control ketat</li>
+                </ul>
+            </div>
+            <div>
+                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600&h=600" alt="Design Process" style="width: 100%; border-radius: 8px;">
+            </div>
+        </section>
+
+        <!-- Section 2: Material Innovation -->
+        <section style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-bottom: 4rem; align-items: center; direction: rtl;">
+            <div style="direction: ltr;">
+                <h2 style="font-size: 1.8rem; font-weight: 800; margin-bottom: 1rem;">Material Innovation</h2>
+                <p style="color: #666; font-size: 1.05rem; line-height: 1.6; margin-bottom: 1.5rem;">
+                    Kami berkomitmen menggunakan material berkualitas tinggi dan sustainable. Dari synthetic premium hingga recycled materials, setiap pilihan material dipilih untuk durability, comfort, dan environmental impact.
+                </p>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                    <div style="padding: 1rem; background: #f5f5f5; border-radius: 4px;">
+                        <h4 style="font-weight: 700; margin-bottom: 0.5rem;">Premium Synthetics</h4>
+                        <p style="font-size: 0.9rem; color: #666;">Engineered untuk performa maksimal</p>
+                    </div>
+                    <div style="padding: 1rem; background: #f5f5f5; border-radius: 4px;">
+                        <h4 style="font-weight: 700; margin-bottom: 0.5rem;">Recycled Materials</h4>
+                        <p style="font-size: 0.9rem; color: #666;">Sustainable dan environmentally conscious</p>
+                    </div>
+                    <div style="padding: 1rem; background: #f5f5f5; border-radius: 4px;">
+                        <h4 style="font-weight: 700; margin-bottom: 0.5rem;">Premium Leather</h4>
+                        <p style="font-size: 0.9rem; color: #666;">Curated dari tanneries terpilih</p>
+                    </div>
+                    <div style="padding: 1rem; background: #f5f5f5; border-radius: 4px;">
+                        <h4 style="font-weight: 700; margin-bottom: 0.5rem;">Tech Textiles</h4>
+                        <p style="font-size: 0.9rem; color: #666;">Advanced fabric untuk durability</p>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <img src="https://images.unsplash.com/photo-1460353581641-37baddab0fa2?w=600&h=600" alt="Materials" style="width: 100%; border-radius: 8px;">
+            </div>
+        </section>
+
+        <!-- Section 3: Research & Development -->
+        <section style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-bottom: 4rem; align-items: center;">
+            <div>
+                <h2 style="font-size: 1.8rem; font-weight: 800; margin-bottom: 1rem;">Research & Development</h2>
+                <p style="color: #666; font-size: 1.05rem; line-height: 1.6; margin-bottom: 1.5rem;">
+                    Tim R&D kami terus menggali teknologi dan teknik terbaru dalam sneaker manufacturing. Kami bekerja sama dengan institusi penelitian dan expert untuk memastikan innovation di setiap aspek produk.
+                </p>
+                <div style="padding: 1.5rem; background: #000; color: white; border-radius: 8px;">
+                    <h4 style="margin-bottom: 1rem; font-size: 1.1rem;">Current Research Focus</h4>
+                    <ul style="list-style: none; padding: 0; line-height: 2;">
+                        <li>✓ Advanced cushioning technology</li>
+                        <li>✓ Sustainable material alternatives</li>
+                        <li>✓ Ergonomic design principles</li>
+                        <li>✓ Digital manufacturing methods</li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600&h=600" alt="R&D" style="width: 100%; border-radius: 8px;">
+            </div>
+        </section>
+
+        <!-- Section 4: Quality Control -->
+        <section style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; direction: rtl;">
+            <div style="direction: ltr;">
+                <h2 style="font-size: 1.8rem; font-weight: 800; margin-bottom: 1rem;">Quality Assurance</h2>
+                <p style="color: #666; font-size: 1.05rem; line-height: 1.6; margin-bottom: 1.5rem;">
+                    Setiap pasang sneaker Sneaker Labs melalui quality control yang ketat sebelum sampai ke tangan Anda. Kami tidak berkompromi pada kualitas dan hanya merilis produk yang memenuhi standar tertinggi kami.
+                </p>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                    <div style="text-align: center; padding: 1rem;">
+                        <div style="font-size: 2.5rem; font-weight: 800; color: #000;">100%</div>
+                        <p style="font-weight: 600;">Quality Check</p>
+                    </div>
+                    <div style="text-align: center; padding: 1rem;">
+                        <div style="font-size: 2.5rem; font-weight: 800; color: #000;">50+</div>
+                        <p style="font-weight: 600;">Inspection Points</p>
+                    </div>
+                    <div style="text-align: center; padding: 1rem;">
+                        <div style="font-size: 2.5rem; font-weight: 800; color: #000;">0%</div>
+                        <p style="font-weight: 600;">Defect Rate</p>
+                    </div>
+                    <div style="text-align: center; padding: 1rem;">
+                        <div style="font-size: 2.5rem; font-weight: 800; color: #000;">12M</div>
+                        <p style="font-weight: 600;">Warranty</p>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600&h=600" alt="Quality" style="width: 100%; border-radius: 8px;">
+            </div>
+        </section>
+    </div>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter-section">
+        <div class="newsletter-container">
+            <div class="newsletter-text">
+                <h3 class="newsletter-title">Subscribe ke Lab Updates</h3>
+                <p class="newsletter-description">
+                    Dapatkan insights eksklusif tentang research, design process, dan behind-the-scenes dari Sneaker Labs
+                </p>
+            </div>
+            <form class="newsletter-form" id="newsletterForm">
+                <input type="email" placeholder="Alamat email" required>
+                <button type="submit" class="btn btn-secondary">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4 class="footer-logo">SNEAKER LABS</h4>
+                <p class="footer-description">Platform eksperimental untuk sneaker tech-wear premium minimalis.</p>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Layanan</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Tracking Pesanan</a></li>
+                    <li><a href="#">Panduan Ukuran</a></li>
+                    <li><a href="#">Kebijakan Pengembalian</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Tentang</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Tentang Lab</a></li>
+                    <li><a href="kolaborasi.html">Kolaborasi</a></li>
+                    <li><a href="lab.html">Lab</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Legal</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Kebijakan Privasi</a></li>
+                    <li><a href="#">Syarat & Kondisi</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Sneaker Labs. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Mobile Menu Toggle -->
+    <div class="mobile-menu-toggle" id="mobileMenuToggle">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <script src="products.js"></script>
+    <script src="script.js"></script>
+    
+    <!-- Fallback: Image handling & critical functions -->
+    <script>
+        const imageFallbacks = {'500x500': 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500&h=500', '400x400': 'https://images.unsplash.com/photo-1460353581641-37baddab0fa2?w=400&h=400', '600x600': 'https://images.unsplash.com/photo-1525162a4d4e4b12fc13999fc8ce3ecd0aae4618?w=600&h=600'};
+        document.addEventListener('error', function(e) {
+            if (e.target.tagName === 'IMG') {
+                const img = e.target;
+                if (!img.hasAttribute('data-fallback-tried')) {
+                    img.setAttribute('data-fallback-tried', 'true');
+                    let fb = imageFallbacks['500x500'];
+                    if (img.src.includes('w=600')) fb = imageFallbacks['600x600'];
+                    else if (img.src.includes('w=400')) fb = imageFallbacks['400x400'];
+                    img.src = fb;
+                }
+            }
+        }, true);
+        if (typeof cart === 'undefined') window.cart = JSON.parse(localStorage.getItem('cart')) || [];
+        if (typeof wishlist === 'undefined') window.wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+    </script>
+</body>
+</html>

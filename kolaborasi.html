@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kolaborasi - Sneaker Labs</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header/Navigation -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">SNEAKER LABS</div>
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-link">Koleksi</a>
+                <a href="catalog.html" class="nav-link">Katalog</a>
+                <a href="kolaborasi.html" class="nav-link active">Kolaborasi</a>
+                <a href="lab.html" class="nav-link">Lab</a>
+            </nav>
+            <div class="search-container">
+                <input type="text" class="search-input" placeholder="Cari sneaker..." id="searchInput">
+                <button class="search-btn" id="searchBtn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                </button>
+            </div>
+            <div class="header-icons">
+                <button class="icon-btn wishlist-btn" title="Wishlist" id="wishlistBtn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                    </svg>
+                    <span class="wishlist-count">0</span>
+                </button>
+                <button class="icon-btn cart-btn" title="Shopping Cart" id="cartPanelBtn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="9" cy="21" r="1"></circle>
+                        <circle cx="20" cy="21" r="1"></circle>
+                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                    </svg>
+                    <span class="cart-count">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <h1>KOLABORASI EKSPERIMENTAL</h1>
+        <p>Kerjasama dengan brand dan designer terkemuka untuk menciptakan karya limited edition</p>
+    </section>
+
+    <!-- Collaborations Section -->
+    <section class="container">
+        <div style="padding: 3rem 0;">
+            <div class="products-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
+                <!-- Collaboration 1 -->
+                <div class="collab-card" style="border: 1px solid #eee; border-radius: 8px; overflow: hidden; transition: all 0.3s ease;">
+                    <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=400" alt="Design Collaboration" style="width: 100%; height: 300px; object-fit: cover;">
+                    <div style="padding: 1.5rem;">
+                        <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem;">Minimalist Collective</h3>
+                        <p style="color: #666; font-size: 0.9rem; margin-bottom: 1rem;">Kolaborasi dengan desainer minimalis Jepang untuk menciptakan silhouette yang sempurna</p>
+                        <div style="display: flex; gap: 1rem;">
+                            <span style="background: #f5f5f5; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.8rem; font-weight: 600;">Limited Edition</span>
+                            <span style="background: #f5f5f5; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.8rem; font-weight: 600;">50 Pairs</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Collaboration 2 -->
+                <div class="collab-card" style="border: 1px solid #eee; border-radius: 8px; overflow: hidden; transition: all 0.3s ease;">
+                    <img src="https://images.unsplash.com/photo-1460353581641-37baddab0fa2?w=400&h=400" alt="Tech Collab" style="width: 100%; height: 300px; object-fit: cover;">
+                    <div style="padding: 1.5rem;">
+                        <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem;">Tech Innovations</h3>
+                        <p style="color: #666; font-size: 0.9rem; margin-bottom: 1rem;">Partnership dengan lab teknologi untuk mengintegrasikan material futuristik</p>
+                        <div style="display: flex; gap: 1rem;">
+                            <span style="background: #f5f5f5; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.8rem; font-weight: 600;">Coming Soon</span>
+                            <span style="background: #f5f5f5; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.8rem; font-weight: 600;">Q4 2024</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Collaboration 3 -->
+                <div class="collab-card" style="border: 1px solid #eee; border-radius: 8px; overflow: hidden; transition: all 0.3s ease;">
+                    <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=400" alt="Art Collab" style="width: 100%; height: 300px; object-fit: cover;">
+                    <div style="padding: 1.5rem;">
+                        <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem;">Street Artist Series</h3>
+                        <p style="color: #666; font-size: 0.9rem; margin-bottom: 1rem;">Seni street yang dikurasi bersama seniman lokal untuk menciptakan karya unik</p>
+                        <div style="display: flex; gap: 1rem;">
+                            <span style="background: #f5f5f5; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.8rem; font-weight: 600;">Exclusive</span>
+                            <span style="background: #f5f5f5; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.8rem; font-weight: 600;">100 Pairs</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Collaboration 4 -->
+                <div class="collab-card" style="border: 1px solid #eee; border-radius: 8px; overflow: hidden; transition: all 0.3s ease;">
+                    <img src="https://images.unsplash.com/photo-1460353581641-37baddab0fa2?w=400&h=400" alt="Fashion Collab" style="width: 100%; height: 300px; object-fit: cover;">
+                    <div style="padding: 1.5rem;">
+                        <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem;">Fashion Forward</h3>
+                        <p style="color: #666; font-size: 0.9rem; margin-bottom: 1rem;">Kolaborasi dengan fashion house untuk blending streetwear dan haute couture</p>
+                        <div style="display: flex; gap: 1rem;">
+                            <span style="background: #f5f5f5; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.8rem; font-weight: 600;">Limited</span>
+                            <span style="background: #f5f5f5; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.8rem; font-weight: 600;">Sold Out</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Collaboration 5 -->
+                <div class="collab-card" style="border: 1px solid #eee; border-radius: 8px; overflow: hidden; transition: all 0.3s ease;">
+                    <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=400&h=400" alt="Sports Collab" style="width: 100%; height: 300px; object-fit: cover;">
+                    <div style="padding: 1.5rem;">
+                        <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem;">Athletes Edition</h3>
+                        <p style="color: #666; font-size: 0.9rem; margin-bottom: 1rem;">Desain khusus bersama atlet profesional untuk performa maksimal</p>
+                        <div style="display: flex; gap: 1rem;">
+                            <span style="background: #f5f5f5; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.8rem; font-weight: 600;">Performance</span>
+                            <span style="background: #f5f5f5; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.8rem; font-weight: 600;">Available</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Collaboration 6 -->
+                <div class="collab-card" style="border: 1px solid #eee; border-radius: 8px; overflow: hidden; transition: all 0.3s ease;">
+                    <img src="https://images.unsplash.com/photo-1487215078519-e21cc028cb29?w=400&h=400" alt="Music Collab" style="width: 100%; height: 300px; object-fit: cover;">
+                    <div style="padding: 1.5rem;">
+                        <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem;">Music Producer Series</h3>
+                        <p style="color: #666; font-size: 0.9rem; margin-bottom: 1rem;">Inspired by music culture dengan design yang mencerminkan soundscape modern</p>
+                        <div style="display: flex; gap: 1rem;">
+                            <span style="background: #f5f5f5; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.8rem; font-weight: 600;">Limited</span>
+                            <span style="background: #f5f5f5; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.8rem; font-weight: 600;">Upcoming</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section style="background: #000; color: white; padding: 4rem 2rem; text-align: center;">
+        <div class="container" style="max-width: 800px;">
+            <h2 style="font-size: 2rem; margin-bottom: 1rem; font-weight: 800;">Ingin Berkolaborasi?</h2>
+            <p style="font-size: 1.1rem; margin-bottom: 2rem; opacity: 0.8;">
+                Kami selalu mencari brand, designer, dan artis untuk menciptakan sesuatu yang luar biasa bersama
+            </p>
+            <a href="mailto:collab@sneakerlabs.com" class="btn" style="background: white; color: black; padding: 1rem 2rem; text-decoration: none; font-weight: 700; display: inline-block; border-radius: 2px;">Hubungi Kami</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4 class="footer-logo">SNEAKER LABS</h4>
+                <p class="footer-description">Platform eksperimental untuk sneaker tech-wear premium minimalis.</p>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Layanan</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Tracking Pesanan</a></li>
+                    <li><a href="#">Panduan Ukuran</a></li>
+                    <li><a href="#">Kebijakan Pengembalian</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Tentang</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Tentang Lab</a></li>
+                    <li><a href="kolaborasi.html">Kolaborasi</a></li>
+                    <li><a href="lab.html">Lab</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Legal</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Kebijakan Privasi</a></li>
+                    <li><a href="#">Syarat & Kondisi</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Sneaker Labs. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Mobile Menu Toggle -->
+    <div class="mobile-menu-toggle" id="mobileMenuToggle">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <script src="products.js"></script>
+    <script src="script.js"></script>
+    
+    <!-- Fallback: Image handling & critical functions -->
+    <script>
+        const imageFallbacks = {'500x500': 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500&h=500', '400x400': 'https://images.unsplash.com/photo-1460353581641-37baddab0fa2?w=400&h=400', '600x600': 'https://images.unsplash.com/photo-1525162a4d4e4b12fc13999fc8ce3ecd0aae4618?w=600&h=600'};
+        document.addEventListener('error', function(e) {
+            if (e.target.tagName === 'IMG') {
+                const img = e.target;
+                if (!img.hasAttribute('data-fallback-tried')) {
+                    img.setAttribute('data-fallback-tried', 'true');
+                    let fb = imageFallbacks['500x500'];
+                    if (img.src.includes('w=600')) fb = imageFallbacks['600x600'];
+                    else if (img.src.includes('w=400')) fb = imageFallbacks['400x400'];
+                    img.src = fb;
+                }
+            }
+        }, true);
+        if (typeof cart === 'undefined') window.cart = JSON.parse(localStorage.getItem('cart')) || [];
+        if (typeof wishlist === 'undefined') window.wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+    </script>
+</body>
+</html>

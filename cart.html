@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keranjang Belanja - Sneaker Labs</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header/Navigation -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">SNEAKER LABS</div>
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-link">Koleksi</a>
+                <a href="catalog.html" class="nav-link">Katalog</a>
+                <a href="kolaborasi.html" class="nav-link">Kolaborasi</a>
+                <a href="lab.html" class="nav-link">Lab</a>
+            </nav>
+            <div class="search-container">
+                <input type="text" class="search-input" placeholder="Cari sneaker..." id="searchInput">
+                <button class="search-btn" id="searchBtn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                </button>
+            </div>
+            <div class="header-icons">
+                <button class="icon-btn wishlist-btn" title="Wishlist" id="wishlistBtn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                    </svg>
+                    <span class="wishlist-count">0</span>
+                </button>
+                <button class="icon-btn cart-btn" title="Shopping Cart">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="9" cy="21" r="1"></circle>
+                        <circle cx="20" cy="21" r="1"></circle>
+                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                    </svg>eranjang</h1>
+            <a href="catalog.html" class="back-link">← Lanjutkan Belanja</a
+                    <span class="cart-count">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Cart Section -->
+    <div class="cart-container">
+        <div class="cart-header">
+            <h1 class="cart-title">KERANJANG BELANJA</h1>
+        </div>
+
+        <div class="cart-content">
+            <!-- Cart Items -->
+            <div class="cart-items-section">
+                <div class="cart-table-header">
+                    <div class="cart-col-item">PRODUK</div>
+                    <div class="cart-col-variant">VARIAN</div>
+                    <div class="cart-col-qty">KUANTITAS</div>
+                    <div class="cart-col-price">HARGA</div>
+                    <div class="cart-col-action">AKSI</div>
+                </div>
+
+                <div class="cart-items" id="cartItems">
+                    <!-- Cart items will be loaded by JavaScript -->
+                </div>
+
+                <div class="empty-cart-message" id="emptyCartMessage" style="display: none;">
+                    <p>Keranjang Anda kosong</p>
+                    <a href="catalog.html" class="btn btn-primary">Lanjutkan Belanja</a>
+                </div>
+            </div>
+
+            <!-- Cart Summary -->
+            <aside class="cart-summary">
+                <h2 class="summary-title">RINGKASAN PESANAN</h2>
+
+                <div class="summary-row">
+                    <span class="summary-label">Subtotal</span>
+                    <span class="summary-value" id="subtotal">$0.00</span>
+                </div>
+
+                <div class="summary-section">
+                    <label class="summary-label">Pengiriman</label>
+                    <select class="shipping-select" id="shippingSelect">
+                        <option value="0">Standar (Gratis)</option>
+                        <option value="10">Express ($10.00)</option>
+                        <option value="20">Overnight ($20.00)</option>
+                    </select>
+                </div>
+
+                <div class="summary-row">
+                    <span class="summary-label">Pajak</span>
+                    <span class="summary-value" id="tax">$0.00</span>
+                </div>
+
+                <div class="promo-section">
+                    <label class="summary-label">Kode Promo</label>
+                    <div class="promo-input-group">
+                        <input type="text" placeholder="Masukkan kode" id="promoCode">
+                        <button class="btn-small" id="applyPromo">TERAPKAN</button>
+                    </div>
+                </div>
+
+                <div class="summary-divider"></div>
+
+                <div class="summary-row total">
+                    <span class="summary-label">TOTAL</span>
+                    <span class="summary-value" id="total">$0.00</span>
+                </div>
+
+                <button class="btn btn-checkout" id="checkoutBtn">LANJUT KE PEMBAYARAN</button>
+
+                <p class="security-note">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                    </svg>
+                    Protokol Terenkripsi Aman
+                </p>
+
+                <a href="catalog.html" class="continue-shopping">← Lanjutkan Belanja</a>
+            </aside>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">SNEAKER LABS</h4>
+                <p class="footer-description">Platform eksperimental untuk sneaker tech-wear premium minimalis. Laboratorium inovasi untuk tren sneaker masa depan.</p>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Layanan</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Tracking Pesanan</a></li>
+                    <li><a href="#">Panduan Ukuran</a></li>
+                    <li><a href="#">Kebijakan Pengembalian</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Tentang</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Tentang Lab</a></li>
+                    <li><a href="#">Kolaborasi</a></li>
+                    <li><a href="#">Keberlanjutan</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Legal</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Privasi</a></li>
+                    <li><a href="#">Syarat & Kondisi</a></li>
+                    <li><a href="#">Cookies</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Sneaker Labs. Experimental Platform for Premium Tech-Wear Sneakers
+            <p>&copy; 2024 Sneaker Labs. Hak cipta dilindungi undang-undang.</p>
+        </div>
+    </footer>
+
+    <!-- Mobile Menu Toggle -->
+    <div class="mobile-menu-toggle" id="mobileMenuToggle">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <script src="products.js"></script>
+    <script src="script.js"></script>
+    <script src="cart.js"></script>
+    
+    <!-- Fallback: Image handling & critical functions -->
+    <script>
+        const imageFallbacks = {'500x500': 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500&h=500', '400x400': 'https://images.unsplash.com/photo-1460353581641-37baddab0fa2?w=400&h=400', '600x600': 'https://images.unsplash.com/photo-1525162a4d4e4b12fc13999fc8ce3ecd0aae4618?w=600&h=600'};
+        document.addEventListener('error', function(e) {
+            if (e.target.tagName === 'IMG') {
+                const img = e.target;
+                if (!img.hasAttribute('data-fallback-tried')) {
+                    img.setAttribute('data-fallback-tried', 'true');
+                    let fb = imageFallbacks['500x500'];
+                    if (img.src.includes('w=600')) fb = imageFallbacks['600x600'];
+                    else if (img.src.includes('w=400')) fb = imageFallbacks['400x400'];
+                    img.src = fb;
+                }
+            }
+        }, true);
+        if (typeof cart === 'undefined') window.cart = JSON.parse(localStorage.getItem('cart')) || [];
+        if (typeof wishlist === 'undefined') window.wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+    </script>
+</body>
+</html>

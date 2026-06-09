@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sneaker Labs - Experimental Tech-Wear Platform</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header/Navigation -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">SNEAKER LABS</div>
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-link active">Koleksi</a>
+                <a href="catalog.html" class="nav-link">Katalog</a>
+                <a href="kolaborasi.html" class="nav-link">Kolaborasi</a>
+                <a href="lab.html" class="nav-link">Lab</a>
+            </nav>
+            <div class="search-container">
+                <input type="text" class="search-input" placeholder="Cari sneaker..." id="searchInput">
+                <button class="search-btn" id="searchBtn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                </button>
+            </div>
+            <div class="header-icons">
+                <button class="icon-btn wishlist-btn" title="Wishlist" id="wishlistBtn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                    </svg>
+                    <span class="wishlist-count">0</span>
+                </button>
+                <button class="icon-btn cart-btn" title="Shopping Cart" id="cartPanelBtn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="9" cy="21" r="1"></circle>
+                        <circle cx="20" cy="21" r="1"></circle>
+                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                    </svg>
+                    <span class="cart-count">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <span class="hero-badge">Experimental Tech-Wear</span>
+            <h1 class="hero-title">SNEAKER<br>LABORATORY</h1>
+            <p class="hero-description">
+                Platform eksperimental untuk sneaker tech-wear premium minimalis. Temukan koleksi futuristik dan limited edition dari berbagai kategori.
+            </p>
+            <a href="catalog.html" class="btn btn-primary">Jelajahi Katalog</a>
+        </div>
+        <div class="hero-image">
+            <img src="https://images.pexels.com/photos/8584705/pexels-photo-8584705.jpeg"
+     alt="Featured Sneaker"
+     class="featured-sneaker">
+        </div>
+    </section>
+
+    <!-- Featured Collection Section -->
+    <section class="collection-section">
+        <div class="section-header">
+            <div>
+                <h2 class="section-title">Featured Lab</h2>
+                <p class="section-subtitle">Edisi terbaru dari laboratorium eksperimental kami</p>
+            </div>
+            <a href="catalog.html" class="view-all">Lihat Semua →</a>
+        </div>
+        <div class="products-grid" id="featuredProducts">
+            <!-- Products will be loaded by JavaScript -->
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter-section">
+        <div class="newsletter-container">
+            <div class="newsletter-text">
+                <h3 class="newsletter-title">Lab Updates & Exclusive Access</h3>
+                <p class="newsletter-description">
+                    Dapatkan akses eksklusif ke limited releases, design insights, dan pre-launch previews. Bergabunglah dengan komunitas Sneaker Labs kami.
+                </p>
+            </div>
+            <form class="newsletter-form" id="newsletterForm">
+                <input type="email" placeholder="Alamat email" required>
+                <button type="submit" class="btn btn-secondary">Berlangganan</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section" id="about">
+        <h2 class="section-title">Mengapa Sneaker Labs?</h2>
+        <div class="about-grid">
+            <div class="about-item">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"></path>
+                </svg>
+                <h3>Tech-Wear Aesthetic</h3>
+                <p>Desain futuristik dengan sentuhan minimalis modern untuk generasi tech-forward</p>
+            </div>
+            <div class="about-item">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 2L15.09 8.26H22L17.77 12.88L20.16 19.16L12 14.38L3.84 19.16L6.23 12.88L2 8.26H8.91L12 2Z"></path>
+                </svg>
+                <h3>Premium Quality</h3>
+                <p>Koleksi sneaker premium dengan kualitas terbaik dan material pilihan berkualitas tinggi</p>
+            </div>
+            <div class="about-item">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 3L2 7V12C2 18.6 12 22 12 22S22 18.6 22 12V7L12 3Z"></path>
+                </svg>
+                <h3>Experimental Lab</h3>
+                <p>Platform inovasi untuk tren sneaker masa depan dengan design yang berani dan eksperimental</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4 class="footer-logo">SNEAKER LABS</h4>
+                <p class="footer-description">Platform eksperimental untuk sneaker tech-wear premium minimalis. Laboratorium inovasi untuk tren sneaker masa depan.</p>
+                <div class="social-links">
+                    <a href="#" title="Instagram">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M7 2a5 5 0 0 1 5 5v.5a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5V7a5 5 0 0 1 5-5"></path>
+                        </svg>
+                    </a>
+                    <a href="#" title="Twitter">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2s9 5 20 5a9.5 9.5 0 00-9-5.5c4.75 2.25 7-7 7-7"></path>
+                        </svg>
+                    </a>
+                    <a href="#" title="Facebook">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M18 2h-3a6 6 0 0 0-6 6v3H7v4h2v8h4v-8h3l1-4h-4V8a1 1 0 0 1 1-1h3z"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Layanan</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Tracking Pesanan</a></li>
+                    <li><a href="#">Panduan Ukuran</a></li>
+                    <li><a href="#">Kebijakan Pengembalian</a></li>
+                    <li><a href="#">Kontak Kami</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Tentang</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Tentang Lab</a></li>
+                    <li><a href="kolaborasi.html">Kolaborasi</a></li>
+                    <li><a href="#">Keberlanjutan</a></li>
+                    <li><a href="#">Blog</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Legal</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Kebijakan Privasi</a></li>
+                    <li><a href="#">Syarat & Kondisi</a></li>
+                    <li><a href="#">Kebijakan Cookie</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Sneaker Labs. Experimental Platform for Premium Tech-Wear Sneakers. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Mobile Menu Toggle -->
+    <div class="mobile-menu-toggle" id="mobileMenuToggle">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <script src="products.js"></script>
+    <script src="script.js"></script>
+    
+    <!-- Fallback: Inline critical functions if external scripts fail to load -->
+    <script>
+        // Image fallback handling
+        const imageFallbacks = {
+            '500x500': 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500&h=500',
+            '400x400': 'https://images.unsplash.com/photo-1460353581641-37baddab0fa2?w=400&h=400',
+            '600x600': 'https://images.unsplash.com/photo-1525162a4d4e4b12fc13999fc8ce3ecd0aae4618?w=600&h=600'
+        };
+        
+        document.addEventListener('error', function(e) {
+            if (e.target.tagName === 'IMG') {
+                const img = e.target;
+                if (!img.hasAttribute('data-fallback-tried')) {
+                    img.setAttribute('data-fallback-tried', 'true');
+                    let fallbackSrc = imageFallbacks['500x500'];
+                    if (img.src.includes('w=600')) fallbackSrc = imageFallbacks['600x600'];
+                    else if (img.src.includes('w=400')) fallbackSrc = imageFallbacks['400x400'];
+                    img.src = fallbackSrc;
+                } else {
+                    img.src = 'data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22%3E%3Crect fill=%22%23f0f0f0%22 width=%22200%22 height=%22200%22/%3E%3C/svg%3E';
+                }
+            }
+        }, true);
+        
+        // Fallback functions
+        if (typeof cart === 'undefined') window.cart = JSON.parse(localStorage.getItem('cart')) || [];
+        if (typeof wishlist === 'undefined') window.wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+        
+        if (typeof showNotification === 'undefined') {
+            window.showNotification = function(msg) {
+                const n = document.createElement('div');
+                n.textContent = msg;
+                n.style.cssText = 'position:fixed;bottom:20px;right:20px;background:#000;color:#fff;padding:1rem 1.5rem;border-radius:2px;z-index:1000;font-weight:600';
+                document.body.appendChild(n);
+                setTimeout(() => n.remove(), 3000);
+            };
+        }
+        
+        if (typeof updateCartCount === 'undefined') {
+            window.updateCartCount = function() {
+                document.querySelectorAll('.cart-count').forEach(el => {
+                    el.textContent = cart.reduce((sum, item) => sum + item.quantity, 0);
+                });
+            };
+        }
+        
+        if (typeof updateWishlistCount === 'undefined') {
+            window.updateWishlistCount = function() {
+                document.querySelectorAll('.wishlist-count').forEach(el => {
+                    el.textContent = wishlist.length;
+                });
+            };
+        }
+        
+        if (typeof toggleWishlist === 'undefined') {
+            window.toggleWishlist = function(e, id) {
+                e.stopPropagation();
+                if (typeof products === 'undefined') return;
+                const p = products.find(x => x.id === id);
+                if (!p) return;
+                const idx = wishlist.findIndex(x => x.id === id);
+                if (idx > -1) {
+                    wishlist.splice(idx, 1);
+                } else {
+                    wishlist.push({id: p.id, name: p.name, price: p.price, image: p.image, description: p.description, selectedSize: p.sizes[0], selectedColor: p.colors[0]});
+                }
+                localStorage.setItem('wishlist', JSON.stringify(wishlist));
+                updateWishlistCount();
+            };
+        }
+    </script>
+</body>
+</html>

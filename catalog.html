@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Katalog Produk - Sneaker Labs</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header/Navigation -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">SNEAKER LABS</div>
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-link">Koleksi</a>
+                <a href="catalog.html" class="nav-link active">Katalog</a>
+                <a href="kolaborasi.html" class="nav-link">Kolaborasi</a>
+                <a href="lab.html" class="nav-link">Lab</a>
+            </nav>
+            <div class="search-container">
+                <input type="text" class="search-input" placeholder="Cari sneaker..." id="searchInput">
+                <button class="search-btn" id="searchBtn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                </button>
+            </div>
+            <div class="header-icons">
+                <button class="icon-btn wishlist-btn" title="Wishlist" id="wishlistBtn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                    </svg>
+                    <span class="wishlist-count">0</span>
+                </button>
+                <button class="icon-btn cart-btn" title="Shopping Cart" id="cartPanelBtn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="9" cy="21" r="1"></circle>
+                        <circle cx="20" cy="21" r="1"></circle>
+                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                    </svg>
+                    <span class="cart-count">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Catalog Section -->
+    <div class="catalog-container">
+        <!-- Sidebar Filter -->
+        <aside class="filter-sidebar">
+            <div class="filter-section">
+                <div class="filter-header">
+                    <h3>Filter</h3>
+                    <a href="#" class="reset-filters">Hapus Semua</a>
+                </div>
+            </div>
+
+            <!-- Sort -->
+            <div class="filter-group">
+                <label class="filter-label">Urutan</label>
+                <select class="filter-select" id="sortSelect">
+                    <option value="newest">Terbaru</option>
+                    <option value="price-low">Harga: Terendah</option>
+                    <option value="price-high">Harga: Tertinggi</option>
+                    <option value="popular">Populer</option>
+                </select>
+            </div>
+
+            <!-- Category -->
+            <div class="filter-group">
+                <label class="filter-label">Kategori</label>
+                <div class="checkbox-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" class="category-filter" value="running">
+                        Running
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" class="category-filter" value="casual">
+                        Casual
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" class="category-filter" value="basketball">
+                        Basketball
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" class="category-filter" value="futuristic">
+                        Futuristic
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" class="category-filter" value="outdoor">
+                        Outdoor
+                    </label>
+                </div>
+            </div>
+
+            <!-- Size -->
+            <div class="filter-group">
+                <label class="filter-label">Ukuran</label>
+                <div class="size-buttons">
+                    <button class="size-btn" data-size="xs">XS</button>
+                    <button class="size-btn" data-size="s">S</button>
+                    <button class="size-btn" data-size="m">M</button>
+                    <button class="size-btn" data-size="l">L</button>
+                    <button class="size-btn" data-size="xl">XL</button>
+                </div>
+            </div>
+
+            <!-- Color -->
+            <div class="filter-group">
+                <label class="filter-label">Warna</label>
+                <div class="color-options">
+                    <button class="color-btn" data-color="black" style="background-color: #000;"></button>
+                    <button class="color-btn" data-color="gray" style="background-color: #808080;"></button>
+                    <button class="color-btn" data-color="white" style="background-color: #fff; border: 1px solid #ddd;"></button>
+                    <button class="color-btn" data-color="beige" style="background-color: #d4a574;"></button>
+                </div>
+            </div>
+
+            <!-- Price Range -->
+            <div class="filter-group">
+                <label class="filter-label">Rentang Harga</label>
+                <div class="price-range">
+                    <input type="number" placeholder="$0" min="0" id="minPrice">
+                    <span>-</span>
+                    <input type="number" placeholder="$1000" min="0" id="maxPrice">
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="catalog-main">
+            <!-- Results Header -->
+            <div class="results-header">
+                <p class="results-count">Menampilkan <span id="productCount">12</span> dari <span id="totalCount">48</span> produk</p>
+            </div>
+
+            <!-- Products Grid -->
+            <div class="products-grid" id="productsGrid">
+                <!-- Products will be loaded by JavaScript -->
+            </div>
+
+            <!-- Pagination -->
+            <div class="pagination" id="pagination">
+                <!-- Pagination will be generated by JavaScript -->
+            </div>
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4 class="footer-title">SNEAKER LABS</h4>
+                <p class="footer-description">Platform eksperimental untuk tech-wear sneaker inovatif. Berdedikasi pada desain futuristik dan teknologi terdepan.</p>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Layanan Pelanggan</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Pusat Bantuan</a></li>
+                    <li><a href="#">Informasi Pengiriman</a></li>
+                    <li><a href="#">Pengembalian & Penukaran</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Perusahaan</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Tentang Kami</a></li>
+                    <li><a href="#">Karir</a></li>
+                    <li><a href="#">Keberlanjutan</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Legalitas</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Kebijakan Privasi</a></li>
+                    <li><a href="#">Syarat & Ketentuan</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Sneaker Labs. Hak cipta dilindungi undang-undang.</p>
+        </div>
+    </footer>
+
+    <!-- Mobile Menu Toggle -->
+    <div class="mobile-menu-toggle" id="mobileMenuToggle">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <script src="products.js"></script>
+    <script src="script.js"></script>
+    <script src="catalog.js"></script>
+    
+    <!-- Fallback: Inline critical functions if external scripts fail to load -->
+    <script>
+        // Image fallback list - used if Unsplash images fail to load
+        const imageFallbacks = {
+            '500x500': 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500&h=500',
+            '400x400': 'https://images.unsplash.com/photo-1460353581641-37baddab0fa2?w=400&h=400',
+            '600x600': 'https://images.unsplash.com/photo-1525162a4d4e4b12fc13999fc8ce3ecd0aae4618?w=600&h=600'
+        };
+        
+        // Handle image loading errors
+        document.addEventListener('error', function(e) {
+            if (e.target.tagName === 'IMG') {
+                const img = e.target;
+                if (!img.hasAttribute('data-fallback-tried')) {
+                    img.setAttribute('data-fallback-tried', 'true');
+                    // Determine fallback based on current src
+                    let fallbackSrc = imageFallbacks['500x500'];
+                    if (img.src.includes('w=600')) fallbackSrc = imageFallbacks['600x600'];
+                    else if (img.src.includes('w=400')) fallbackSrc = imageFallbacks['400x400'];
+                    
+                    img.src = fallbackSrc;
+                } else {
+                    // Fallback failed too, use data URI placeholder
+                    img.src = 'data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22%3E%3Crect fill=%22%23f0f0f0%22 width=%22200%22 height=%22200%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%23999%22 font-size=%2212%22%3EImage Not Available%3C/text%3E%3C/svg%3E';
+                }
+            }
+        }, true);
+        
+        // Ensure cart and wishlist are defined
+        if (typeof cart === 'undefined') {
+            window.cart = JSON.parse(localStorage.getItem('cart')) || [];
+        }
+        if (typeof wishlist === 'undefined') {
+            window.wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+        }
+        
+        // Add to Cart function
+        if (typeof addToCart === 'undefined') {
+            window.addToCart = function(event, productId) {
+                event.stopPropagation();
+                if (typeof products === 'undefined') {
+                    console.error('Products not loaded');
+                    return;
+                }
+                
+                const product = products.find(p => p.id === productId);
+                if (!product) return;
+
+                let cartItem = cart.find(item => item.id === productId);
+                if (cartItem) {
+                    cartItem.quantity += 1;
+                } else {
+                    cart.push({
+                        id: product.id,
+                        name: product.name,
+                        price: product.price,
+                        image: product.image,
+                        description: product.description,
+                        quantity: 1,
+                        selectedSize: product.sizes[0],
+                        selectedColor: product.colors[0]
+                    });
+                }
+
+                localStorage.setItem('cart', JSON.stringify(cart));
+                updateCartCount();
+                showNotification(`✓ ${product.name} ditambahkan ke keranjang!`);
+            };
+        }
+        
+        // Toggle Wishlist function
+        if (typeof toggleWishlist === 'undefined') {
+            window.toggleWishlist = function(event, productId) {
+                event.stopPropagation();
+                if (typeof products === 'undefined') {
+                    console.error('Products not loaded');
+                    return;
+                }
+                
+                const product = products.find(p => p.id === productId);
+                if (!product) return;
+
+                const index = wishlist.findIndex(item => item.id === productId);
+                if (index > -1) {
+                    wishlist.splice(index, 1);
+                    showNotification(`✓ ${product.name} dihapus dari wishlist`);
+                } else {
+                    wishlist.push({
+                        id: product.id,
+                        name: product.name,
+                        price: product.price,
+                        image: product.image,
+                        description: product.description,
+                        selectedSize: product.sizes[0],
+                        selectedColor: product.colors[0]
+                    });
+                    showNotification(`✓ ${product.name} ditambahkan ke wishlist!`);
+                }
+
+                localStorage.setItem('wishlist', JSON.stringify(wishlist));
+                updateWishlistCount();
+                
+                // Update wishlist icons
+                const hearts = document.querySelectorAll('.wishlist-icon');
+                hearts.forEach(heart => {
+                    const card = heart.closest('.product-card');
+                    if (card) {
+                        const btn = card.querySelector('.add-to-cart-btn');
+                        if (btn && btn.getAttribute('onclick')) {
+                            const match = btn.getAttribute('onclick').match(/\d+/);
+                            if (match) {
+                                const pid = parseInt(match[0]);
+                                const isActive = wishlist.some(item => item.id === pid);
+                                heart.classList.toggle('active', isActive);
+                            }
+                        }
+                    }
+                });
+            };
+        }
+        
+        // Open Product Detail
+        if (typeof openProductDetail === 'undefined') {
+            window.openProductDetail = function(productId) {
+                if (typeof products === 'undefined') return;
+                const product = products.find(p => p.id === productId);
+                if (product) {
+                    localStorage.setItem('selectedProduct', JSON.stringify(product));
+                    // Navigate or open modal - for now just save to localStorage
+                }
+            };
+        }
+        
+        // Update Cart Count
+        if (typeof updateCartCount === 'undefined') {
+            window.updateCartCount = function() {
+                const cartCountElements = document.querySelectorAll('.cart-count');
+                const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+                cartCountElements.forEach(el => {
+                    el.textContent = totalItems;
+                });
+            };
+        }
+        
+        // Update Wishlist Count
+        if (typeof updateWishlistCount === 'undefined') {
+            window.updateWishlistCount = function() {
+                const wishlistCountElements = document.querySelectorAll('.wishlist-count');
+                wishlistCountElements.forEach(el => {
+                    el.textContent = wishlist.length;
+                });
+            };
+        }
+        
+        // Show Notification
+        if (typeof showNotification === 'undefined') {
+            window.showNotification = function(message) {
+                const notification = document.createElement('div');
+                notification.textContent = message;
+                notification.style.cssText = `
+                    position: fixed;
+                    bottom: 20px;
+                    right: 20px;
+                    background-color: #000;
+                    color: white;
+                    padding: 1rem 1.5rem;
+                    border-radius: 2px;
+                    z-index: 1000;
+                    animation: slideIn 0.3s ease-out;
+                    font-weight: 600;
+                    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+                    font-size: 0.9rem;
+                `;
+                document.body.appendChild(notification);
+
+                setTimeout(() => {
+                    notification.style.animation = 'slideOut 0.3s ease-out';
+                    setTimeout(() => notification.remove(), 300);
+                }, 3000);
+            };
+        }
+        
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            updateCartCount();
+            updateWishlistCount();
+        });
+    </script>
+</body>
+</html>
