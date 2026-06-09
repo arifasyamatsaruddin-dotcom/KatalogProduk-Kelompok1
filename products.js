@@ -190,5 +190,4 @@ const promoCodes = {
     "WELCOME": 0.25
 };
 
-// Wishlist
-let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+

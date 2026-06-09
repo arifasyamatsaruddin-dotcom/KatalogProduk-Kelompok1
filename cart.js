@@ -1,10 +1,10 @@
 // Cart page specific script
-let cart = JSON.parse(localStorage.getItem('cart')) || [];
-let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
 
 document.addEventListener('DOMContentLoaded', function() {
     initializeCart();
     setupSearch();
+    updateCartCount();
+    updateWishlistCount();
 });
 
 function initializeCart() {
@@ -158,20 +158,49 @@ function proceedToCheckout() {
     }
 
     const total = document.getElementById('total').textContent;
-    alert(`Lanjut ke pembayaran\nTotal: ${total}\n\nFitur pembayaran akan segera hadir!`);
-    
-    // In a real app, this would redirect to checkout page
-    // window.location.href = 'checkout.html';
+    let paymentMethod = '1';
+
+    try {
+        if (typeof window !== 'undefined' && typeof window.prompt === 'function') {
+            paymentMethod = window.prompt('Pilih metode pembayaran:\n1. Transfer Bank\n2. QRIS\n3. COD\n\nMasukkan angka 1/2/3', '1');
+        }
+    } catch (error) {
+        paymentMethod = '1';
+    }
+
+    const paymentLabel = {
+        '1': 'Transfer Bank',
+        '2': 'QRIS',
+        '3': 'COD'
+    }[paymentMethod?.trim()] || 'Transfer Bank';
+
+    alert(`Pembayaran berhasil dipilih!\nMetode: ${paymentLabel}\nTotal: ${total}\n\nPesanan Anda akan segera diproses.`);
 }
 
 // Search functionality for cart page
 function setupSearch() {
+    const searchInput = document.getElementById('searchInput');
+    const searchBtn = document.getElementById('searchBtn');
+
     const searchQuery = localStorage.getItem('searchQuery');
-    if (searchQuery) {
-        const searchInput = document.getElementById('searchInput');
-        if (searchInput) {
-            searchInput.value = searchQuery;
-            localStorage.removeItem('searchQuery');
-        }
+    if (searchQuery && searchInput) {
+        searchInput.value = searchQuery;
+        localStorage.removeItem('searchQuery');
+    }
+
+    if (searchInput) {
+        searchInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                performSearch();
+            }
+        });
+    }
+
+    if (searchBtn) {
+        searchBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            performSearch();
+        });
     }
 }

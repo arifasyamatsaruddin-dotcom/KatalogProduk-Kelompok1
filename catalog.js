@@ -6,6 +6,7 @@ let filteredProducts = [...products];
 document.addEventListener('DOMContentLoaded', function() {
     initializeCatalog();
     setupSearchCatalog();
+    setupCatalogSearchBox();
 });
 
 // Product Card Creation (duplicated from script.js for catalog functionality)
@@ -50,6 +51,27 @@ function setupSearchCatalog() {
             applyFilters();
             localStorage.removeItem('searchQuery');
         }
+    }
+}
+
+function setupCatalogSearchBox() {
+    const searchInput = document.getElementById('searchInput');
+    const searchBtn = document.getElementById('searchBtn');
+
+    if (searchInput) {
+        searchInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                applyFilters();
+            }
+        });
+    }
+
+    if (searchBtn) {
+        searchBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            applyFilters();
+        });
     }
 }
 

@@ -53,26 +53,38 @@ function setupMobileMenu() {
 function setupSearch() {
     const searchInput = document.getElementById('searchInput');
     const searchBtn = document.getElementById('searchBtn');
-    
+
     if (searchInput) {
         searchInput.addEventListener('keypress', function(e) {
             if (e.key === 'Enter') {
+                e.preventDefault();
                 performSearch();
             }
         });
+
+        searchInput.addEventListener('input', function() {
+            if (!searchInput.value.trim()) {
+                localStorage.removeItem('searchQuery');
+            }
+        });
     }
-    
+
     if (searchBtn) {
-        searchBtn.addEventListener('click', performSearch);
+        searchBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            performSearch();
+        });
     }
 }
 
 function performSearch() {
     const searchInput = document.getElementById('searchInput');
     if (searchInput && searchInput.value.trim()) {
-        const query = searchInput.value.toLowerCase();
+        const query = searchInput.value.trim().toLowerCase();
         localStorage.setItem('searchQuery', query);
         window.location.href = 'catalog.html';
+    } else {
+        showNotification('Silakan ketik kata kunci pencarian terlebih dahulu.');
     }
 }
 
