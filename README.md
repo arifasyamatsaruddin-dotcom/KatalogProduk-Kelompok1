@@ -13,7 +13,7 @@ Proyek ini merupakan aplikasi e-commerce yang dikembangkan sebagai tugas UTS, be
 | 1 | Arif Asyam Atsaruddin | 25120400004 |
 | 2 | Aurelia Monic | 25120400018 |
 | 3 | Anja Safila | 25120400006 |
-| 4 | Audi Amar Abdullah | 25120400026 |
+| 4 | Audi Ammar Abdullah | 25120400026 |
 
 ---
 
