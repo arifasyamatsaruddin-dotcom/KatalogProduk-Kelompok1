@@ -1,6 +1,6 @@
 # SNEAKER LABS - Platform Sneaker Tech-Wear Eksperimental
 
-Proyek ini merupakan aplikasi e-commerce yang dikembangkan sebagai tugas UTS, berupa platform belanja sneaker premium dengan tampilan yang terinspirasi dari estetika laboratorium teknologi. Sistem dirancang menggunakan skema warna monokromatik (hitam, putih, dan abu-abu) untuk menciptakan nuansa futuristik yang bersih dan modern.
+Proyek ini merupakan aplikasi e-commerce yang dikembangkan sebagai tugas UTS, berupa platform belanja sneaker premium dengan tampilan yang terinspirasi dari estetika laboratorium teknologi. Sistem dirancang menggunakan skema warna monokromatik (hitam, putih, biru, dan abu-abu) untuk menciptakan nuansa futuristik yang bersih dan modern.
 
 **Fitur Utama:** Antarmuka minimalis modern | Pembaruan keranjang secara real-time | Filter produk tingkat lanjut | Manajemen wishlist | Desain responsif
 
@@ -21,7 +21,7 @@ Proyek ini merupakan aplikasi e-commerce yang dikembangkan sebagai tugas UTS, be
 
 **Sneaker Labs** diposisikan sebagai platform eksperimental untuk sneaker premium dengan tampilan minimalis. Filosofi desain yang digunakan mengacu pada beberapa prinsip berikut:
 
-**Palet Monokromatik** — Dominan hitam, putih, dan abu-abu untuk menghadirkan kesan tech-lab yang modern dan elegan.
+**Palet Monokromatik** — Dominan hitam, putih, biru, dan abu-abu untuk menghadirkan kesan tech-lab yang modern dan elegan.
 
 **Tipografi Bersih** — Penggunaan huruf tebal dan kapital untuk memberikan kesan yang tegas dan kontemporer.
 
