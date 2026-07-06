@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sneaker Labs - Experimental Tech-Wear Platform</title>
+  
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -27,6 +27,10 @@
                 </button>
             </div>
             <div class="header-icons">
+                <button class="icon-btn login-btn" type="button" title="Login" id="loginBtn">Masuk</button>
+                <button class="icon-btn register-btn" type="button" title="Daftar" id="registerBtn">Daftar</button>
+                <button class="icon-btn logout-btn" type="button" title="Keluar" id="logoutBtn" hidden>Keluar</button>
+                <span class="login-status" id="loginStatus" hidden></span>
                 <button class="icon-btn wishlist-btn" title="Wishlist" id="wishlistBtn">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
@@ -45,10 +49,42 @@
         </div>
     </header>
 
+    <div class="login-modal-backdrop" id="loginModal" hidden>
+        <div class="login-modal-card" role="dialog" aria-modal="true" aria-labelledby="loginTitle">
+            <button class="login-close-btn" type="button" id="closeLoginModal" aria-label="Tutup form login">×</button>
+            <h3 id="loginTitle" class="login-title">Masuk ke Sneaker Labs</h3>
+            <p class="login-subtitle">Gunakan akun demo untuk melihat tampilan login tanpa mengubah fitur lain.</p>
+            <form class="login-form" id="loginForm">
+                <label class="login-field">
+                    <span>Email</span>
+                    <input type="email" id="loginEmail" placeholder="nama@contoh.com" required>
+                </label>
+                <label class="login-field">
+                    <span>Password</span>
+                    <input type="password" id="loginPassword" placeholder="••••••••" required>
+                </label>
+                <div class="login-actions">
+                    <button type="submit" class="btn btn-primary login-submit" data-mode="login">Masuk</button>
+                    <button type="submit" class="btn btn-secondary login-submit" data-mode="register">Daftar Akun</button>
+                    <button type="button" class="btn btn-google login-submit" id="googleLoginBtn">
+                        <svg viewBox="0 0 24 24" aria-hidden="true" class="google-icon">
+                            <path fill="#4285F4" d="M21.805 10.023H12v4.02h5.39c-.23 1.22-.93 2.26-1.98 2.95v2.46h3.2c1.88-1.73 2.96-4.27 2.96-7.31 0-.69-.06-1.35-.18-1.99z"></path>
+                            <path fill="#34A853" d="M12 22c2.68 0 4.93-.88 6.57-2.38l-3.2-2.46c-.89.6-2.02.95-3.37.95-2.59 0-4.79-1.75-5.58-4.1H3.13v2.58A10 10 0 0 0 12 22z"></path>
+                            <path fill="#FBBC05" d="M6.42 13.01A6.03 6.03 0 0 1 6.42 10.99V8.41H3.13a10 10 0 0 0 0 4.6l3.29-1.99z"></path>
+                            <path fill="#EA4335" d="M12 6.05c1.46 0 2.77.5 3.8 1.48l2.85-2.85C16.93 3.44 14.68 2.5 12 2.5A10 10 0 0 0 3.13 8.41l3.29 2.58C7.21 7.8 9.41 6.05 12 6.05z"></path>
+                        </svg>
+                        Masuk dengan Google
+                    </button>
+                </div>
+                <p class="login-note">Tip: untuk login cepat, gunakan email yang sudah terdaftar, daftar akun baru, atau pilih login Google.</p>
+            </form>
+        </div>
+    </div>
+
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <span class="hero-badge">Experimental Tech-Wear</span>
+           
             <h1 class="hero-title">SNEAKER<br>LABORATORY</h1>
             <p class="hero-description">
                 Platform eksperimental untuk sneaker tech-wear premium minimalis. Temukan koleksi futuristik dan limited edition dari berbagai kategori.
@@ -191,9 +227,19 @@
     <script>
         // Image fallback handling
         const imageFallbacks = {
-            '500x500': 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500&h=500',
-            '400x400': 'https://images.unsplash.com/photo-1460353581641-37baddab0fa2?w=400&h=400',
-            '600x600': 'https://images.unsplash.com/photo-1525162a4d4e4b12fc13999fc8ce3ecd0aae4618?w=600&h=600'
+            'Ultra Runner X1': 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500&h=500&fit=crop',
+            'Street Lab Pro': 'street lab.png',
+            'Apex Performance': 'Apex .png',
+            'Future Flow': 'future .png',
+            'Classic Lab Limited': 'clasic .png',
+            'Trail Blazer Elite': 'Trail.png',
+            'Monochrome Zero': 'Mono png.pngp',
+            'Midnight Edition': 'Midnight.png',
+            'City Runner': 'city.png',
+            'Grid Max': 'gRID MAX.png',
+            'Echo Lab Retro': 'ECHO .png',
+            'Prototype X': 'Prototype .png',
+            'default': 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500&h=500&fit=crop'
         };
         
         document.addEventListener('error', function(e) {

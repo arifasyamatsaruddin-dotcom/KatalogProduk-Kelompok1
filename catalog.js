@@ -36,6 +36,11 @@ function createProductCard(product) {
                     <span class="product-price-main">$${product.price.toFixed(2)}</span>
                     ${discountPercent > 0 ? `<span class="product-price-original">$${product.originalPrice.toFixed(2)}</span>` : ''}
                 </div>
+                <div class="product-variants">
+                    <select class="product-size-select" onclick="event.stopPropagation()">
+                        ${product.sizes.map(size => `<option value="${size}">${size}</option>`).join('')}
+                    </select>
+                </div>
                 <button class="add-to-cart-btn" onclick="addToCart(event, ${product.id})">Tambah ke Keranjang</button>
             </div>
         </div>
@@ -154,7 +159,7 @@ function applyFilters() {
 
     // Get selected sizes
     const selectedSizes = Array.from(document.querySelectorAll('.size-btn.active'))
-        .map(btn => btn.dataset.size);
+        .map(btn => btn.dataset.size.toString().toLowerCase());
 
     // Get selected colors
     const selectedColors = Array.from(document.querySelectorAll('.color-btn.active'))
@@ -184,7 +189,8 @@ function applyFilters() {
 
         // Size filter
         if (selectedSizes.length > 0) {
-            const hasSize = selectedSizes.some(size => product.sizes.includes(size));
+            const productSizes = product.sizes.map(size => size.toString().toLowerCase());
+            const hasSize = selectedSizes.some(size => productSizes.includes(size));
             if (!hasSize) return false;
         }
 

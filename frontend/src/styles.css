@@ -1,0 +1,95 @@
+:root {
+  font-family: Inter, system-ui, sans-serif;
+  color: #111;
+  background: #f5f5f5;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f2f2f2, #dce8ff);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.app-shell {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.auth-card {
+  width: min(420px, 100%);
+  background: white;
+  border-radius: 16px;
+  padding: 28px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+}
+
+.auth-card h1 {
+  margin: 0 0 8px;
+  font-size: 28px;
+}
+
+.auth-card p {
+  margin-top: 0;
+  color: #666;
+}
+
+.toggle-row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.toggle-row button,
+form button,
+.user-panel button {
+  border: none;
+  padding: 10px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.toggle-row button {
+  flex: 1;
+  background: #eee;
+}
+
+.toggle-row button.active,
+form button,
+.user-panel button {
+  background: #111;
+  color: white;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+input {
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.message {
+  margin-top: 14px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: #f2f7ff;
+  color: #1e4d8c;
+}
+
+.user-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}

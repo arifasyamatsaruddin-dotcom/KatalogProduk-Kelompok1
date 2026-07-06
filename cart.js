@@ -157,6 +157,15 @@ function proceedToCheckout() {
         return;
     }
 
+    if (!localStorage.getItem('loginUser')) {
+        if (typeof window !== 'undefined' && typeof window.openLoginModal === 'function') {
+            window.openLoginModal();
+        } else {
+            alert('Silakan masuk terlebih dahulu untuk melanjutkan pemesanan.');
+        }
+        return;
+    }
+
     const total = document.getElementById('total').textContent;
     let paymentMethod = '1';
 
@@ -175,6 +184,14 @@ function proceedToCheckout() {
     }[paymentMethod?.trim()] || 'Transfer Bank';
 
     alert(`Pembayaran berhasil dipilih!\nMetode: ${paymentLabel}\nTotal: ${total}\n\nPesanan Anda akan segera diproses.`);
+
+    // Kosongkan keranjang setelah pembelian berhasil
+    cart = [];
+    localStorage.setItem('cart', JSON.stringify(cart));
+    updateCartCount();
+    displayCartItems();
+    updateCartSummary();
+    showNotification('✓ Terima kasih! Keranjang Anda telah dikosongkan setelah pembelian.');
 }
 
 // Search functionality for cart page

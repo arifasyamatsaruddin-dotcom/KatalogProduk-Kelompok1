@@ -91,6 +91,10 @@
                         <input type="checkbox" class="category-filter" value="outdoor">
                         Outdoor
                     </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" class="category-filter" value="apparel">
+                        Apparel
+                    </label>
                 </div>
             </div>
 
@@ -98,11 +102,14 @@
             <div class="filter-group">
                 <label class="filter-label">Ukuran</label>
                 <div class="size-buttons">
-                    <button class="size-btn" data-size="xs">XS</button>
-                    <button class="size-btn" data-size="s">S</button>
-                    <button class="size-btn" data-size="m">M</button>
-                    <button class="size-btn" data-size="l">L</button>
-                    <button class="size-btn" data-size="xl">XL</button>
+                    <button class="size-btn" data-size="XS">XS</button>
+                    <button class="size-btn" data-size="S">S</button>
+                    <button class="size-btn" data-size="M">M</button>
+                    <button class="size-btn" data-size="L">L</button>
+                    <button class="size-btn" data-size="XL">XL</button>
+                    <button class="size-btn" data-size="38">38</button>
+                    <button class="size-btn" data-size="39">39</button>
+                    <button class="size-btn" data-size="40">40</button>
                 </div>
             </div>
 
@@ -196,11 +203,21 @@
     
     <!-- Fallback: Inline critical functions if external scripts fail to load -->
     <script>
-        // Image fallback list - used if Unsplash images fail to load
+        // Image fallback list - used if product images fail to load
         const imageFallbacks = {
-            '500x500': 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500&h=500',
-            '400x400': 'https://images.unsplash.com/photo-1460353581641-37baddab0fa2?w=400&h=400',
-            '600x600': 'https://images.unsplash.com/photo-1525162a4d4e4b12fc13999fc8ce3ecd0aae4618?w=600&h=600'
+            'Ultra Runner X1': 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500&h=500&fit=crop',
+            'Street Lab Pro': 'street lab.png',
+            'Apex Performance': 'Apex .png',
+            'Future Flow': 'future .png',
+            'Classic Lab Limited': 'clasic .png',
+            'Trail Blazer Elite': 'Trail.png',
+            'Monochrome Zero': 'Mono png.png',
+            'Midnight Edition': 'Midnight.png',
+            'City Runner': 'city.png',
+            'Grid Max': 'gRID MAX.png',
+            'Echo Lab Retro': 'ECHO .png',
+            'Prototype X': 'Prototype .png',
+            'default': 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500&h=500&fit=crop'
         };
         
         // Handle image loading errors
@@ -209,15 +226,10 @@
                 const img = e.target;
                 if (!img.hasAttribute('data-fallback-tried')) {
                     img.setAttribute('data-fallback-tried', 'true');
-                    // Determine fallback based on current src
-                    let fallbackSrc = imageFallbacks['500x500'];
-                    if (img.src.includes('w=600')) fallbackSrc = imageFallbacks['600x600'];
-                    else if (img.src.includes('w=400')) fallbackSrc = imageFallbacks['400x400'];
-                    
+                    const fallbackSrc = imageFallbacks[img.alt] || imageFallbacks['default'];
                     img.src = fallbackSrc;
                 } else {
-                    // Fallback failed too, use data URI placeholder
-                    img.src = 'data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22%3E%3Crect fill=%22%23f0f0f0%22 width=%22200%22 height=%22200%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%23999%22 font-size=%2212%22%3EImage Not Available%3C/text%3E%3C/svg%3E';
+                    img.src = 'data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22%3E%3Crect fill=%22%23f0f0f0%22 width=%22200%22 height=%22200%22/%3E%3C/text%3E%3C/svg%3E';
                 }
             }
         }, true);

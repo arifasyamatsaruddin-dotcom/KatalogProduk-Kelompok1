@@ -92,6 +92,40 @@ body {
     padding: 0.5rem;
     flex: 0.4;
     min-width: 200px;
+    position: relative;
+}
+
+.search-suggestions {
+    position: absolute;
+    top: calc(100% + 0.35rem);
+    left: 0;
+    right: 0;
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+    z-index: 250;
+    overflow: hidden;
+    display: block;
+}
+
+.search-suggestion-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    padding: 0.7rem 0.8rem;
+    cursor: pointer;
+    font-size: 0.9rem;
+    color: #111;
+}
+
+.search-suggestion-item:hover {
+    background: #f5f5f5;
+}
+
+.search-suggestion-item span {
+    font-size: 0.8rem;
+    color: #666;
 }
 
 .search-input {
@@ -124,6 +158,43 @@ body {
     min-width: 100px;
 }
 
+.login-btn,
+.register-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--primary-color);
+    border-radius: 999px;
+    padding: 0.45rem 0.9rem;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    background: transparent;
+    color: var(--text-color);
+    min-height: 36px;
+    min-width: 86px;
+    line-height: 1.2;
+}
+
+.logout-btn {
+    border: 1px solid #d1d5db;
+    border-radius: 999px;
+    padding: 0.45rem 0.9rem;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    background: #fff;
+}
+
+.login-status {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--text-color);
+    white-space: nowrap;
+}
+
 .icon-btn {
     background: none;
     border: none;
@@ -134,6 +205,22 @@ body {
     justify-content: center;
     transition: transform 0.2s;
     position: relative;
+}
+
+.icon-btn.login-btn,
+.icon-btn.register-btn {
+    border: 1px solid var(--primary-color);
+    background: transparent;
+    padding: 0.45rem 0.9rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    min-height: 36px;
+    line-height: 1.2;
 }
 
 .icon-btn:hover {
@@ -155,6 +242,103 @@ body {
     justify-content: center;
     font-size: 0.65rem;
     font-weight: bold;
+}
+
+.login-modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    z-index: 300;
+}
+
+.login-modal-card {
+    width: min(420px, 100%);
+    background: #fff;
+    border-radius: 16px;
+    padding: 1.25rem;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18);
+    position: relative;
+}
+
+.login-close-btn {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    border: none;
+    background: transparent;
+    font-size: 1.4rem;
+    cursor: pointer;
+}
+
+.login-title {
+    font-size: 1.25rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0.35rem;
+}
+
+.login-subtitle {
+    color: var(--dark-gray);
+    font-size: 0.92rem;
+    margin-bottom: 1rem;
+}
+
+.login-form {
+    display: grid;
+    gap: 0.9rem;
+}
+
+.login-field {
+    display: grid;
+    gap: 0.35rem;
+    font-size: 0.92rem;
+    font-weight: 600;
+}
+
+.login-field input {
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 0.8rem 0.9rem;
+    font-size: 0.95rem;
+}
+
+.login-actions {
+    display: grid;
+    gap: 0.9rem;
+    margin-top: 0.15rem;
+}
+
+.login-submit {
+    width: 100%;
+    border-radius: 12px;
+    padding: 0.85rem 1rem;
+    font-weight: 700;
+}
+
+.btn-google {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    border: 1px solid #d1d5db;
+    background: #fff;
+    color: #111827;
+}
+
+.google-icon {
+    width: 18px;
+    height: 18px;
+}
+
+.login-note {
+    font-size: 0.85rem;
+    color: var(--dark-gray);
+    line-height: 1.5;
 }
 
 /* Hero Section */
@@ -445,6 +629,26 @@ body {
     gap: 0.5rem;
     align-items: center;
     margin-bottom: 1rem;
+}
+
+.product-variants {
+    margin-bottom: 1rem;
+}
+
+.product-size-select {
+    width: 100%;
+    padding: 0.75rem 0.8rem;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    font-size: 0.95rem;
+    outline: none;
+}
+
+.product-size-select:hover,
+.product-size-select:focus {
+    border-color: var(--primary-color);
 }
 
 .product-price-main {
@@ -1316,6 +1520,22 @@ body {
     justify-content: center;
     transition: transform 0.2s;
     position: relative;
+}
+
+.icon-btn.login-btn,
+.icon-btn.register-btn {
+    border: 1px solid var(--primary-color);
+    background: transparent;
+    padding: 0.45rem 0.9rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    min-height: 36px;
+    line-height: 1.2;
 }
 
 .icon-btn:hover {

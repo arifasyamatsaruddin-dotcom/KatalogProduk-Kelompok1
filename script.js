@@ -17,6 +17,13 @@ try {
 
 // Initialize app when DOM is ready
 document.addEventListener('DOMContentLoaded', function() {
+    const loginModal = document.getElementById('loginModal');
+    if (loginModal) {
+        loginModal.hidden = true;
+        loginModal.setAttribute('hidden', '');
+        loginModal.style.display = 'none';
+        document.body.style.overflow = '';
+    }
     initializeApp();
 });
 
@@ -25,6 +32,9 @@ function initializeApp() {
     updateWishlistCount();
     setupMobileMenu();
     setupEventListeners();
+    setupLoginModal();
+    setupLogout();
+    updateLoginUI();
     loadFeaturedProducts();
     setupSearch();
 }
@@ -63,9 +73,13 @@ function setupSearch() {
         });
 
         searchInput.addEventListener('input', function() {
-            if (!searchInput.value.trim()) {
+            const query = searchInput.value.trim().toLowerCase();
+            if (!query) {
                 localStorage.removeItem('searchQuery');
+                hideSearchSuggestions();
+                return;
             }
+            showSearchSuggestions(query);
         });
     }
 
@@ -77,13 +91,50 @@ function setupSearch() {
     }
 }
 
+function showSearchSuggestions(query) {
+    const suggestions = products.filter(product => {
+        const haystack = `${product.name} ${product.description}`.toLowerCase();
+        return haystack.includes(query);
+    }).slice(0, 6);
+
+    const searchContainer = document.querySelector('.search-container');
+    if (!searchContainer) return;
+
+    let existing = document.getElementById('searchSuggestions');
+    if (!existing) {
+        existing = document.createElement('div');
+        existing.id = 'searchSuggestions';
+        existing.className = 'search-suggestions';
+        searchContainer.appendChild(existing);
+    }
+
+    if (!suggestions.length) {
+        existing.innerHTML = '<div class="search-suggestion-item">Tidak ada produk yang cocok</div>';
+        return;
+    }
+
+    existing.innerHTML = suggestions.map(product => `
+        <div class="search-suggestion-item" onclick="window.location.href='catalog.html'">
+            <strong>${product.name}</strong>
+            <span>${product.description}</span>
+        </div>
+    `).join('');
+}
+
+function hideSearchSuggestions() {
+    const existing = document.getElementById('searchSuggestions');
+    if (existing) existing.remove();
+}
+
 function performSearch() {
     const searchInput = document.getElementById('searchInput');
     if (searchInput && searchInput.value.trim()) {
         const query = searchInput.value.trim().toLowerCase();
         localStorage.setItem('searchQuery', query);
+        hideSearchSuggestions();
         window.location.href = 'catalog.html';
     } else {
+        hideSearchSuggestions();
         showNotification('Silakan ketik kata kunci pencarian terlebih dahulu.');
     }
 }
@@ -113,7 +164,171 @@ function setupEventListeners() {
     }
 }
 
-// Featured Products
+// Login Modal
+function setupLoginModal() {
+    const loginBtn = document.getElementById('loginBtn');
+    const loginModal = document.getElementById('loginModal');
+    const closeLoginModal = document.getElementById('closeLoginModal');
+    const loginForm = document.getElementById('loginForm');
+    const googleLoginBtn = document.getElementById('googleLoginBtn');
+
+    if (!loginBtn || !loginModal || !closeLoginModal || !loginForm) return;
+
+    function openModal(source = 'login') {
+        if (source !== 'login' && source !== 'register' && source !== 'checkout') return;
+        loginModal.hidden = false;
+        loginModal.removeAttribute('hidden');
+        loginModal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+        updateModalMode(source === 'checkout' ? 'login' : source);
+    }
+
+    const registerBtn = document.getElementById('registerBtn');
+    const modalTitle = document.getElementById('loginTitle');
+    const modalSubtitle = document.querySelector('.login-subtitle');
+
+    window.openLoginModal = () => openModal('checkout');
+    loginBtn.addEventListener('click', () => openModal('login'));
+    if (registerBtn) {
+        registerBtn.addEventListener('click', () => openModal('register'));
+    }
+
+    if (googleLoginBtn) {
+        googleLoginBtn.addEventListener('click', () => {
+            const googleEmail = 'google-user@gmail.com';
+            localStorage.setItem('loginUser', googleEmail);
+            localStorage.setItem('loginProvider', 'google');
+            showNotification('✓ Berhasil masuk dengan Google.');
+            closeModal();
+            loginForm.reset();
+            updateLoginUI();
+        });
+    }
+
+    function closeModal(e) {
+        if (e) {
+            e.preventDefault();
+            e.stopPropagation();
+        }
+        loginModal.hidden = true;
+        loginModal.setAttribute('hidden', '');
+        loginModal.style.display = 'none';
+        document.body.style.overflow = '';
+    }
+
+    function updateModalMode(currentMode) {
+        if (!modalTitle || !modalSubtitle) return;
+        if (currentMode === 'register') {
+            modalTitle.textContent = 'Daftar Akun Sneaker Labs';
+            modalSubtitle.textContent = 'Buat akun baru untuk mulai berbelanja dan menabung wishlist Anda.';
+        } else {
+            modalTitle.textContent = 'Masuk ke Sneaker Labs';
+            modalSubtitle.textContent = 'Gunakan akun demo untuk melihat tampilan login tanpa mengubah fitur lain.';
+        }
+    }
+
+    loginModal.addEventListener('click', (e) => {
+        if (e.target === loginModal) closeModal(e);
+    });
+
+    loginForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const email = document.getElementById('loginEmail').value.trim();
+        const password = document.getElementById('loginPassword').value;
+        const mode = e.submitter && e.submitter.dataset.mode ? e.submitter.dataset.mode : 'login';
+
+        if (!email || !password) {
+            showNotification('Silakan isi email dan password terlebih dahulu.');
+            return;
+        }
+
+        updateModalMode(mode);
+
+        try {
+            const response = await fetch(`http://localhost:5000/api/${mode}`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email, password })
+            });
+
+            const data = await response.json();
+
+            if (!response.ok) {
+                throw new Error(data.message || 'Login gagal');
+            }
+
+            localStorage.setItem('loginUser', data.user.email);
+            localStorage.setItem('loginProvider', 'backend');
+            localStorage.setItem('authToken', data.token);
+            localStorage.setItem('sneakerlabs-user', JSON.stringify(data.user));
+            localStorage.setItem('sneakerlabs-token', data.token);
+            showNotification(mode === 'register' ? '✓ Akun berhasil dibuat! Anda sudah masuk.' : `✓ Selamat datang kembali, ${data.user.email}!`);
+            closeModal();
+            loginForm.reset();
+            updateLoginUI();
+        } catch (error) {
+            showNotification(error.message || 'Gagal terhubung ke server.');
+        }
+    });
+}
+
+function updateLoginUI() {
+    const loginBtn = document.getElementById('loginBtn');
+    const registerBtn = document.getElementById('registerBtn');
+    const logoutBtn = document.getElementById('logoutBtn');
+    const loginStatus = document.getElementById('loginStatus');
+    const loginModal = document.getElementById('loginModal');
+    const user = localStorage.getItem('loginUser');
+
+    if (loginBtn) {
+        loginBtn.hidden = !!user;
+        loginBtn.textContent = 'Masuk';
+        loginBtn.title = 'Login';
+    }
+
+    if (registerBtn) {
+        registerBtn.hidden = !!user;
+    }
+
+    if (logoutBtn) {
+        logoutBtn.hidden = !user;
+    }
+
+    if (loginStatus) {
+        if (user) {
+            const provider = localStorage.getItem('loginProvider');
+            const name = provider === 'google' ? 'Google User' : user.split('@')[0];
+            loginStatus.hidden = false;
+            loginStatus.textContent = `Halo, ${name}`;
+        } else {
+            loginStatus.hidden = true;
+            loginStatus.textContent = '';
+        }
+    }
+
+    if (loginModal) {
+        loginModal.hidden = true;
+        loginModal.setAttribute('hidden', '');
+        loginModal.style.display = 'none';
+        document.body.style.overflow = '';
+    }
+}
+
+function setupLogout() {
+    const logoutBtn = document.getElementById('logoutBtn');
+    if (!logoutBtn) return;
+
+    logoutBtn.addEventListener('click', () => {
+        localStorage.removeItem('loginUser');
+        localStorage.removeItem('loginProvider');
+        localStorage.removeItem('authToken');
+        localStorage.removeItem('sneakerlabs-user');
+        localStorage.removeItem('sneakerlabs-token');
+        showNotification('✓ Anda berhasil keluar.');
+        updateLoginUI();
+    });
+}
+
 function loadFeaturedProducts() {
     const container = document.getElementById('featuredProducts');
     if (!container) return;
@@ -149,6 +364,11 @@ function createProductCard(product) {
                     <span class="product-price-main">$${product.price.toFixed(2)}</span>
                     ${discountPercent > 0 ? `<span class="product-price-original">$${product.originalPrice.toFixed(2)}</span>` : ''}
                 </div>
+                <div class="product-variants">
+                    <select class="product-size-select" onclick="event.stopPropagation()">
+                        ${product.sizes.map(size => `<option value="${size}">${size}</option>`).join('')}
+                    </select>
+                </div>
                 <button class="add-to-cart-btn" onclick="addToCart(event, ${product.id})">Tambah ke Keranjang</button>
             </div>
         </div>
@@ -162,8 +382,12 @@ function addToCart(event, productId) {
     const product = products.find(p => p.id === productId);
     if (!product) return;
 
+    const card = event.currentTarget.closest('.product-card');
+    const sizeSelect = card ? card.querySelector('.product-size-select') : null;
+    const selectedSize = sizeSelect ? sizeSelect.value : product.sizes[0];
+
     // Check if product already in cart
-    let cartItem = cart.find(item => item.id === productId);
+    let cartItem = cart.find(item => item.id === productId && item.selectedSize === selectedSize);
     if (cartItem) {
         cartItem.quantity += 1;
     } else {
@@ -174,7 +398,7 @@ function addToCart(event, productId) {
             image: product.image,
             description: product.description,
             quantity: 1,
-            selectedSize: product.sizes[0],
+            selectedSize,
             selectedColor: product.colors[0]
         });
     }

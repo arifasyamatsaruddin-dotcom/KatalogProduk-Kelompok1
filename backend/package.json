@@ -1,0 +1,13 @@
+{
+  "name": "sneakerlabs-backend",
+  "version": "1.0.0",
+  "description": "Simple auth backend for Sneaker Labs",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.0",
+    "express": "^4.19.0"
+  }
+}
