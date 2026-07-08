@@ -1,0 +1,510 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<meta name="theme-color" content="#000000">
+<title>SNEAKER LABS | NIKE AIR MAX ALPHA</title>
+<link rel="stylesheet" href="../styles/main.css">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-edge {
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        .cyber-glow:hover {
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        }
+        ::-webkit-scrollbar {
+            width: 4px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f3f4f6;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #c4c5d9;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #000000;
+        }
+        #loginModal {
+            display: none !important;
+            visibility: hidden !important;
+            opacity: 0 !important;
+            pointer-events: none !important;
+        }
+
+        #loginModal[aria-hidden="false"] {
+            display: flex !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+            pointer-events: auto !important;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-container": "#111111",
+                        "surface-container": "#f3f4f6",
+                        "surface-tint": "#000000",
+                        "error-container": "#ffdad6",
+                        "background": "#ffffff",
+                        "secondary-fixed-dim": "#9ca3af",
+                        "on-primary": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "surface": "#ffffff",
+                        "inverse-surface": "#111111",
+                        "error": "#ba1a1a",
+                        "tertiary-fixed": "#e5e7eb",
+                        "secondary-fixed": "#e5e7eb",
+                        "on-error-container": "#93000a",
+                        "primary-fixed": "#e5e7eb",
+                        "on-error": "#ffffff",
+                        "surface-container-highest": "#e5e7eb",
+                        "primary": "#000000",
+                        "surface-variant": "#f3f4f6",
+                        "on-secondary-fixed": "#000000",
+                        "on-primary-fixed-variant": "#000000",
+                        "primary-fixed-dim": "#9ca3af",
+                        "inverse-primary": "#9ca3af",
+                        "surface-container-high": "#e5e7eb",
+                        "surface-dim": "#e5e7eb",
+                        "on-primary-fixed": "#000000",
+                        "tertiary": "#4b5563",
+                        "secondary-container": "#f3f4f6",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-container": "#111111",
+                        "outline": "#6b7280",
+                        "surface-container-low": "#fafafa",
+                        "on-surface-variant": "#4b5563",
+                        "secondary": "#4b5563",
+                        "on-background": "#000000",
+                        "outline-variant": "#d1d5db",
+                        "inverse-on-surface": "#fafafa",
+                        "on-secondary-fixed-variant": "#4b5563",
+                        "on-tertiary-fixed-variant": "#4b5563",
+                        "primary-container": "#000000",
+                        "on-tertiary-fixed": "#000000",
+                        "tertiary-container": "#e5e7eb",
+                        "surface-bright": "#ffffff",
+                        "on-surface": "#000000",
+                        "on-secondary-container": "#111111",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-fixed-dim": "#9ca3af"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "margin-mobile": "16px",
+                        "margin-desktop": "64px",
+                        "gutter": "24px",
+                        "unit": "4px",
+                        "container-max": "1440px",
+                        "sm": "16px",
+                        "md": "24px",
+                        "base": "4px",
+                        "xs": "8px",
+                        "xl": "80px",
+                        "lg": "48px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Space Grotesk"],
+                        "body-lg": ["Inter"],
+                        "headline-lg-mobile": ["Space Grotesk"],
+                        "headline-md": ["Space Grotesk"],
+                        "button": ["Space Grotesk"],
+                        "body-md": ["Inter"],
+                        "label-caps": ["JetBrains Mono"],
+                        "headline-lg": ["Space Grotesk"],
+                        "label-md": ["Space Grotesk"],
+                        "label-sm": ["Space Grotesk"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["72px", {"lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "headline-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "500"}],
+                        "button": ["14px", {"lineHeight": "1.0", "letterSpacing": "0.02em", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "label-caps": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                        "headline-lg": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                        "label-md": ["14px", {"lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                        "label-sm": ["12px", {"lineHeight": "1.0", "fontWeight": "500"}]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background font-body-md selection:bg-primary-container selection:text-on-primary-container overflow-x-hidden">
+<header class="navbar-shell fixed top-0 w-full z-50 bg-white/80 backdrop-blur-xl border-b border-black/5 h-20 font-display-lg text-label-md">
+        <nav class="flex justify-between items-center px-margin-mobile md:px-margin-desktop h-full w-full max-w-container-max mx-auto">
+            <div class="navbar-brand-group flex items-center gap-10">
+                <a class="brand-logo font-display-lg text-headline-md" href="home.html">SNEAKER LABS</a>
+                <div class="hidden md:flex items-center gap-6 navbar-links">
+                    <a href="home.html" class="nav-link font-display-lg text-label-sm uppercase tracking-widest text-secondary hover:text-primary transition-colors pb-1">Home</a>
+                    <a href="catalog.html" class="nav-link font-display-lg text-label-sm uppercase tracking-widest text-secondary hover:text-primary transition-colors pb-1">Catalog</a>
+                    <a href="kolaborasi.html" class="nav-link font-display-lg text-label-sm uppercase tracking-widest text-secondary hover:text-primary transition-colors pb-1">Collaborations</a>
+                    <a href="lab.html" class="nav-link font-display-lg text-label-sm uppercase tracking-widest text-secondary hover:text-primary transition-colors pb-1">Lab</a>
+                    <a href="contact.html" class="nav-link font-display-lg text-label-sm uppercase tracking-widest text-secondary hover:text-primary transition-colors pb-1">Contact</a>
+                    <a href="about.html" class="nav-link font-display-lg text-label-sm uppercase tracking-widest text-secondary hover:text-primary transition-colors pb-1">About</a>
+                </div>
+            </div>
+            
+            <div class="nav-actions flex items-center gap-4">
+                <!-- Search Box -->
+                <div class="hidden lg:flex items-center bg-surface-container px-4 py-1.5 rounded-full border border-outline-variant search-container">
+                    <span class="material-symbols-outlined text-secondary scale-90">search</span>
+                    <input class="bg-transparent border-none focus:ring-0 text-xs uppercase tracking-widest text-on-surface placeholder-secondary w-40 search-input" placeholder="SEARCH SNEAKERS..." type="text" id="searchInput">
+                    <button class="hidden" id="searchBtn"></button>
+                </div>
+                
+                 <!-- Auth Actions -->
+                <div class="auth-actions">
+                    <span class="auth-control login-status text-secondary text-xs uppercase tracking-wider opacity-0 invisible pointer-events-none" id="loginStatus"></span>
+                    <button class="auth-control login-btn bg-transparent border border-primary text-primary px-4 py-2 text-xs font-bold uppercase tracking-wider hover:bg-primary hover:text-white transition-colors" id="loginBtn">Sign In</button>
+                    <button class="auth-control register-btn bg-primary text-white px-4 py-2 text-xs font-bold uppercase tracking-wider hover:bg-primary/95 transition-colors" id="registerBtn">Sign Up</button>
+                    <button class="auth-control logout-btn bg-transparent border border-red-500 text-red-500 px-4 py-2 text-xs font-bold uppercase tracking-wider hover:bg-red-500 hover:text-white transition-colors opacity-0 invisible pointer-events-none" id="logoutBtn">Logout</button>
+                </div>
+
+                <!-- Wishlist -->
+                <button class="icon-btn wishlist-btn text-on-surface hover:text-primary transition-all duration-300 relative flex items-center p-1" id="wishlistBtn" title="Wishlist">
+                    <span class="material-symbols-outlined">favorite</span>
+                    <span class="absolute -top-1 -right-1 bg-primary text-white text-[9px] font-bold rounded-full w-4 h-4 flex items-center justify-center wishlist-count">0</span>
+                </button>
+
+                <!-- Cart -->
+                <button class="icon-btn cart-btn text-on-surface hover:text-primary transition-all duration-300 relative flex items-center p-1" id="cartPanelBtn" title="Shopping Cart">
+                    <span class="material-symbols-outlined">shopping_cart</span>
+                    <span class="absolute -top-1 -right-1 bg-primary text-white text-[9px] font-bold rounded-full w-4 h-4 flex items-center justify-center cart-count">0</span>
+                </button>
+
+                <!-- Profile Button & Dropdown -->
+                <div class="relative flex items-center">
+                    <button class="icon-btn profile-btn text-on-surface hover:text-primary transition-all duration-300 relative flex items-center p-1 hidden" id="profileBtn" title="User Profile">
+                        <span class="material-symbols-outlined">person</span>
+                    </button>
+                    <div id="profileDropdown" class="hidden absolute right-0 top-full mt-2 w-64 bg-white border border-black/10 shadow-xl rounded-xl p-4 z-50 transition-all duration-200 opacity-0 transform scale-95 origin-top-right">
+                        <h4 class="font-display-lg text-xs font-bold uppercase tracking-widest text-primary mb-3">USER INFORMATION</h4>
+                        <div class="space-y-3 font-body-md text-xs text-left">
+                            <div class="flex flex-col border-b border-black/5 pb-2">
+                                <span class="text-[10px] text-secondary uppercase">Email</span>
+                                <span id="profileEmail" class="font-semibold text-on-background break-all">-</span>
+                            </div>
+                            <div class="flex flex-col border-b border-black/5 pb-2">
+                                <span class="text-[10px] text-secondary uppercase">Metode Sign In</span>
+                                <span id="profileProvider" class="font-semibold text-on-background uppercase">-</span>
+                            </div>
+                            <div class="flex flex-col border-b border-black/5 pb-2">
+                                <span class="text-[10px] text-secondary uppercase">Session Status</span>
+                                <span class="font-semibold text-green-600 flex items-center gap-1">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-green-600 animate-pulse"></span>
+                                    ONLINE
+                                </span>
+                            </div>
+                        </div>
+                        <button id="profileLogoutBtn" class="mt-4 w-full bg-red-500 hover:bg-red-600 text-white py-2 rounded-lg font-display-lg text-xs font-bold uppercase tracking-widest transition-all">Logout</button>
+                    </div>
+                </div>
+
+                <!-- Mobile Menu Toggle -->
+                <button class="icon-btn mobile-menu-toggle md:hidden material-symbols-outlined text-on-surface hover:text-primary" id="mobileMenuToggle" aria-label="Open menu">menu</button>
+            </div>
+        </nav>
+        
+        <!-- Mobile Navigation Overlay -->
+        <div class="hidden fixed inset-0 top-20 bg-white z-40 flex flex-col p-6 gap-4 border-t border-black/5 md:hidden nav-menu">
+            <a class="font-display-lg text-lg uppercase tracking-widest text-secondary hover:text-primary transition-colors py-2 border-b border-black/5 nav-link" href="home.html">Home</a>
+            <a class="font-display-lg text-lg uppercase tracking-widest text-secondary hover:text-primary transition-colors py-2 border-b border-black/5 nav-link" href="catalog.html">Catalog</a>
+            <a class="font-display-lg text-lg uppercase tracking-widest text-secondary hover:text-primary transition-colors py-2 border-b border-black/5 nav-link" href="kolaborasi.html">Collaborations</a>
+            <a class="font-display-lg text-lg uppercase tracking-widest text-secondary hover:text-primary transition-colors py-2 border-b border-black/5 nav-link" href="lab.html">Lab</a>
+            <a class="font-display-lg text-lg uppercase tracking-widest text-secondary hover:text-primary transition-colors py-2 border-b border-black/5 nav-link" href="contact.html">Contact</a>
+            <a class="font-display-lg text-lg uppercase tracking-widest text-secondary hover:text-primary transition-colors py-2 border-b border-black/5 nav-link" href="about.html">About</a>
+        </div>
+</header>
+
+<!-- Main Content -->
+<main class="pt-20 pb-xl max-w-container-max mx-auto px-0 md:px-margin-desktop">
+<div class="flex flex-col md:flex-row gap-0 md:gap-xl">
+<!-- Left: Product Gallery -->
+<div class="w-full md:w-1/2">
+<!-- Mobile Carousel / Main Hero -->
+<div class="relative aspect-square w-full bg-surface-container-lowest flex items-center justify-center overflow-hidden">
+<div class="absolute top-md left-md z-10">
+<span class="bg-on-background text-background font-label-md px-sm py-xs uppercase tracking-widest">LAB SPECIMEN #0042</span>
+</div>
+<img alt="Product Image" class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700" data-product-image src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
+<!-- Mobile Controls -->
+<div class="absolute bottom-md left-1/2 -translate-x-1/2 flex gap-xs md:hidden">
+<div class="w-8 h-1 bg-primary"></div>
+<div class="w-8 h-1 bg-outline-variant"></div>
+<div class="w-8 h-1 bg-outline-variant"></div>
+</div>
+</div>
+<!-- Thumbnail Row (Desktop Only) -->
+<div class="hidden md:grid grid-cols-4 gap-sm mt-sm">
+<div class="aspect-square bg-surface-container-low border border-outline-variant cursor-pointer hover:border-primary transition-colors">
+<img class="w-full h-full object-cover opacity-70 hover:opacity-100 transition-opacity" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
+</div>
+<div class="aspect-square bg-surface-container-low border-2 border-primary cursor-pointer">
+<img class="w-full h-full object-cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
+</div>
+<div class="aspect-square bg-surface-container-low border border-outline-variant cursor-pointer hover:border-primary transition-colors">
+<img class="w-full h-full object-cover opacity-70 hover:opacity-100 transition-opacity" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
+</div>
+<div class="aspect-square bg-surface-container-low border border-outline-variant cursor-pointer hover:border-primary transition-colors flex items-center justify-center group">
+<span class="material-symbols-outlined text-secondary group-hover:text-primary transition-colors">play_circle</span>
+</div>
+</div>
+</div>
+<!-- Right: Product Information -->
+<div class="w-full md:w-1/2 px-margin-mobile md:px-0 py-md md:py-0">
+<div class="md:sticky md:top-28">
+<!-- Breadcrumbs -->
+<nav class="flex items-center gap-xs text-secondary font-label-sm uppercase tracking-widest mb-md">
+<a class="hover:text-primary transition-colors" href="#">ARCHIVE</a>
+<span class="material-symbols-outlined text-[12px]">chevron_right</span>
+<a class="hover:text-primary transition-colors" href="#">NIKE</a>
+<span class="material-symbols-outlined text-[12px]">chevron_right</span>
+<span class="text-primary font-bold">PERFORMANCE</span>
+</nav>
+<!-- Title & Price -->
+<div class="mb-md" data-product-status></div>
+<h1 class="font-display-lg text-display-sm md:text-headline-lg uppercase mb-xs tracking-tighter text-on-background" data-product-title>NIKE AIR MAX ALPHA</h1>
+<div class="flex justify-between items-baseline mb-lg">
+<span class="font-display-lg text-headline-md text-primary" data-product-price>$210.00</span>
+<div class="flex items-center gap-xs">
+<div class="flex text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<span class="font-label-md text-on-surface">4.9 / 5.0</span>
+</div>
+</div>
+<!-- Material Description -->
+<div class="mb-lg">
+<h3 class="font-label-md text-secondary uppercase mb-sm tracking-widest border-b border-outline-variant pb-base">MATERIAL SPECIFICATIONS</h3>
+<p class="font-body-md text-on-surface-variant leading-relaxed" data-product-description>
+                        Engineered with a high-tensile carbon-fiber plate and dual-density foam for maximum energy return. The upper utilizes "Lab-Mesh" technology—a breathable synthetic weave designed for ultra-marathon endurance. Treated with a hydrophobic finish for all-condition environmental adaptation.
+                    </p>
+</div>
+<!-- Size Selection -->
+<div class="mb-lg">
+<div class="flex justify-between items-center mb-sm">
+<h3 class="font-label-md text-secondary uppercase tracking-widest">SELECT FRAME SIZE (US)</h3>
+<button class="font-label-sm text-primary underline underline-offset-4 uppercase">View Chart</button>
+</div>
+<div class="grid grid-cols-4 md:grid-cols-5 gap-xs">
+<button class="border border-outline-variant py-md text-label-md hover:border-primary hover:text-primary transition-all">08</button>
+<button class="border border-outline-variant py-md text-label-md hover:border-primary hover:text-primary transition-all">08.5</button>
+<button class="border-2 border-primary bg-primary text-on-primary py-md text-label-md font-bold">09</button>
+<button class="border border-outline-variant py-md text-label-md hover:border-primary hover:text-primary transition-all">09.5</button>
+<button class="border border-outline-variant py-md text-label-md hover:border-primary hover:text-primary transition-all">10</button>
+<button class="border border-outline-variant py-md text-label-md hover:border-primary hover:text-primary transition-all">10.5</button>
+<button class="border border-outline-variant py-md text-label-md opacity-30 cursor-not-allowed">11</button>
+<button class="border border-outline-variant py-md text-label-md hover:border-primary hover:text-primary transition-all">11.5</button>
+</div>
+</div>
+<!-- Actions (Desktop Only) -->
+<div class="hidden md:flex gap-sm">
+<button class="flex-grow bg-primary text-on-primary font-display-lg text-label-md py-lg uppercase tracking-widest cyber-glow transition-all active:scale-95 flex items-center justify-center gap-sm" data-add-to-cart>
+<span class="material-symbols-outlined">shopping_cart</span>
+                        INITIALIZE PURCHASE
+                    </button>
+<button class="w-20 border border-outline-variant flex items-center justify-center hover:bg-surface-container-low transition-colors active:scale-95 text-secondary">
+<span class="material-symbols-outlined" data-icon="favorite">favorite</span>
+</button>
+</div>
+<!-- Tech Specs Accordion -->
+<div class="mt-xl border-t border-outline-variant">
+    <!-- Lab Tech Accordion -->
+    <div class="group border-b border-outline-variant">
+        <div class="flex justify-between items-center text-label-md uppercase tracking-widest text-secondary group-hover:text-primary transition-colors py-md cursor-pointer accordion-trigger" data-target="lab-tech-body">
+            <span class="font-bold">LAB TECHNOLOGY</span>
+            <span class="material-symbols-outlined transform transition-transform duration-200" id="lab-tech-icon">expand_more</span>
+        </div>
+        <div id="lab-tech-body" class="hidden overflow-hidden transition-all duration-200 pb-md text-xs text-secondary leading-relaxed font-body-md" data-product-tech>
+            <!-- Populated dynamically -->
+        </div>
+    </div>
+    
+    <!-- Shipping Accordion -->
+    <div class="group border-b border-outline-variant">
+        <div class="flex justify-between items-center text-label-md uppercase tracking-widest text-secondary group-hover:text-primary transition-colors py-md cursor-pointer accordion-trigger" data-target="shipping-body">
+            <span class="font-bold">SHIPPING &amp; PROTOCOL</span>
+            <span class="material-symbols-outlined transform transition-transform duration-200" id="shipping-icon">expand_more</span>
+        </div>
+        <div id="shipping-body" class="hidden overflow-hidden transition-all duration-200 pb-md text-xs text-secondary leading-relaxed font-body-md">
+            Orders are processed under secure packaging protocols. All specimens are shipped in reinforced archival boxes with custom tracking certificates. Free standard delivery worldwide (3-5 business days). Overnight courier service available.
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Mobile Sticky CTA -->
+<div class="md:hidden fixed bottom-0 left-0 w-full z-50 p-sm bg-surface/90 backdrop-blur-xl border-t border-outline-variant">
+<div class="flex gap-sm">
+<button class="flex-grow bg-primary text-on-primary font-display-lg text-label-md py-md uppercase tracking-widest flex items-center justify-center gap-sm">
+            ADD TO CART • $210
+        </button>
+<button class="w-14 border border-outline-variant flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+</div>
+</div>
+<!-- Footer -->
+<footer class="bg-surface-container-low border-t border-outline-variant w-full py-xl px-margin-mobile md:px-margin-desktop">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-lg w-full max-w-container-max mx-auto">
+<!-- Brand -->
+<div class="space-y-md">
+<span class="font-display-lg text-headline-md text-primary block">SNEAKER LABS</span>
+<p class="font-label-sm uppercase tracking-widest text-secondary">
+                © 2024 SNEAKER LABS. ENGINEERED FOR THE ARCHIVE.
+            </p>
+</div>
+<!-- Shop -->
+<div class="space-y-sm">
+<h4 class="font-label-md text-on-background uppercase tracking-widest">SHOP</h4>
+<div class="flex flex-col gap-xs">
+<a class="font-label-sm text-secondary hover:text-primary transition-colors hover:translate-x-1 transition-transform inline-block" href="#">POLICIES</a>
+<a class="font-label-sm text-secondary hover:text-primary transition-colors hover:translate-x-1 transition-transform inline-block" href="#">RETURNS</a>
+<a class="font-label-sm text-secondary hover:text-primary transition-colors hover:translate-x-1 transition-transform inline-block" href="#">WARRANTY</a>
+</div>
+</div>
+<!-- Tech/Specs -->
+<div class="space-y-sm">
+<h4 class="font-label-md text-on-background uppercase tracking-widest">TECH</h4>
+<div class="flex flex-col gap-xs">
+<a class="font-label-sm text-secondary hover:text-primary transition-colors hover:translate-x-1 transition-transform inline-block" href="#">LAB NOTES</a>
+<a class="font-label-sm text-secondary hover:text-primary transition-colors hover:translate-x-1 transition-transform inline-block" href="#">AUTHENTICATION</a>
+<a class="font-label-sm text-secondary hover:text-primary transition-colors hover:translate-x-1 transition-transform inline-block" href="#">MATERIALS</a>
+</div>
+</div>
+<!-- Social/Contact -->
+<div class="space-y-sm">
+<h4 class="font-label-md text-on-background uppercase tracking-widest">SOCIAL</h4>
+<div class="flex flex-col gap-xs">
+<a class="font-label-sm text-secondary hover:text-primary transition-colors hover:translate-x-1 transition-transform inline-block" href="#">INSTAGRAM</a>
+<a class="font-label-sm text-secondary hover:text-primary transition-colors hover:translate-x-1 transition-transform inline-block" href="#">CONTACT</a>
+<a class="font-label-sm text-secondary hover:text-primary transition-colors hover:translate-x-1 transition-transform inline-block" href="#">PAYMENT</a>
+</div>
+</div>
+</div>
+</footer>
+<script>
+    // Simple Interaction logic
+    document.querySelectorAll('.aspect-square').forEach(thumb => {
+        thumb.addEventListener('click', function() {
+            const mainImg = document.querySelector('main img');
+            const thumbImg = this.querySelector('img');
+            if (thumbImg) {
+                mainImg.src = thumbImg.src;
+                mainImg.dataset.alt = thumbImg.dataset.alt;
+                
+                // Reset borders
+                document.querySelectorAll('.aspect-square').forEach(t => {
+                    t.classList.remove('border-2', 'border-primary');
+                    t.classList.add('border', 'border-outline-variant');
+                });
+                this.classList.add('border-2', 'border-primary');
+                this.classList.remove('border', 'border-outline-variant');
+            }
+        });
+    });
+    <!-- Login Modal Backdrop -->
+    <div class="fixed inset-0 bg-black/60 backdrop-blur-sm z-[100] flex items-center justify-center login-modal-backdrop" id="loginModal" hidden>
+        <div class="bg-white border border-black/10 p-8 max-w-md w-full relative rounded-xl shadow-2xl login-modal-card" role="dialog" aria-modal="true" aria-labelledby="loginTitle">
+            <button class="absolute top-4 right-4 material-symbols-outlined text-secondary hover:text-primary transition-all login-close-btn" type="button" id="closeLoginModal" aria-label="Close login form">close</button>
+            <h3 id="loginTitle" class="font-display-lg text-headline-md uppercase text-primary font-bold mb-2 login-title">Sign In ke Sneaker Labs</h3>
+            <p class="font-body-md text-xs text-secondary mb-6 login-subtitle">Use a demo account to preview the login interface.</p>
+            
+            <form class="space-y-4 login-form" id="loginForm">
+                <div class="flex flex-col gap-1 login-field">
+                    <span class="font-display-lg text-[10px] text-secondary uppercase tracking-widest">Email</span>
+                    <input type="email" id="loginEmail" placeholder="nama@contoh.com" required class="bg-surface-container-low border border-black/10 focus:border-primary focus:ring-0 text-sm py-2 px-3 outline-none transition-colors">
+                </div>
+                <div class="flex flex-col gap-1 login-field">
+                    <span class="font-display-lg text-[10px] text-secondary uppercase tracking-widest">Password</span>
+                    <input type="password" id="loginPassword" placeholder="••••••••" required class="bg-surface-container-low border border-black/10 focus:border-primary focus:ring-0 text-sm py-2 px-3 outline-none transition-colors">
+                </div>
+                <div class="pt-2 flex flex-col gap-2 login-actions">
+                    <button type="submit" id="modalSubmitBtn" class="w-full bg-primary text-white py-3 font-display-lg text-xs font-bold uppercase tracking-widest hover:bg-primary/95 transition-all rounded-lg login-submit" data-mode="login">Sign In</button>
+                    <button type="button" id="toggleModeBtn" class="w-full bg-transparent border border-black/10 text-secondary py-3 font-display-lg text-xs font-bold uppercase tracking-widest hover:border-primary hover:text-primary transition-all rounded-lg text-center" data-mode="register">Sign Up Akun</button>
+                    <button type="button" class="w-full bg-transparent border border-black/10 text-on-background py-3 font-display-lg text-xs font-bold uppercase tracking-widest hover:bg-surface-container-low transition-all rounded-lg flex items-center justify-center gap-2 login-submit" id="googleLoginBtn">
+                        <svg viewBox="0 0 24 24" aria-hidden="true" class="w-4 h-4 google-icon">
+                            <path fill="#4285F4" d="M21.805 10.023H12v4.02h5.39c-.23 1.22-.93 2.26-1.98 2.95v2.46h3.2c1.88-1.73 2.96-4.27 2.96-7.31 0-.69-.06-1.35-.18-1.99z"></path>
+                            <path fill="#34A853" d="M12 22c2.68 0 4.93-.88 6.57-2.38l-3.2-2.46c-.89.6-2.02.95-3.37.95-2.59 0-4.79-1.75-5.58-4.1H3.13v2.58A10 10 0 0 0 12 22z"></path>
+                            <path fill="#FBBC05" d="M6.42 13.01A6.03 6.03 0 0 1 6.42 10.99V8.41H3.13a10 10 0 0 0 0 4.6l3.29-1.99z"></path>
+                            <path fill="#EA4335" d="M12 6.05c1.46 0 2.77.5 3.8 1.48l2.85-2.85C16.93 3.44 14.68 2.5 12 2.5A10 10 0 0 0 3.13 8.41l3.29 2.58C7.21 7.8 9.41 6.05 12 6.05z"></path>
+                        </svg>
+                        Sign In dengan Google
+                    </button>
+                </div>
+                <p class="text-[10px] text-secondary text-center uppercase tracking-widest mt-4 login-note">Tip: gunakan email demo@sneakerlabs.com &amp; demo123.</p>
+            </form>
+        </div>
+    <script>
+        (function() {
+            const hideLoginModalEarly = function() {
+                const modal = document.getElementById('loginModal');
+                if (!modal) return;
+                modal.hidden = true;
+                modal.setAttribute('hidden', '');
+                modal.style.display = 'none';
+                modal.style.visibility = 'hidden';
+                modal.style.opacity = '0';
+                modal.setAttribute('aria-hidden', 'true');
+                document.body.style.overflow = '';
+                document.documentElement.style.overflow = '';
+            };
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', hideLoginModalEarly, { once: true });
+            } else {
+                hideLoginModalEarly();
+            }
+        })();
+    </script>
+    <!-- Size Chart Modal -->
+    <div id="sizeChartModal" class="hidden fixed inset-0 bg-black/60 backdrop-blur-sm z-[110] flex items-center justify-center p-4 animate-scale-in">
+        <div class="bg-white border border-black/10 p-8 max-w-sm w-full rounded-2xl shadow-2xl relative">
+            <button class="absolute top-4 right-4 material-symbols-outlined text-secondary hover:text-primary transition-all cursor-pointer" type="button" id="closeSizeChartModal">close</button>
+            <h3 class="font-display-lg text-lg uppercase font-bold text-primary mb-4 tracking-tight">Size Conversion Chart</h3>
+            <div class="overflow-x-auto">
+                <table class="w-full text-left font-display-lg text-[11px] uppercase tracking-wider">
+                    <thead>
+                        <tr class="border-b border-black/10 text-secondary">
+                            <th class="py-2">US (Men)</th>
+                            <th class="py-2">UK</th>
+                            <th class="py-2">EU</th>
+                            <th class="py-2">CM</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-black/5 font-semibold text-primary">
+                        <tr><td class="py-2">7.0</td><td class="py-2">6.0</td><td class="py-2">40</td><td class="py-2">25.0</td></tr>
+                        <tr><td class="py-2">8.0</td><td class="py-2">7.0</td><td class="py-2">41</td><td class="py-2">26.0</td></tr>
+                        <tr><td class="py-2">9.0</td><td class="py-2">8.0</td><td class="py-2">42</td><td class="py-2">27.0</td></tr>
+                        <tr><td class="py-2">10.0</td><td class="py-2">9.0</td><td class="py-2">43</td><td class="py-2">28.0</td></tr>
+                        <tr><td class="py-2">11.0</td><td class="py-2">10.0</td><td class="py-2">44</td><td class="py-2">29.0</td></tr>
+                        <tr><td class="py-2">12.0</td><td class="py-2">11.0</td><td class="py-2">45</td><td class="py-2">30.0</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+<script src="products.js"></script>
+<script src="../scripts/utils/helpers.js"></script>
+<script src="../scripts/services/api.js"></script>
+<script src="../scripts/main.js"></script>
+<script src="../scripts/components/navbar.js"></script>
+<script src="../scripts/pages/product-detail.js"></script>
+</body></html>

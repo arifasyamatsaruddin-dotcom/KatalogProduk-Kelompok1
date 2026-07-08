@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="id" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart - Sneaker Labs</title>
+    
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        #loginModal {
+            display: none !important;
+            visibility: hidden !important;
+            opacity: 0 !important;
+            pointer-events: none !important;
+        }
+
+        #loginModal[aria-hidden="false"] {
+            display: flex !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+            pointer-events: auto !important;
+        }
+    </style>
+
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-primary-container": "#111111",
+                        "surface-container": "#f3f4f6",
+                        "surface-tint": "#000000",
+                        "error-container": "#ffdad6",
+                        "background": "#ffffff",
+                        "secondary-fixed-dim": "#9ca3af",
+                        "on-primary": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "surface": "#ffffff",
+                        "inverse-surface": "#111111",
+                        "error": "#ba1a1a",
+                        "tertiary-fixed": "#e5e7eb",
+                        "secondary-fixed": "#e5e7eb",
+                        "on-error-container": "#93000a",
+                        "primary-fixed": "#e5e7eb",
+                        "on-error": "#ffffff",
+                        "surface-container-highest": "#e5e7eb",
+                        "primary": "#000000",
+                        "surface-variant": "#f3f4f6",
+                        "on-secondary-fixed": "#000000",
+                        "on-primary-fixed-variant": "#000000",
+                        "primary-fixed-dim": "#9ca3af",
+                        "inverse-primary": "#9ca3af",
+                        "surface-container-high": "#e5e7eb",
+                        "surface-dim": "#e5e7eb",
+                        "on-primary-fixed": "#000000",
+                        "tertiary": "#4b5563",
+                        "secondary-container": "#f3f4f6",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-container": "#111111",
+                        "outline": "#6b7280",
+                        "surface-container-low": "#fafafa",
+                        "on-surface-variant": "#4b5563",
+                        "secondary": "#4b5563",
+                        "on-background": "#000000",
+                        "outline-variant": "#d1d5db",
+                        "inverse-on-surface": "#fafafa",
+                        "on-secondary-fixed-variant": "#4b5563",
+                        "on-tertiary-fixed-variant": "#4b5563",
+                        "primary-container": "#000000",
+                        "on-tertiary-fixed": "#000000",
+                        "tertiary-container": "#e5e7eb",
+                        "surface-bright": "#ffffff",
+                        "on-surface": "#000000",
+                        "on-secondary-container": "#111111",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-fixed-dim": "#9ca3af"
+                    },
+                    spacing: {
+                        "margin-mobile": "20px",
+                        "margin-desktop": "64px",
+                        "gutter": "24px",
+                        "container-max": "1440px"
+                    },
+                    fontFamily: {
+                        "display-lg": ["Space Grotesk"],
+                        "body-md": ["Inter"],
+                        "label-md": ["Space Grotesk"],
+                        "display-sm": ["Space Grotesk"],
+                        "body-lg": ["Inter"],
+                        "label-sm": ["Space Grotesk"],
+                        "headline-lg": ["Space Grotesk"],
+                        "headline-md": ["Space Grotesk"],
+                        "headline-lg-mobile": ["Space Grotesk"]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background font-body-md">
+
+    <!-- Header/Navigation -->
+    <header class="navbar-shell fixed top-0 w-full z-50 bg-white/80 backdrop-blur-xl border-b border-black/5 h-20 font-display-lg text-label-md">
+        <nav class="flex justify-between items-center px-margin-mobile md:px-margin-desktop h-full w-full max-w-container-max mx-auto">
+            <div class="navbar-brand-group flex items-center gap-10">
+                <a class="brand-logo font-display-lg text-headline-md" href="home.html">SNEAKER LABS</a>
+                <div class="hidden md:flex items-center gap-6 navbar-links">
+                    <a href="home.html" class="nav-link font-display-lg text-label-sm uppercase tracking-widest text-secondary hover:text-primary transition-colors pb-1">Home</a>
+                    <a href="catalog.html" class="nav-link font-display-lg text-label-sm uppercase tracking-widest text-secondary hover:text-primary transition-colors pb-1">Catalog</a>
+                    <a href="kolaborasi.html" class="nav-link font-display-lg text-label-sm uppercase tracking-widest text-secondary hover:text-primary transition-colors pb-1">Collaborations</a>
+                    <a href="lab.html" class="nav-link font-display-lg text-label-sm uppercase tracking-widest text-secondary hover:text-primary transition-colors pb-1">Lab</a>
+                    <a href="contact.html" class="nav-link font-display-lg text-label-sm uppercase tracking-widest text-secondary hover:text-primary transition-colors pb-1">Contact</a>
+                    <a href="about.html" class="nav-link font-display-lg text-label-sm uppercase tracking-widest text-secondary hover:text-primary transition-colors pb-1">About</a>
+                </div>
+            </div>
+            
+            <div class="nav-actions flex items-center gap-4">
+                <!-- Search Box -->
+                <div class="hidden lg:flex items-center bg-surface-container px-4 py-1.5 rounded-full border border-outline-variant search-container">
+                    <span class="material-symbols-outlined text-secondary scale-90">search</span>
+                    <input class="bg-transparent border-none focus:ring-0 text-xs uppercase tracking-widest text-on-surface placeholder-secondary w-40 search-input" placeholder="SEARCH SNEAKERS..." type="text" id="searchInput">
+                    <button class="hidden" id="searchBtn"></button>
+                </div>
+                
+                 <!-- Auth Actions -->
+                <div class="auth-actions">
+                    <span class="auth-control login-status text-secondary text-xs uppercase tracking-wider opacity-0 invisible pointer-events-none" id="loginStatus"></span>
+                    <button class="auth-control login-btn bg-transparent border border-primary text-primary px-4 py-2 text-xs font-bold uppercase tracking-wider hover:bg-primary hover:text-white transition-colors" id="loginBtn">Sign In</button>
+                    <button class="auth-control register-btn bg-primary text-white px-4 py-2 text-xs font-bold uppercase tracking-wider hover:bg-primary/95 transition-colors" id="registerBtn">Sign Up</button>
+                    <button class="auth-control logout-btn bg-transparent border border-red-500 text-red-500 px-4 py-2 text-xs font-bold uppercase tracking-wider hover:bg-red-500 hover:text-white transition-colors opacity-0 invisible pointer-events-none" id="logoutBtn">Logout</button>
+                </div>
+
+                <!-- Wishlist -->
+                <button class="icon-btn wishlist-btn text-on-surface hover:text-primary transition-all duration-300 relative flex items-center p-1" id="wishlistBtn" title="Wishlist">
+                    <span class="material-symbols-outlined">favorite</span>
+                    <span class="absolute -top-1 -right-1 bg-primary text-white text-[9px] font-bold rounded-full w-4 h-4 flex items-center justify-center wishlist-count">0</span>
+                </button>
+
+                <!-- Cart -->
+                <button class="icon-btn cart-btn text-on-surface hover:text-primary transition-all duration-300 relative flex items-center p-1" id="cartPanelBtn" title="Shopping Cart">
+                    <span class="material-symbols-outlined">shopping_cart</span>
+                    <span class="absolute -top-1 -right-1 bg-primary text-white text-[9px] font-bold rounded-full w-4 h-4 flex items-center justify-center cart-count">0</span>
+                </button>
+
+                <!-- Profile Button & Dropdown -->
+                <div class="relative flex items-center">
+                    <button class="icon-btn profile-btn text-on-surface hover:text-primary transition-all duration-300 relative flex items-center p-1 hidden" id="profileBtn" title="User Profile">
+                        <span class="material-symbols-outlined">person</span>
+                    </button>
+                    <div id="profileDropdown" class="hidden absolute right-0 top-full mt-2 w-64 bg-white border border-black/10 shadow-xl rounded-xl p-4 z-50 transition-all duration-200 opacity-0 transform scale-95 origin-top-right">
+                        <h4 class="font-display-lg text-xs font-bold uppercase tracking-widest text-primary mb-3">USER INFORMATION</h4>
+                        <div class="space-y-3 font-body-md text-xs text-left">
+                            <div class="flex flex-col border-b border-black/5 pb-2">
+                                <span class="text-[10px] text-secondary uppercase">Email</span>
+                                <span id="profileEmail" class="font-semibold text-on-background break-all">-</span>
+                            </div>
+                            <div class="flex flex-col border-b border-black/5 pb-2">
+                                <span class="text-[10px] text-secondary uppercase">Metode Sign In</span>
+                                <span id="profileProvider" class="font-semibold text-on-background uppercase">-</span>
+                            </div>
+                            <div class="flex flex-col border-b border-black/5 pb-2">
+                                <span class="text-[10px] text-secondary uppercase">Session Status</span>
+                                <span class="font-semibold text-green-600 flex items-center gap-1">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-green-600 animate-pulse"></span>
+                                    ONLINE
+                                </span>
+                            </div>
+                        </div>
+                        <button id="profileLogoutBtn" class="mt-4 w-full bg-red-500 hover:bg-red-600 text-white py-2 rounded-lg font-display-lg text-xs font-bold uppercase tracking-widest transition-all">Logout</button>
+                    </div>
+                </div>
+
+                <!-- Mobile Menu Toggle -->
+                <button class="icon-btn mobile-menu-toggle md:hidden material-symbols-outlined text-on-surface hover:text-primary" id="mobileMenuToggle" aria-label="Open menu">menu</button>
+            </div>
+        </nav>
+        
+        <!-- Mobile Navigation Overlay -->
+        <div class="hidden fixed inset-0 top-20 bg-white z-40 flex flex-col p-6 gap-4 border-t border-black/5 md:hidden nav-menu">
+            <a class="font-display-lg text-lg uppercase tracking-widest text-secondary hover:text-primary transition-colors py-2 border-b border-black/5 nav-link" href="home.html">Home</a>
+            <a class="font-display-lg text-lg uppercase tracking-widest text-secondary hover:text-primary transition-colors py-2 border-b border-black/5 nav-link" href="catalog.html">Catalog</a>
+            <a class="font-display-lg text-lg uppercase tracking-widest text-secondary hover:text-primary transition-colors py-2 border-b border-black/5 nav-link" href="kolaborasi.html">Collaborations</a>
+            <a class="font-display-lg text-lg uppercase tracking-widest text-secondary hover:text-primary transition-colors py-2 border-b border-black/5 nav-link" href="lab.html">Lab</a>
+            <a class="font-display-lg text-lg uppercase tracking-widest text-secondary hover:text-primary transition-colors py-2 border-b border-black/5 nav-link" href="contact.html">Contact</a>
+            <a class="font-display-lg text-lg uppercase tracking-widest text-secondary hover:text-primary transition-colors py-2 border-b border-black/5 nav-link" href="about.html">About</a>
+        </div>
+    </header>
+
+    <!-- Login Modal Backdrop -->
+    <div class="fixed inset-0 bg-black/60 backdrop-blur-sm z-[100] flex items-center justify-center login-modal-backdrop" id="loginModal" hidden>
+        <div class="bg-white border border-black/10 p-8 max-w-md w-full relative rounded-xl shadow-2xl login-modal-card" role="dialog" aria-modal="true" aria-labelledby="loginTitle">
+            <button class="absolute top-4 right-4 material-symbols-outlined text-secondary hover:text-primary transition-all login-close-btn" type="button" id="closeLoginModal" aria-label="Close login form">close</button>
+            <h3 id="loginTitle" class="font-display-lg text-headline-md uppercase text-primary font-bold mb-2 login-title">Sign In ke Sneaker Labs</h3>
+            <p class="font-body-md text-xs text-secondary mb-6 login-subtitle">Use a demo account to preview the login interface.</p>
+            
+            <form class="space-y-4 login-form" id="loginForm">
+                <div class="flex flex-col gap-1 login-field">
+                    <span class="font-display-lg text-[10px] text-secondary uppercase tracking-widest">Email</span>
+                    <input type="email" id="loginEmail" placeholder="nama@contoh.com" required class="bg-surface-container-low border border-black/10 focus:border-primary focus:ring-0 text-sm py-2 px-3 outline-none transition-colors">
+                </div>
+                <div class="flex flex-col gap-1 login-field">
+                    <span class="font-display-lg text-[10px] text-secondary uppercase tracking-widest">Password</span>
+                    <input type="password" id="loginPassword" placeholder="••••••••" required class="bg-surface-container-low border border-black/10 focus:border-primary focus:ring-0 text-sm py-2 px-3 outline-none transition-colors">
+                </div>
+                <div class="pt-2 flex flex-col gap-2 login-actions">
+                    <button type="submit" id="modalSubmitBtn" class="w-full bg-primary text-white py-3 font-display-lg text-xs font-bold uppercase tracking-widest hover:bg-primary/95 transition-all rounded-lg login-submit" data-mode="login">Sign In</button>
+                    <button type="button" id="toggleModeBtn" class="w-full bg-transparent border border-black/10 text-secondary py-3 font-display-lg text-xs font-bold uppercase tracking-widest hover:border-primary hover:text-primary transition-all rounded-lg text-center" data-mode="register">Sign Up Akun</button>
+                    <button type="button" class="w-full bg-transparent border border-black/10 text-on-background py-3 font-display-lg text-xs font-bold uppercase tracking-widest hover:bg-surface-container-low transition-all rounded-lg flex items-center justify-center gap-2 login-submit" id="googleLoginBtn">
+                        <svg viewBox="0 0 24 24" aria-hidden="true" class="w-4 h-4 google-icon">
+                            <path fill="#4285F4" d="M21.805 10.023H12v4.02h5.39c-.23 1.22-.93 2.26-1.98 2.95v2.46h3.2c1.88-1.73 2.96-4.27 2.96-7.31 0-.69-.06-1.35-.18-1.99z"></path>
+                            <path fill="#34A853" d="M12 22c2.68 0 4.93-.88 6.57-2.38l-3.2-2.46c-.89.6-2.02.95-3.37.95-2.59 0-4.79-1.75-5.58-4.1H3.13v2.58A10 10 0 0 0 12 22z"></path>
+                            <path fill="#FBBC05" d="M6.42 13.01A6.03 6.03 0 0 1 6.42 10.99V8.41H3.13a10 10 0 0 0 0 4.6l3.29-1.99z"></path>
+                            <path fill="#EA4335" d="M12 6.05c1.46 0 2.77.5 3.8 1.48l2.85-2.85C16.93 3.44 14.68 2.5 12 2.5A10 10 0 0 0 3.13 8.41l3.29 2.58C7.21 7.8 9.41 6.05 12 6.05z"></path>
+                        </svg>
+                        Sign In dengan Google
+                    </button>
+                </div>
+                <p class="text-[10px] text-secondary text-center uppercase tracking-widest mt-4 login-note">Tip: gunakan email demo@sneakerlabs.com &amp; demo123.</p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Cart Page Content -->
+    <main class="pt-20">
+        <!-- Banner -->
+        <section class="py-16 text-center bg-surface-container border-b border-black/5 mb-12">
+            <span class="text-primary font-label-md text-xs uppercase tracking-[0.3em] font-bold">Checkout</span>
+            <h1 class="font-display-lg text-4xl md:text-5xl uppercase text-on-background font-bold tracking-tight mt-2">Archive Cart</h1>
+            <p class="font-body-md text-secondary max-w-xl mx-auto mt-4 px-margin-mobile">Review your specimens and proceed to checkout under secure protocols</p>
+        </section>
+
+        <div class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto pb-16">
+            <div class="grid grid-cols-1 lg:grid-cols-[65%_35%] gap-12">
+            <!-- Left Column: Cart Items -->
+            <div class="space-y-6">
+                <!-- Table headers desktop only -->
+                <div class="hidden md:grid grid-cols-[120px_1fr_120px_150px_100px_40px] gap-6 pb-4 border-b border-black/5 font-display-lg text-[10px] text-secondary uppercase tracking-widest font-bold">
+                    <span>Specimen</span>
+                    <span>Identification</span>
+                    <span>Variant</span>
+                    <span>Quantity</span>
+                    <span class="text-right">Price</span>
+                    <span></span>
+                </div>
+
+                <!-- Dynamic Items -->
+                <div id="cartItems" class="space-y-4">
+                    <!-- Loaded dynamically by cart.js -->
+                </div>
+
+                <!-- Empty cart message -->
+                <div class="empty-cart-message text-center py-16 space-y-4" id="emptyCartMessage" style="display: none;">
+                    <p class="font-body-md text-secondary">Your shopping cart is empty.</p>
+                    <a href="catalog.html" class="inline-block bg-primary text-white px-8 py-3.5 font-display-lg text-xs uppercase tracking-widest hover:bg-primary/95 transition-all rounded-lg font-bold shadow-lg shadow-primary/10">Continue Shopping</a>
+                </div>
+            </div>
+
+            <!-- Right Column: Summary Box -->
+            <aside class="space-y-6">
+                <div class="bg-white border border-black/5 rounded-xl p-8 space-y-6 sticky top-28 shadow-xl">
+                    <h2 class="font-display-lg text-2xl uppercase border-b border-black/5 pb-4 text-on-background font-bold tracking-tight">Session Summary</h2>
+                    
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-center">
+                            <span class="text-secondary uppercase text-[10px] tracking-widest font-display-lg font-bold">Subtotal</span>
+                            <span class="text-on-background font-display-lg text-sm font-bold" id="subtotal">$0.00</span>
+                        </div>
+                        
+                        <div class="space-y-1">
+                            <label class="text-secondary uppercase text-[10px] tracking-widest font-display-lg font-bold block">Logistics/Shipping</label>
+                            <select class="w-full bg-surface-container-low border border-black/10 font-label-md text-xs text-primary py-2 px-3 focus:ring-0 focus:border-primary transition-colors cursor-pointer outline-none shipping-select" id="shippingSelect">
+                                <option value="0">Standard (Free)</option>
+                                <option value="10">Express ($10.00)</option>
+                                <option value="20">Overnight ($20.00)</option>
+                            </select>
+                        </div>
+                        
+                        <div class="flex justify-between items-center">
+                            <span class="text-secondary uppercase text-[10px] tracking-widest font-display-lg font-bold">Tax (10%)</span>
+                            <span class="text-on-background font-display-lg text-sm font-bold" id="tax">$0.00</span>
+                        </div>
+                    </div>
+
+                    <!-- Promo Section -->
+                    <div class="pt-4 border-t border-black/5 promo-section">
+                        <label class="font-display-lg text-[10px] text-secondary uppercase block mb-2 tracking-widest font-bold">Promo Authentication</label>
+                        <div class="flex border-b border-black/10 focus-within:border-primary transition-colors promo-input-group">
+                            <input class="bg-transparent border-none w-full font-display-lg text-xs uppercase px-0 py-2 placeholder:text-outline-variant outline-none focus:ring-0" placeholder="ENTER CODE" type="text" id="promoCode">
+                            <button class="font-display-lg text-xs text-primary hover:text-primary-fixed-variant transition-colors uppercase px-4 font-bold" id="applyPromo">Apply</button>
+                        </div>
+                    </div>
+
+                    <!-- Total -->
+                    <div class="pt-4 border-t border-black/5">
+                        <div class="flex justify-between items-end mb-6">
+                            <span class="font-display-lg text-lg uppercase text-on-background font-bold">Total</span>
+                            <span class="font-display-lg text-4xl text-primary tracking-tighter font-bold leading-none" id="total">$0.00</span>
+                        </div>
+                        
+                        <button class="w-full bg-primary text-white py-4 font-display-lg text-xs uppercase tracking-widest hover:bg-primary/95 transition-all active:scale-[0.98] rounded-lg shadow-lg shadow-primary/10 font-bold" id="checkoutBtn">
+                            Proceed to Checkout
+                        </button>
+                    </div>
+
+                    <!-- Security Alert -->
+                    <div class="flex items-center gap-2 text-secondary text-[9px] font-display-lg justify-center uppercase opacity-55 pt-2 tracking-widest">
+                        <span class="material-symbols-outlined text-[12px]">lock</span>
+                        <span>Encrypted Protocol Secured</span>
+                    </div>
+                </div>
+            </aside>
+        </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white w-full py-16 px-margin-desktop border-t border-black/5 mt-16">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-12 w-full max-w-container-max mx-auto">
+            <div class="flex flex-col gap-6">
+                <a class="font-display-lg text-2xl font-bold text-primary tracking-tighter" href="#">SNEAKER LABS</a>
+                <p class="font-display-lg text-[10px] uppercase tracking-widest text-secondary opacity-65 leading-relaxed">
+                    © 2024 SNEAKER LABS. ENGINEERED FOR THE ARCHIVE.
+                </p>
+            </div>
+            <div class="flex flex-col gap-3">
+                <h4 class="font-display-lg text-xs uppercase tracking-widest text-on-background font-bold mb-2">SHOP</h4>
+                <a class="font-display-lg text-[10px] uppercase tracking-widest text-secondary hover:text-primary transition-all hover:translate-x-1" href="catalog.html">NEW ARRIVALS</a>
+                <a class="font-display-lg text-[10px] uppercase tracking-widest text-secondary hover:text-primary transition-all hover:translate-x-1" href="catalog.html">BEST SELLERS</a>
+                <a class="font-display-lg text-[10px] uppercase tracking-widest text-secondary hover:text-primary transition-all hover:translate-x-1" href="catalog.html">VAULT ARCHIVE</a>
+            </div>
+            <div class="flex flex-col gap-3">
+                <h4 class="font-display-lg text-xs uppercase tracking-widest text-on-background font-bold mb-2">TECH/SPECS</h4>
+                <a class="font-display-lg text-[10px] uppercase tracking-widest text-secondary hover:text-primary transition-all hover:translate-x-1" href="#">POLICIES</a>
+                <a class="font-display-lg text-[10px] uppercase tracking-widest text-secondary hover:text-primary transition-all hover:translate-x-1" href="#">SIZING</a>
+                <a class="font-display-lg text-[10px] uppercase tracking-widest text-secondary hover:text-primary transition-all hover:translate-x-1" href="#">MATERIALS</a>
+            </div>
+            <div class="flex flex-col gap-3">
+                <h4 class="font-display-lg text-xs uppercase tracking-widest text-on-background font-bold mb-2">CONNECT</h4>
+                <a class="font-display-lg text-[10px] uppercase tracking-widest text-secondary hover:text-primary transition-all hover:translate-x-1" href="#">CONTACT</a>
+                <a class="font-display-lg text-[10px] uppercase tracking-widest text-secondary hover:text-primary transition-all hover:translate-x-1" href="#">PAYMENT</a>
+                <a class="font-display-lg text-[10px] uppercase tracking-widest text-secondary hover:text-primary transition-all hover:translate-x-1" href="#">SHIPPING</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Promo Codes database used by cart page
+        const promoCodes = {
+            'LAB20': 0.20,
+            'SNEAKER10': 0.10,
+            'FREE50': 0.05
+        };
+    </script>
+    <script src="products.js"></script>
+    <script>
+        (function() {
+            const hideLoginModalEarly = function() {
+                const modal = document.getElementById('loginModal');
+                if (!modal) return;
+                modal.hidden = true;
+                modal.setAttribute('hidden', '');
+                modal.style.display = 'none';
+                modal.style.visibility = 'hidden';
+                modal.style.opacity = '0';
+                modal.setAttribute('aria-hidden', 'true');
+                document.body.style.overflow = '';
+                document.documentElement.style.overflow = '';
+            };
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', hideLoginModalEarly, { once: true });
+            } else {
+                hideLoginModalEarly();
+            }
+        })();
+    </script>
+    <script src="script.js"></script>
+    <script src="cart.js"></script>
+</body>
+</html>

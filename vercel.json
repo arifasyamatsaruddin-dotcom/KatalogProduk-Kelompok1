@@ -1,0 +1,17 @@
+{
+  "cleanUrls": true,
+  "rewrites": [
+    {
+      "source": "/",
+      "destination": "/Frontend/pages/home.html"
+    },
+    {
+      "source": "/home",
+      "destination": "/Frontend/pages/home.html"
+    },
+    {
+      "source": "/:path((?!Frontend|api|styles|scripts|images|assets|_next|favicon.ico).*)",
+      "destination": "/Frontend/pages/:path.html"
+    }
+  ]
+}
