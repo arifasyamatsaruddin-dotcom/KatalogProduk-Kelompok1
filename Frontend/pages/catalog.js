@@ -79,12 +79,29 @@ function setupSearchCatalog() {
 
 function setupCatalogSearchBox() {
     const searchInput = document.getElementById('searchInput');
+    const mobileSearchInput = document.getElementById('mobileSearchInput');
     const searchBtn = document.getElementById('searchBtn');
 
     if (searchInput) {
         searchInput.addEventListener('keypress', function(e) {
             if (e.key === 'Enter') {
                 e.preventDefault();
+                applyFilters();
+            }
+        });
+    }
+
+    if (mobileSearchInput) {
+        mobileSearchInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                if (searchInput) {
+                    searchInput.value = mobileSearchInput.value;
+                }
+                const navMenu = document.querySelector('.nav-menu');
+                if (navMenu) {
+                    navMenu.classList.remove('active');
+                }
                 applyFilters();
             }
         });

@@ -308,6 +308,37 @@
                 </div>
             </section>
 
+            <!-- Section 3.5: Real-time Sector Diagnostics (Dynamic API integration via useEffect) -->
+            <section class="grid grid-cols-1 gap-12 p-8 bg-surface-container border border-outline-variant rounded-xl relative overflow-hidden">
+                <div class="space-y-6">
+                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                        <div>
+                            <span class="text-primary font-label-md text-xs uppercase tracking-[0.3em] font-bold">Satellite Data Feed</span>
+                            <h2 class="font-display-lg text-3xl uppercase font-bold text-on-background tracking-tight mt-1">Sector Metrics</h2>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="font-display-lg text-[10px] uppercase tracking-widest text-secondary font-bold">Select Sector:</span>
+                            <select id="sectorSelect" class="bg-white border border-black/10 text-xs font-bold text-primary py-2 px-3 focus:ring-0 focus:border-primary transition-colors cursor-pointer outline-none rounded-lg">
+                                <option value="tokyo">Tokyo (Sector Alpha)</option>
+                                <option value="berlin">Berlin (Sector Beta)</option>
+                                <option value="newyork">New York (Sector Gamma)</option>
+                            </select>
+                        </div>
+                    </div>
+                    <p class="font-body-md text-secondary text-sm">
+                        Monitoring real-time environmental diagnostics for design inspiration and material testing environments in our international sectors. Powered by dynamic weather metrics.
+                    </p>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6" id="sectorMetricsContainer">
+                        <!-- Loaded dynamically by useEffect -->
+                        <div class="flex flex-col items-center justify-center p-12 col-span-3 space-y-4">
+                            <span class="material-symbols-outlined text-[32px] animate-spin text-primary">sync</span>
+                            <p class="font-display-lg text-[10px] uppercase tracking-widest text-secondary font-bold">Synchronizing Sector Satellite Feed...</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             <!-- Section 4: Quality Control -->
             <section class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center md:flex-row-reverse">
                 <div class="md:order-2 space-y-6">
@@ -401,5 +432,7 @@
         })();
     </script>
     <script src="script.js"></script>
+    <script src="../scripts/utils/helpers.js"></script>
+    <script src="../scripts/pages/lab.js"></script>
 </body>
 </html>

@@ -8,14 +8,27 @@ document.addEventListener('DOMContentLoaded', async () => {
   const addToCartButtons = document.querySelectorAll('[data-add-to-cart]');
 
   const sizeButtons = document.querySelectorAll('.grid.grid-cols-4 button, .grid.grid-cols-5 button');
+  
+  // Use custom useState hook to manage the selected size state reactively
+  const [getSelectedSize, setSelectedSize, subscribeSize] = useState('09');
+
+  // React to size state change and automatically re-render size button styles
+  subscribeSize((newSize) => {
+    sizeButtons.forEach((btn) => {
+      if (btn.classList.contains('cursor-not-allowed') || btn.classList.contains('opacity-30')) return;
+      const sizeText = btn.textContent.trim();
+      if (sizeText === newSize) {
+        btn.className = 'border-2 border-primary bg-primary text-on-primary py-md text-label-md font-bold';
+      } else {
+        btn.className = 'border border-outline-variant py-md text-label-md hover:border-primary hover:text-primary transition-all';
+      }
+    });
+  });
+
   sizeButtons.forEach((btn) => {
     if (btn.classList.contains('cursor-not-allowed') || btn.classList.contains('opacity-30')) return;
     btn.addEventListener('click', () => {
-      sizeButtons.forEach((b) => {
-        if (b.classList.contains('cursor-not-allowed') || b.classList.contains('opacity-30')) return;
-        b.className = 'border border-outline-variant py-md text-label-md hover:border-primary hover:text-primary transition-all';
-      });
-      btn.className = 'border-2 border-primary bg-primary text-on-primary py-md text-label-md font-bold';
+      setSelectedSize(btn.textContent.trim());
     });
   });
 
@@ -144,8 +157,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (event) event.preventDefault();
     if (!product) return;
     try {
-      const selectedSizeBtn = document.querySelector('.grid.grid-cols-4 button.bg-primary, .grid.grid-cols-5 button.bg-primary') || document.querySelector('.grid.grid-cols-4 button, .grid.grid-cols-5 button');
-      const sizeText = selectedSizeBtn ? selectedSizeBtn.textContent.trim() : '09';
+      const sizeText = getSelectedSize();
       const sizeFormatted = `${sizeText} US`;
 
       try {

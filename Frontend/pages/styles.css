@@ -5,6 +5,12 @@
   --background-color: #ffffff;
   --on-background: #000000;
   --outline-variant: #d1d5db;
+
+  /* Override Bootstrap colors to prevent blue background/borders/text */
+  --bs-primary: #000000 !important;
+  --bs-primary-rgb: 0, 0, 0 !important;
+  --bs-link-color: #000000 !important;
+  --bs-link-hover-color: #222222 !important;
 }
 
 /* Custom scrollbar */
@@ -35,6 +41,54 @@
 
 .nav-menu.active {
   display: flex !important;
+}
+
+@media (max-width: 768px) {
+  .navbar-brand-group {
+    gap: 0.75rem;
+  }
+
+  .navbar-shell .nav-link {
+    display: block;
+    padding: 0.5rem 0;
+  }
+
+  .nav-actions {
+    gap: 0.35rem;
+  }
+
+  .search-container {
+    display: none;
+  }
+
+  .auth-actions {
+    display: none !important;
+  }
+
+  .profile-btn {
+    display: none !important;
+  }
+
+  .icon-btn {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .mobile-menu-toggle {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  /* Mobile Search and Auth styles inside the menu overlay */
+  .mobile-search-container {
+    width: 100%;
+  }
+
+  .mobile-auth-container {
+    margin-top: auto;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+  }
 }
 
 /* Animations */
@@ -83,18 +137,18 @@
   text-align: left;
 }
 .search-suggestion-item:hover {
-  background: #faf8ff;
+  background: #f3f4f6;
 }
 .search-suggestion-item strong {
   font-family: 'Space Grotesk', sans-serif;
   font-size: 0.875rem;
-  color: #131b2e;
+  color: #000000;
   text-transform: uppercase;
 }
 .search-suggestion-item span {
   font-family: 'Inter', sans-serif;
   font-size: 0.75rem;
-  color: #505f76;
+  color: #4b5563;
 }
 
 /* Welcome Loading Screen animations */
@@ -153,11 +207,19 @@
   height: 100% !important;
 }
 
-.navbar-links {
-  display: flex !important;
-  align-items: center !important;
-  gap: 1.5rem !important;
-  height: 100% !important;
+@media (min-width: 768px) {
+  .navbar-links {
+    display: flex !important;
+    align-items: center !important;
+    gap: 1.5rem !important;
+    height: 100% !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .navbar-links {
+    display: none !important;
+  }
 }
 
 .nav-link {

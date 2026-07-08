@@ -156,13 +156,11 @@
   }
 
   .auth-actions {
-    min-width: 0;
-    gap: 0.25rem;
+    display: none !important;
   }
 
-  .auth-actions .auth-control {
-    padding: 0.35rem 0.6rem;
-    font-size: 0.65rem;
+  .profile-btn {
+    display: none !important;
   }
 
   .icon-btn {
@@ -173,6 +171,17 @@
   .mobile-menu-toggle {
     width: 2rem;
     height: 2rem;
+  }
+
+  /* Mobile Search and Auth styles inside the menu overlay */
+  .mobile-search-container {
+    width: 100%;
+  }
+
+  .mobile-auth-container {
+    margin-top: auto;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
   }
 }
 
@@ -206,11 +215,19 @@
   height: 100% !important;
 }
 
-.navbar-links {
-  display: flex !important;
-  align-items: center !important;
-  gap: 1.5rem !important;
-  height: 100% !important;
+@media (min-width: 768px) {
+  .navbar-links {
+    display: flex !important;
+    align-items: center !important;
+    gap: 1.5rem !important;
+    height: 100% !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .navbar-links {
+    display: none !important;
+  }
 }
 
 .nav-link {

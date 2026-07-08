@@ -150,9 +150,9 @@ function setupMobileMenu() {
     }
 }
 
-// Search Functionality
 function setupSearch() {
     const searchInput = document.getElementById('searchInput');
+    const mobileSearchInput = document.getElementById('mobileSearchInput');
     const searchBtn = document.getElementById('searchBtn');
 
     if (searchInput) {
@@ -171,6 +171,15 @@ function setupSearch() {
                 return;
             }
             showSearchSuggestions(query);
+        });
+    }
+
+    if (mobileSearchInput) {
+        mobileSearchInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                performSearch();
+            }
         });
     }
 
@@ -219,8 +228,16 @@ function hideSearchSuggestions() {
 
 function performSearch() {
     const searchInput = document.getElementById('searchInput');
+    const mobileSearchInput = document.getElementById('mobileSearchInput');
+    let query = '';
+
     if (searchInput && searchInput.value.trim()) {
-        const query = searchInput.value.trim().toLowerCase();
+        query = searchInput.value.trim().toLowerCase();
+    } else if (mobileSearchInput && mobileSearchInput.value.trim()) {
+        query = mobileSearchInput.value.trim().toLowerCase();
+    }
+
+    if (query) {
         localStorage.setItem('searchQuery', query);
         hideSearchSuggestions();
         window.location.href = 'catalog.html';
@@ -277,6 +294,7 @@ function setupLoginModal() {
     const modalSubtitle = document.querySelector('.login-subtitle');
 
     window.openLoginModal = () => openModal('checkout');
+    window.openLoginModalFromMobile = openModal;
     loginBtn.addEventListener('click', () => openModal('login'));
     if (registerBtn) {
         registerBtn.addEventListener('click', () => openModal('register'));
@@ -490,6 +508,74 @@ function updateLoginUI() {
     }
     const loginForm = document.getElementById('loginForm');
     if (loginForm) loginForm.reset();
+    
+    // Dynamically render mobile auth elements in hamburger menu
+    renderMobileAuthUI();
+}
+
+function renderMobileAuthUI() {
+    const containers = document.querySelectorAll('.mobile-auth-container');
+    if (!containers.length) return;
+
+    const user = localStorage.getItem('loginUser');
+    const savedName = localStorage.getItem('sneakerlabs_display_name') || (user && user !== '-' ? user.split('@')[0] : '');
+
+    containers.forEach(container => {
+        if (!user) {
+            container.innerHTML = `
+                <div class="d-flex flex-column gap-2 w-100 mt-3">
+                    <button class="w-100 bg-transparent border border-black text-black py-2.5 text-xs font-bold uppercase tracking-wider hover:bg-black hover:text-white transition-all rounded-lg" id="mobileLoginBtn">Sign In</button>
+                    <button class="w-100 bg-black text-white py-2.5 text-xs font-bold uppercase tracking-wider hover:bg-black/95 transition-all rounded-lg" id="mobileRegisterBtn">Sign Up</button>
+                </div>
+            `;
+            // Bind events
+            const mobileLoginBtn = container.querySelector('#mobileLoginBtn');
+            const mobileRegisterBtn = container.querySelector('#mobileRegisterBtn');
+            if (mobileLoginBtn) {
+                mobileLoginBtn.addEventListener('click', () => {
+                    const navMenu = document.querySelector('.nav-menu');
+                    if (navMenu) navMenu.classList.remove('active');
+                    if (window.openLoginModalFromMobile) {
+                        window.openLoginModalFromMobile('login');
+                    }
+                });
+            }
+            if (mobileRegisterBtn) {
+                mobileRegisterBtn.addEventListener('click', () => {
+                    const navMenu = document.querySelector('.nav-menu');
+                    if (navMenu) navMenu.classList.remove('active');
+                    if (window.openLoginModalFromMobile) {
+                        window.openLoginModalFromMobile('register');
+                    }
+                });
+            }
+        } else {
+            container.innerHTML = `
+                <div class="d-flex flex-column gap-3 text-start w-100 border-top border-black/5 pt-3">
+                    <div class="d-flex flex-column">
+                        <span class="text-[9px] text-muted uppercase tracking-widest font-bold">User</span>
+                        <span class="text-sm font-semibold text-black">${savedName}</span>
+                        <span class="text-xs text-muted text-break">${user}</span>
+                    </div>
+                    <button id="mobileLogoutBtn" class="w-100 bg-danger text-white py-2.5 rounded-lg text-xs font-bold uppercase tracking-widest transition-all border-0">Logout</button>
+                </div>
+            `;
+            const mobileLogoutBtn = container.querySelector('#mobileLogoutBtn');
+            if (mobileLogoutBtn) {
+                mobileLogoutBtn.addEventListener('click', () => {
+                    localStorage.removeItem('loginUser');
+                    localStorage.removeItem('loginProvider');
+                    localStorage.removeItem('authToken');
+                    localStorage.removeItem('sneakerlabs-user');
+                    localStorage.removeItem('sneakerlabs-token');
+                    const navMenu = document.querySelector('.nav-menu');
+                    if (navMenu) navMenu.classList.remove('active');
+                    showNotification('✓ Successfully logged out.');
+                    updateLoginUI();
+                });
+            }
+        }
+    });
 }
 
 function setupLogout() {
@@ -948,3 +1034,5 @@ style.textContent = `
     }
 `;
 document.head.appendChild(style);
+
+
