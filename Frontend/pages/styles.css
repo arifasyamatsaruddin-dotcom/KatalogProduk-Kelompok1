@@ -1,10 +1,10 @@
 /* Custom variables matching SneakerLabs style */
 :root {
-  --primary-color: #0040df;
-  --secondary-color: #505f76;
-  --background-color: #faf8ff;
-  --on-background: #131b2e;
-  --outline-variant: #c4c5d9;
+  --primary-color: #000000;
+  --secondary-color: #4b5563;
+  --background-color: #ffffff;
+  --on-background: #000000;
+  --outline-variant: #d1d5db;
 }
 
 /* Custom scrollbar */
@@ -12,24 +12,24 @@
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #f2f3ff;
+  background: #f3f4f6;
 }
 ::-webkit-scrollbar-thumb {
-  background: #c4c5d9;
+  background: #d1d5db;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #0040df;
+  background: #000000;
 }
 
 /* Custom classes for JS events */
 .size-btn.active {
-  background-color: #0040df !important;
+  background-color: #000000 !important;
   color: white !important;
-  border-color: #0040df !important;
+  border-color: #000000 !important;
 }
 
 .color-btn.active {
-  outline: 2px solid #0040df !important;
+  outline: 2px solid #000000 !important;
   outline-offset: 2px;
 }
 
@@ -121,4 +121,219 @@
 }
 .animate-fade-in {
   animation: fadeIn 0.8s forwards ease-out;
+}
+
+/* Premium Navbar Alignment and Layout */
+.navbar-shell {
+  height: 5rem !important;
+}
+
+.navbar-shell nav {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  height: 100% !important;
+}
+
+.navbar-brand-group {
+  display: flex !important;
+  align-items: center !important;
+  gap: 2rem !important;
+  flex-shrink: 0 !important;
+}
+
+.brand-logo {
+  font-family: 'Space Grotesk', sans-serif !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.1em !important;
+  white-space: nowrap !important;
+  flex-shrink: 0 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  height: 100% !important;
+}
+
+.navbar-links {
+  display: flex !important;
+  align-items: center !important;
+  gap: 1.5rem !important;
+  height: 100% !important;
+}
+
+.nav-link {
+  font-family: 'Space Grotesk', sans-serif !important;
+  font-weight: 500 !important;
+  font-size: 0.75rem !important;
+  letter-spacing: 0.05em !important;
+  text-transform: uppercase !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  height: 100% !important;
+  position: relative !important;
+  transition: all 0.2s ease !important;
+  padding: 0.5rem 0 !important;
+  border-bottom: 2px solid transparent !important;
+}
+
+.nav-link:hover {
+  color: var(--primary-color, #000000) !important;
+}
+
+.nav-link.text-primary {
+  color: var(--primary-color, #000000) !important;
+  border-bottom-color: var(--primary-color, #000000) !important;
+  font-weight: 700 !important;
+}
+
+.nav-actions {
+  display: flex !important;
+  align-items: center !important;
+  gap: 1.25rem !important; /* Spacing between primary groups */
+}
+
+.auth-actions {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.75rem !important; /* Spacing between Masuk & Daftar */
+  margin-right: 0.5rem !important;
+}
+
+/* Custom styling for aligned auth buttons */
+.auth-control.login-btn,
+.auth-control.register-btn,
+.auth-control.logout-btn {
+  height: 2.4rem !important;
+  width: auto !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: 9999px !important;
+  padding: 0 1.25rem !important;
+  font-family: 'Space Grotesk', sans-serif !important;
+  font-weight: 700 !important;
+  font-size: 0.75rem !important;
+  letter-spacing: 0.05em !important;
+  text-transform: uppercase !important;
+  white-space: nowrap !important;
+  transition: all 0.2s ease !important;
+}
+
+/* Search Bar animation & layout */
+.search-container {
+  height: 2.4rem !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  padding: 0 1rem !important;
+  border-radius: 9999px !important;
+  border: 1px solid var(--outline-variant, #d1d5db) !important;
+  background-color: var(--surface-container, #f3f4f6) !important;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, max-width 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  will-change: max-width, border-color, box-shadow;
+  max-width: 220px;
+  margin-left: 2rem !important;
+  margin-right: 2rem !important;
+}
+
+.search-container:focus-within {
+  border-color: var(--primary-color, #000000) !important;
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.05) !important;
+  max-width: 300px !important;
+}
+
+.search-input {
+  height: 100% !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: none !important;
+  background: transparent !important;
+  font-family: 'Space Grotesk', sans-serif !important;
+  font-size: 0.75rem !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.05em !important;
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  will-change: width;
+}
+
+.search-input:focus {
+  width: 200px !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.search-container:focus-within .material-symbols-outlined {
+  color: var(--primary-color, #000000) !important;
+  transform: scale(1.05);
+}
+
+.search-container .material-symbols-outlined {
+  transition: transform 0.3s ease, color 0.3s ease !important;
+}
+
+/* Icon Button alignment */
+.icon-btn {
+  display: inline-flex; /* Removed !important to allow Tailwind display overrides */
+  align-items: center !important;
+  justify-content: center !important;
+  width: 2.4rem !important;
+  height: 2.4rem !important;
+  border-radius: 9999px !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  position: relative !important;
+  transition: all 0.2s ease !important;
+  background: transparent !important;
+  color: var(--on-background, #000000) !important;
+}
+
+.icon-btn:hover {
+  background-color: rgba(0, 0, 0, 0.05) !important;
+  color: var(--primary-color, #000000) !important;
+}
+
+.icon-btn .material-symbols-outlined {
+  font-size: 1.25rem !important;
+}
+
+/* Align badge counts correctly on top-right */
+.icon-btn .wishlist-count,
+.icon-btn .cart-count {
+  position: absolute !important;
+  top: 0px !important;
+  right: 0px !important;
+  background-color: var(--primary-color, #000000) !important;
+  color: white !important;
+  font-size: 8px !important;
+  font-weight: 700 !important;
+  border-radius: 9999px !important;
+  width: 0.85rem !important;
+  height: 0.85rem !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+/* Mobile Hamburger Menu Toggle black background & white lines */
+.mobile-menu-toggle {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.mobile-menu-toggle:hover {
+  background-color: #222222 !important;
+  color: #ffffff !important;
+}
+
+@media (min-width: 768px) {
+  .mobile-menu-toggle {
+    display: none !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .mobile-menu-toggle {
+    display: inline-flex !important;
+  }
 }

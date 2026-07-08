@@ -137,7 +137,7 @@ function applyPromoCode() {
         const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
         const discountAmount = subtotal * discount;
         
-        alert(`Kode promo "${code}" berhasil! Diskon ${(discount * 100).toFixed(0)}% = $${discountAmount.toFixed(2)}`);
+        alert(`Promo code "${code}" applied! Discount ${(discount * 100).toFixed(0)}% = $${discountAmount.toFixed(2)}`);
         promoInput.value = '';
         
         // You could implement actual discount functionality here
@@ -147,9 +147,9 @@ function applyPromoCode() {
     }
 }
 
-async function proceedToCheckout() {
+function proceedToCheckout() {
     if (cart.length === 0) {
-        alert('Keranjang Anda kosong');
+        showNotification('Your cart is empty. Please add items to continue.');
         return;
     }
 
@@ -157,58 +157,22 @@ async function proceedToCheckout() {
         if (typeof window !== 'undefined' && typeof window.openLoginModal === 'function') {
             window.openLoginModal();
         } else {
-            alert('Silakan masuk terlebih dahulu untuk melanjutkan pemesanan.');
+            showNotification('Please sign in first to continue checkout.');
         }
         return;
     }
 
-    const total = document.getElementById('total').textContent;
-    let paymentMethod = '1';
+    // Save shipping choice and promo code to localStorage for payment.html
+    const shippingSelect = document.getElementById('shippingSelect');
+    const selectedShipping = shippingSelect ? shippingSelect.value : '0';
+    localStorage.setItem('checkout_shipping', selectedShipping);
 
-    try {
-        if (typeof window !== 'undefined' && typeof window.prompt === 'function') {
-            paymentMethod = window.prompt('Pilih metode pembayaran:\n1. Transfer Bank\n2. QRIS\n3. COD\n\nMasukkan angka 1/2/3', '1');
-        }
-    } catch (error) {
-        paymentMethod = '1';
-    }
+    const promoCodeInput = document.getElementById('promoCode');
+    const promoApplied = promoCodeInput ? promoCodeInput.value.trim() : '';
+    localStorage.setItem('checkout_promo', promoApplied);
 
-    const paymentLabel = {
-        '1': 'Transfer Bank',
-        '2': 'QRIS',
-        '3': 'COD'
-    }[paymentMethod?.trim()] || 'Transfer Bank';
-
-    try {
-        const response = await fetch('http://localhost:3000/api/checkout', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                email: localStorage.getItem('loginUser'),
-                customerName: localStorage.getItem('loginUser')?.split('@')[0] || 'Customer',
-                items: cart,
-                total: Number(total.replace('$', '')),
-                paymentMethod: paymentLabel
-            })
-        });
-
-        const result = await response.json();
-        if (!response.ok) {
-            throw new Error(result.message || 'Gagal mengirim invoice.');
-        }
-
-        showNotification(result.message || 'Invoice telah dikirim.');
-    } catch (error) {
-        console.warn('Invoice email unavailable:', error);
-        showNotification('Checkout berhasil, tetapi invoice email belum terkirim.');
-    }
-
-    cart = [];
-    localStorage.setItem('cart', JSON.stringify(cart));
-    updateCartCount();
-    displayCartItems();
-    updateCartSummary();
-    showNotification('✓ Terima kasih! Keranjang Anda telah dikosongkan setelah pembelian.');
+    // Redirect to the new payment page
+    window.location.href = 'payment.html';
 }
 
 // Search functionality for cart page

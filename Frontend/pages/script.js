@@ -106,14 +106,6 @@ function setupActiveNavLink() {
         const isActive = Boolean(targetPath) && (currentPath === targetPath || currentPath.endsWith(targetPath));
 
         link.classList.toggle('text-primary', isActive);
-        link.classList.toggle('font-semibold', isActive);
-        link.classList.toggle('underline', isActive);
-        link.classList.toggle('decoration-primary', isActive);
-        link.classList.toggle('decoration-2', isActive);
-        link.classList.toggle('underline-offset-4', isActive);
-        link.classList.toggle('border-b', isActive);
-        link.classList.toggle('border-primary', isActive);
-        link.classList.toggle('pb-1', isActive);
 
         if (isActive) {
             link.setAttribute('aria-current', 'page');
@@ -131,6 +123,7 @@ async function initializeApp() {
     setupEventListeners();
     setupLoginModal();
     setupLogout();
+    setupProfileDropdown();
     updateLoginUI();
     loadFeaturedProducts();
     setupSearch();
@@ -233,7 +226,7 @@ function performSearch() {
         window.location.href = 'catalog.html';
     } else {
         hideSearchSuggestions();
-        showNotification('Silakan ketik kata kunci pencarian terlebih dahulu.');
+        showNotification('Please enter a search query first.');
     }
 }
 
@@ -269,6 +262,7 @@ function setupLoginModal() {
     const closeLoginModal = document.getElementById('closeLoginModal');
     const loginForm = document.getElementById('loginForm');
     const googleLoginBtn = document.getElementById('googleLoginBtn');
+    const toggleModeBtn = document.getElementById('toggleModeBtn');
 
     if (!loginBtn || !loginModal || !closeLoginModal || !loginForm) return;
 
@@ -288,15 +282,26 @@ function setupLoginModal() {
         registerBtn.addEventListener('click', () => openModal('register'));
     }
 
+    // Close button event listener (X button click)
+    closeLoginModal.addEventListener('click', closeModal);
+
     if (googleLoginBtn) {
         googleLoginBtn.addEventListener('click', () => {
             const googleEmail = 'google-user@gmail.com';
             localStorage.setItem('loginUser', googleEmail);
             localStorage.setItem('loginProvider', 'google');
-            showNotification('✓ Berhasil masuk dengan Google.');
+            showNotification('✓ Successfully signed in with Google.');
             closeModal();
             loginForm.reset();
             updateLoginUI();
+        });
+    }
+
+    if (toggleModeBtn) {
+        toggleModeBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const currentMode = toggleModeBtn.dataset.mode;
+            updateModalMode(currentMode);
         });
     }
 
@@ -306,16 +311,37 @@ function setupLoginModal() {
             e.stopPropagation();
         }
         setLoginModalVisibility(false);
+        const loginForm = document.getElementById('loginForm');
+        if (loginForm) loginForm.reset();
     }
 
     function updateModalMode(currentMode) {
         if (!modalTitle || !modalSubtitle) return;
+        const submitBtn = document.getElementById('modalSubmitBtn');
+        const toggleBtn = document.getElementById('toggleModeBtn');
+        
         if (currentMode === 'register') {
-            modalTitle.textContent = 'Daftar Akun Sneaker Labs';
-            modalSubtitle.textContent = 'Buat akun baru untuk mulai berbelanja dan menabung wishlist Anda.';
+            modalTitle.textContent = 'Register to Sneaker Labs';
+            modalSubtitle.textContent = 'Create a new account to start shopping and save your wishlist.';
+            if (submitBtn) {
+                submitBtn.textContent = 'Sign Up';
+                submitBtn.dataset.mode = 'register';
+            }
+            if (toggleBtn) {
+                toggleBtn.textContent = 'Already have an account? Sign In';
+                toggleBtn.dataset.mode = 'login';
+            }
         } else {
-            modalTitle.textContent = 'Masuk ke Sneaker Labs';
-            modalSubtitle.textContent = 'Gunakan akun demo untuk melihat tampilan login tanpa mengubah fitur lain.';
+            modalTitle.textContent = 'Sign In to Sneaker Labs';
+            modalSubtitle.textContent = 'Use a demo account to preview the login interface.';
+            if (submitBtn) {
+                submitBtn.textContent = 'Sign In';
+                submitBtn.dataset.mode = 'login';
+            }
+            if (toggleBtn) {
+                toggleBtn.textContent = 'Register Account';
+                toggleBtn.dataset.mode = 'register';
+            }
         }
     }
 
@@ -327,40 +353,81 @@ function setupLoginModal() {
         e.preventDefault();
         const email = document.getElementById('loginEmail').value.trim();
         const password = document.getElementById('loginPassword').value;
-        const mode = e.submitter && e.submitter.dataset.mode ? e.submitter.dataset.mode : 'login';
+        const submitBtn = document.getElementById('modalSubmitBtn');
+        const mode = submitBtn ? submitBtn.dataset.mode : 'login';
 
         if (!email || !password) {
-            showNotification('Silakan isi email dan password terlebih dahulu.');
+            showNotification('Please enter your email and password first.');
             return;
         }
 
-        updateModalMode(mode);
-
         try {
             const apiBaseUrl = window.location.port === '3000' ? '/api' : 'http://localhost:3000/api';
-            const response = await fetch(`${apiBaseUrl}/${mode}`, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ email, password })
-            });
+            let data;
+            let success = false;
 
-            const data = await response.json();
+            try {
+                const response = await fetch(`${apiBaseUrl}/${mode}`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email, password })
+                });
 
-            if (!response.ok) {
-                throw new Error(data.message || 'Login gagal');
+                data = await response.json();
+                if (response.ok) {
+                    success = true;
+                } else {
+                    throw new Error(data.message || 'Gagal');
+                }
+            } catch (fetchError) {
+                console.warn('Backend server not available, using client-side mock fallback.');
+                // Mock registration/login fallback using localStorage
+                if (mode === 'register') {
+                    const existingUsers = JSON.parse(localStorage.getItem('sneakerlabs_mock_users') || '{}');
+                    if (existingUsers[email]) {
+                        throw new Error('Email is already registered. Please sign in.');
+                    }
+                    existingUsers[email] = password;
+                    localStorage.setItem('sneakerlabs_mock_users', JSON.stringify(existingUsers));
+                    
+                    data = {
+                        user: { email: email },
+                        token: 'mock-jwt-token-xyz'
+                    };
+                    success = true;
+                } else {
+                    const existingUsers = JSON.parse(localStorage.getItem('sneakerlabs_mock_users') || '{}');
+                    if (email === 'demo@sneakerlabs.com' && password === 'demo123') {
+                        data = {
+                            user: { email: email },
+                            token: 'mock-jwt-token-demo'
+                        };
+                        success = true;
+                    } else if (existingUsers[email] && existingUsers[email] === password) {
+                        data = {
+                            user: { email: email },
+                            token: 'mock-jwt-token-xyz'
+                        };
+                        success = true;
+                    } else {
+                        throw new Error('Incorrect email or password.');
+                    }
+                }
             }
 
-            localStorage.setItem('loginUser', data.user.email);
-            localStorage.setItem('loginProvider', 'backend');
-            localStorage.setItem('authToken', data.token);
-            localStorage.setItem('sneakerlabs-user', JSON.stringify(data.user));
-            localStorage.setItem('sneakerlabs-token', data.token);
-            showNotification(mode === 'register' ? '✓ Akun berhasil dibuat! Anda sudah masuk.' : `✓ Selamat datang kembali, ${data.user.email}!`);
-            closeModal();
-            loginForm.reset();
-            updateLoginUI();
+            if (success && data) {
+                localStorage.setItem('loginUser', data.user.email);
+                localStorage.setItem('loginProvider', 'backend');
+                localStorage.setItem('authToken', data.token);
+                localStorage.setItem('sneakerlabs-user', JSON.stringify(data.user));
+                localStorage.setItem('sneakerlabs-token', data.token);
+                showNotification(mode === 'register' ? '✓ Account created successfully! You are logged in.' : `✓ Welcome back, ${data.user.email}!`);
+                closeModal();
+                loginForm.reset();
+                updateLoginUI();
+            }
         } catch (error) {
-            showNotification(error.message || 'Gagal terhubung ke server.');
+            showNotification(error.message || 'Failed to connect to server.');
         }
     });
 }
@@ -369,16 +436,18 @@ function setAuthVisibility(element, isVisible) {
     if (!element) return;
 
     if (isVisible) {
-        element.classList.remove('is-hidden', 'invisible', 'opacity-0', 'pointer-events-none');
+        element.classList.remove('hidden', 'is-hidden', 'invisible', 'opacity-0', 'pointer-events-none');
         element.removeAttribute('aria-hidden');
-        element.style.display = '';
+        element.removeAttribute('hidden');
+        element.style.removeProperty('display');
         element.style.visibility = '';
         element.style.opacity = '';
         element.style.pointerEvents = '';
     } else {
-        element.classList.add('is-hidden', 'invisible', 'opacity-0', 'pointer-events-none');
+        element.classList.add('hidden', 'is-hidden', 'invisible', 'opacity-0', 'pointer-events-none');
         element.setAttribute('aria-hidden', 'true');
-        element.style.display = '';
+        element.setAttribute('hidden', '');
+        element.style.setProperty('display', 'none', 'important');
         element.style.visibility = 'hidden';
         element.style.opacity = '0';
         element.style.pointerEvents = 'none';
@@ -391,10 +460,11 @@ function updateLoginUI() {
     const logoutBtn = document.getElementById('logoutBtn');
     const loginStatus = document.getElementById('loginStatus');
     const loginModal = document.getElementById('loginModal');
+    const profileBtn = document.getElementById('profileBtn');
     const user = localStorage.getItem('loginUser');
 
     if (loginBtn) {
-        loginBtn.textContent = 'Masuk';
+        loginBtn.textContent = 'Sign In';
         loginBtn.title = 'Login';
         setAuthVisibility(loginBtn, !user);
     }
@@ -404,24 +474,22 @@ function updateLoginUI() {
     }
 
     if (logoutBtn) {
-        setAuthVisibility(logoutBtn, Boolean(user));
+        setAuthVisibility(logoutBtn, false);
+    }
+
+    if (profileBtn) {
+        setAuthVisibility(profileBtn, Boolean(user));
     }
 
     if (loginStatus) {
-        if (user) {
-            const provider = localStorage.getItem('loginProvider');
-            const name = provider === 'google' ? 'Google User' : user.split('@')[0];
-            loginStatus.textContent = `Halo, ${name}`;
-            setAuthVisibility(loginStatus, true);
-        } else {
-            loginStatus.textContent = '';
-            setAuthVisibility(loginStatus, false);
-        }
+        setAuthVisibility(loginStatus, false);
     }
 
     if (loginModal) {
         setLoginModalVisibility(false);
     }
+    const loginForm = document.getElementById('loginForm');
+    if (loginForm) loginForm.reset();
 }
 
 function setupLogout() {
@@ -434,8 +502,121 @@ function setupLogout() {
         localStorage.removeItem('authToken');
         localStorage.removeItem('sneakerlabs-user');
         localStorage.removeItem('sneakerlabs-token');
-        showNotification('✓ Anda berhasil keluar.');
+        showNotification('✓ Successfully logged out.');
         updateLoginUI();
+    });
+}
+
+function setupProfileDropdown() {
+    const profileBtn = document.getElementById('profileBtn');
+    const profileDropdown = document.getElementById('profileDropdown');
+
+    if (!profileBtn || !profileDropdown) return;
+
+    function renderProfileDropdown() {
+        const user = localStorage.getItem('loginUser') || '-';
+        const provider = localStorage.getItem('loginProvider') || 'Backend';
+        const savedName = localStorage.getItem('sneakerlabs_display_name') || (user !== '-' ? user.split('@')[0] : '');
+
+        profileDropdown.innerHTML = `
+            <h4 class="font-display-lg text-xs font-bold uppercase tracking-widest text-primary mb-3">USER INFORMATION</h4>
+            <div class="space-y-3 font-body-md text-xs text-left">
+                <div class="flex flex-col border-b border-black/5 pb-2">
+                    <span class="text-[10px] text-secondary uppercase">Display Name</span>
+                    <div class="flex gap-1.5 mt-1">
+                        <input type="text" id="profileUsernameInput" class="w-full bg-surface-container-low border border-black/15 text-xs py-1 px-2 focus:ring-0 focus:border-primary outline-none text-on-background font-medium" value="${savedName}" placeholder="Enter name...">
+                        <button id="saveUsernameBtn" class="bg-primary text-white text-[10px] font-bold px-2.5 py-1 uppercase tracking-wider hover:bg-primary/95 active:scale-95 transition-all">Save</button>
+                    </div>
+                </div>
+                <div class="flex flex-col border-b border-black/5 pb-2">
+                    <span class="text-[10px] text-secondary uppercase">Email</span>
+                    <span id="profileEmail" class="font-semibold text-on-background">${user}</span>
+                </div>
+                <div class="flex flex-col border-b border-black/5 pb-2">
+                    <span class="text-[10px] text-secondary uppercase">Sign In Method</span>
+                    <span id="profileProvider" class="font-semibold text-on-background uppercase">${provider === 'google' ? 'Google' : 'Backend'}</span>
+                </div>
+                <div class="flex flex-col border-b border-black/5 pb-2">
+                    <span class="text-[10px] text-secondary uppercase">Session Status</span>
+                    <span class="font-semibold text-green-600 flex items-center gap-1">
+                        <span class="w-1.5 h-1.5 rounded-full bg-green-600 animate-pulse"></span>
+                        ONLINE
+                    </span>
+                </div>
+            </div>
+            <button id="profileLogoutBtn" class="mt-4 w-full bg-red-500 hover:bg-red-600 text-white py-2 rounded-lg font-display-lg text-xs font-bold uppercase tracking-widest transition-all">Logout</button>
+        `;
+
+        // Bind Save Username
+        const saveUsernameBtn = document.getElementById('saveUsernameBtn');
+        const profileUsernameInput = document.getElementById('profileUsernameInput');
+        if (saveUsernameBtn && profileUsernameInput) {
+            saveUsernameBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                const newName = profileUsernameInput.value.trim();
+                if (newName) {
+                    localStorage.setItem('sneakerlabs_display_name', newName);
+                    showNotification(`✓ Username updated to "${newName}"`);
+                    const loginStatus = document.getElementById('loginStatus');
+                    if (loginStatus) {
+                        loginStatus.textContent = `Hello, ${newName}`;
+                    }
+                } else {
+                    showNotification('Please enter a valid display name.');
+                }
+            });
+        }
+
+        // Bind Logout
+        const profileLogoutBtn = document.getElementById('profileLogoutBtn');
+        if (profileLogoutBtn) {
+            profileLogoutBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                localStorage.removeItem('loginUser');
+                localStorage.removeItem('loginProvider');
+                localStorage.removeItem('authToken');
+                localStorage.removeItem('sneakerlabs-user');
+                localStorage.removeItem('sneakerlabs-token');
+                localStorage.removeItem('sneakerlabs_display_name');
+
+                closeDropdown();
+                showNotification('✓ Successfully logged out.');
+                updateLoginUI();
+            });
+        }
+    }
+
+    profileBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+
+        const isHidden = profileDropdown.classList.contains('hidden');
+        if (isHidden) {
+            renderProfileDropdown();
+            profileDropdown.classList.remove('hidden');
+            setTimeout(() => {
+                profileDropdown.classList.remove('opacity-0', 'scale-95');
+                profileDropdown.classList.add('opacity-100', 'scale-100');
+            }, 10);
+        } else {
+            closeDropdown();
+        }
+    });
+
+    function closeDropdown() {
+        profileDropdown.classList.remove('opacity-100', 'scale-100');
+        profileDropdown.classList.add('opacity-0', 'scale-95');
+        setTimeout(() => {
+            profileDropdown.classList.add('hidden');
+        }, 200);
+    }
+
+    document.addEventListener('click', (e) => {
+        if (!profileDropdown.classList.contains('hidden') && !profileDropdown.contains(e.target) && e.target !== profileBtn) {
+            closeDropdown();
+        }
     });
 }
 
