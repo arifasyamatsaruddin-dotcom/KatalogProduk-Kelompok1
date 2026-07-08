@@ -254,3 +254,5 @@ Proyek ini dapat dijadikan referensi pembelajaran untuk memahami konsep-konsep b
 ---
 
 [Homepage](index.html) | [Catalog](catalog.html) | [Cart](cart.html)
+#   S n e a k e r l a b s  
+ 
