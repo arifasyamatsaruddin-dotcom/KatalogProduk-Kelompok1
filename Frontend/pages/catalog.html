@@ -2,7 +2,7 @@
 <html lang="id" class="light">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Catalog Produk - Sneaker Labs</title>
     
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
@@ -102,7 +102,7 @@
         }
     </script>
 </head>
-<body class="bg-background text-on-background font-body-md">
+<body class="bg-background text-on-background font-body-md catalog-page">
 
     <!-- Header/Navigation -->
     <header class="navbar-shell fixed top-0 w-full z-50 bg-white/80 backdrop-blur-xl border-b border-black/5 h-20 font-display-lg text-label-md">
@@ -248,8 +248,18 @@
         <div class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto pb-16">
             <div class="flex flex-col md:flex-row gap-lg">
             
-            <!-- Sidebar: Filters -->
-            <aside class="w-full md:w-1/4 sticky top-28 h-fit overflow-y-auto pr-4 space-y-8 border-b md:border-b-0 md:border-r border-black/5 pb-8 md:pb-0 filter-sidebar">
+            <div class="mobile-filter-toolbar md:hidden">
+                <button type="button" class="mobile-filter-toggle" id="mobileFilterToggle">Filter</button>
+            </div>
+
+            <div class="filter-drawer-backdrop" id="filterDrawerBackdrop"></div>
+            <div class="filter-drawer" id="filterDrawer" aria-hidden="true">
+                <div class="filter-drawer__header md:hidden">
+                    <h3 class="font-display-lg text-sm uppercase tracking-widest font-bold">Filter &amp; Sort</h3>
+                    <button type="button" class="filter-drawer__close" id="closeFilterDrawer">Close</button>
+                </div>
+                <!-- Sidebar: Filters -->
+                <aside class="w-full md:w-1/4 sticky top-28 h-fit overflow-y-auto pr-4 space-y-8 border-b md:border-b-0 md:border-r border-black/5 pb-8 md:pb-0 filter-sidebar">
                 <div class="flex justify-between items-center border-b border-black/5 pb-4 filter-section">
                     <h3 class="font-display-lg text-lg uppercase font-bold text-on-background">Filter Specs</h3>
                     <a href="#" class="reset-filters font-display-lg text-xs uppercase tracking-widest text-primary hover:text-primary-fixed-variant transition-colors font-bold">Reset</a>
@@ -337,7 +347,8 @@
                         <input type="number" placeholder="$1000" min="0" id="maxPrice" class="w-1/2 bg-surface-container-low border border-black/10 text-xs py-2 px-2 focus:ring-0 focus:border-primary transition-colors">
                     </div>
                 </div>
-            </aside>
+                </aside>
+            </div>
 
             <!-- Main Content Area -->
             <section class="flex-1 catalog-main">
@@ -347,6 +358,16 @@
                         <h1 class="font-display-lg text-display-sm uppercase mb-1 text-on-background font-bold tracking-tighter">LAB ARCHIVE</h1>
                         <p class="font-body-md text-secondary text-sm">Menampilkan <span id="productCount" class="font-bold text-primary">0</span> dari <span id="totalCount" class="font-bold">0</span> produk</p>
                     </div>
+                </div>
+
+                <div class="mobile-sort-bar md:hidden">
+                    <label for="mobileSortSelect" class="mobile-sort-label">Sort By</label>
+                    <select class="mobile-sort-select" id="mobileSortSelect">
+                        <option value="newest">Newest</option>
+                        <option value="price-low">Price: Low to High</option>
+                        <option value="price-high">Price: High to Low</option>
+                        <option value="popular">Popular</option>
+                    </select>
                 </div>
 
                 <!-- Grid -->

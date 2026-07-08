@@ -135,11 +135,55 @@ function initializeCatalog() {
 function setupFilters() {
     // Sort filter
     const sortSelect = document.getElementById('sortSelect');
+    const mobileSortSelect = document.getElementById('mobileSortSelect');
     if (sortSelect) {
         sortSelect.addEventListener('change', function() {
+            if (mobileSortSelect) {
+                mobileSortSelect.value = this.value;
+            }
             applySort(this.value);
         });
     }
+
+    if (mobileSortSelect) {
+        mobileSortSelect.addEventListener('change', function() {
+            if (sortSelect) {
+                sortSelect.value = this.value;
+            }
+            applySort(this.value);
+        });
+    }
+
+    const mobileFilterToggle = document.getElementById('mobileFilterToggle');
+    const filterDrawer = document.getElementById('filterDrawer');
+    const filterDrawerBackdrop = document.getElementById('filterDrawerBackdrop');
+    const closeFilterDrawer = document.getElementById('closeFilterDrawer');
+
+    const toggleFilterDrawer = (isOpen) => {
+        if (!filterDrawer || !filterDrawerBackdrop) return;
+        filterDrawer.classList.toggle('is-open', isOpen);
+        filterDrawerBackdrop.classList.toggle('is-visible', isOpen);
+        document.body.classList.toggle('filter-drawer-open', isOpen);
+        filterDrawer.setAttribute('aria-hidden', String(!isOpen));
+    };
+
+    if (mobileFilterToggle) {
+        mobileFilterToggle.addEventListener('click', () => toggleFilterDrawer(true));
+    }
+
+    if (closeFilterDrawer) {
+        closeFilterDrawer.addEventListener('click', () => toggleFilterDrawer(false));
+    }
+
+    if (filterDrawerBackdrop) {
+        filterDrawerBackdrop.addEventListener('click', () => toggleFilterDrawer(false));
+    }
+
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') {
+            toggleFilterDrawer(false);
+        }
+    });
 
     // Category filters
     const categoryFilters = document.querySelectorAll('.category-filter');

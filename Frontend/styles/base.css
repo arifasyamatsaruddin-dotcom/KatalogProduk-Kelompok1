@@ -7,6 +7,13 @@
 
 html {
   scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
 body {
@@ -54,7 +61,13 @@ footer {
 
 @media (max-width: 768px) {
   body {
-    font-size: 16px;
+    font-size: 15px;
+    padding-bottom: 2rem;
+  }
+
+  main {
+    padding-left: 0;
+    padding-right: 0;
   }
 
   input,
@@ -62,6 +75,19 @@ footer {
   textarea,
   button {
     min-height: 44px;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    font-size: 14px;
+  }
+
+  section,
+  header,
+  footer {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
   }
 }
 
