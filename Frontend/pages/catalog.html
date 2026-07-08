@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="id" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Katalog Produk - Sneaker Labs</title>
+    
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        #loginModal {
+            display: none !important;
+            visibility: hidden !important;
+            opacity: 0 !important;
+            pointer-events: none !important;
+        }
+
+        #loginModal[aria-hidden="false"] {
+            display: flex !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+            pointer-events: auto !important;
+        }
+    </style>
+
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-primary-container": "#efefff",
+                        "surface-container": "#eaedff",
+                        "surface-tint": "#104af0",
+                        "error-container": "#ffdad6",
+                        "background": "#faf8ff",
+                        "secondary-fixed-dim": "#b7c8e1",
+                        "on-primary": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "surface": "#faf8ff",
+                        "inverse-surface": "#283044",
+                        "error": "#ba1a1a",
+                        "tertiary-fixed": "#e0e3e5",
+                        "secondary-fixed": "#d3e4fe",
+                        "on-error-container": "#93000a",
+                        "primary-fixed": "#dde1ff",
+                        "on-error": "#ffffff",
+                        "surface-container-highest": "#dae2fd",
+                        "primary": "#0040df",
+                        "surface-variant": "#dae2fd",
+                        "on-secondary-fixed": "#0b1c30",
+                        "on-primary-fixed-variant": "#0035bd",
+                        "primary-fixed-dim": "#b8c3ff",
+                        "inverse-primary": "#b8c3ff",
+                        "surface-container-high": "#e2e7ff",
+                        "surface-dim": "#d2d9f4",
+                        "on-primary-fixed": "#001355",
+                        "tertiary": "#525557",
+                        "secondary-container": "#d0e1fb",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-container": "#eef0f2",
+                        "outline": "#747688",
+                        "surface-container-low": "#f2f3ff",
+                        "on-surface-variant": "#434656",
+                        "secondary": "#505f76",
+                        "on-background": "#131b2e",
+                        "outline-variant": "#c4c5d9",
+                        "inverse-on-surface": "#eef0ff",
+                        "on-secondary-fixed-variant": "#38485d",
+                        "on-tertiary-fixed-variant": "#444749",
+                        "primary-container": "#0040df",
+                        "on-tertiary-fixed": "#191c1e",
+                        "tertiary-container": "#6a6d6f",
+                        "surface-bright": "#faf8ff",
+                        "on-surface": "#131b2e",
+                        "on-secondary-container": "#54647a",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-fixed-dim": "#c4c7c9"
+                    },
+                    spacing: {
+                        "margin-mobile": "20px",
+                        "margin-desktop": "64px",
+                        "gutter": "24px",
+                        "container-max": "1440px"
+                    },
+                    fontFamily: {
+                        "display-lg": ["Space Grotesk"],
+                        "body-md": ["Inter"],
+                        "label-md": ["Space Grotesk"],
+                        "display-sm": ["Space Grotesk"],
+                        "body-lg": ["Inter"],
+                        "label-sm": ["Space Grotesk"],
+                        "headline-lg": ["Space Grotesk"],
+                        "headline-md": ["Space Grotesk"],
+                        "headline-lg-mobile": ["Space Grotesk"]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background font-body-md">
+
+    <!-- Header/Navigation -->
+    <header class="navbar-shell fixed top-0 w-full z-50 bg-white/80 backdrop-blur-xl border-b border-black/5 h-20 font-display-lg text-label-md">
+        <nav class="flex justify-between items-center px-margin-mobile md:px-margin-desktop h-full w-full max-w-container-max mx-auto">
+            <div class="navbar-brand-group flex items-center gap-10">
+                <a class="brand-logo font-display-lg text-headline-md" href="home.html">SNEAKER LABS</a>
+                <div class="hidden md:flex items-center gap-6 navbar-links">
+                    <a href="home.html" class="nav-link font-display-lg text-label-sm uppercase tracking-widest text-secondary hover:text-primary transition-colors pb-1">Koleksi</a>
+                    <a href="catalog.html" class="nav-link font-display-lg text-label-sm uppercase tracking-widest text-secondary hover:text-primary transition-colors pb-1">Katalog</a>
+                    <a href="kolaborasi.html" class="nav-link font-display-lg text-label-sm uppercase tracking-widest text-secondary hover:text-primary transition-colors pb-1">Kolaborasi</a>
+                    <a href="lab.html" class="nav-link font-display-lg text-label-sm uppercase tracking-widest text-secondary hover:text-primary transition-colors pb-1">Lab</a>
+                    <a href="contact.html" class="nav-link font-display-lg text-label-sm uppercase tracking-widest text-secondary hover:text-primary transition-colors pb-1">Kontak</a>
+                    <a href="about.html" class="nav-link font-display-lg text-label-sm uppercase tracking-widest text-secondary hover:text-primary transition-colors pb-1">Tentang</a>
+                </div>
+            </div>
+            
+            <div class="nav-actions flex items-center gap-4">
+                <!-- Search Box -->
+                <div class="hidden lg:flex items-center bg-surface-container px-4 py-1.5 rounded-full border border-outline-variant search-container">
+                    <span class="material-symbols-outlined text-secondary scale-90">search</span>
+                    <input class="bg-transparent border-none focus:ring-0 text-xs uppercase tracking-widest text-on-surface placeholder-secondary w-40 search-input" placeholder="CARI SNEAKER..." type="text" id="searchInput">
+                    <button class="hidden" id="searchBtn"></button>
+                </div>
+                
+                <!-- Auth Actions -->
+                <div class="auth-actions">
+                    <span class="auth-control login-status text-secondary text-xs uppercase tracking-wider opacity-0 invisible pointer-events-none" id="loginStatus"></span>
+                    <button class="auth-control icon-btn login-btn bg-transparent border border-primary text-primary px-4 py-2 text-xs font-bold uppercase tracking-wider hover:bg-primary hover:text-white transition-colors" id="loginBtn">Masuk</button>
+                    <button class="auth-control icon-btn register-btn bg-primary text-white px-4 py-2 text-xs font-bold uppercase tracking-wider hover:bg-primary/95 transition-colors" id="registerBtn">Daftar</button>
+                    <button class="auth-control icon-btn logout-btn bg-transparent border border-red-500 text-red-500 px-4 py-2 text-xs font-bold uppercase tracking-wider hover:bg-red-500 hover:text-white transition-colors opacity-0 invisible pointer-events-none" id="logoutBtn">Keluar</button>
+                </div>
+
+                <!-- Wishlist -->
+                <button class="icon-btn wishlist-btn text-on-surface hover:text-primary transition-all duration-300 relative flex items-center p-1" id="wishlistBtn" title="Wishlist">
+                    <span class="material-symbols-outlined">favorite</span>
+                    <span class="absolute -top-1 -right-1 bg-primary text-white text-[9px] font-bold rounded-full w-4 h-4 flex items-center justify-center wishlist-count">0</span>
+                </button>
+
+                <!-- Cart -->
+                <button class="icon-btn cart-btn text-on-surface hover:text-primary transition-all duration-300 relative flex items-center p-1" id="cartPanelBtn" title="Shopping Cart">
+                    <span class="material-symbols-outlined">shopping_cart</span>
+                    <span class="absolute -top-1 -right-1 bg-primary text-white text-[9px] font-bold rounded-full w-4 h-4 flex items-center justify-center cart-count">0</span>
+                </button>
+
+                <!-- Mobile Menu Toggle -->
+                <button class="icon-btn mobile-menu-toggle md:hidden material-symbols-outlined text-on-surface hover:text-primary" id="mobileMenuToggle" aria-label="Buka menu">menu</button>
+            </div>
+        </nav>
+        
+        <!-- Mobile Navigation Overlay -->
+        <div class="hidden fixed inset-0 top-20 bg-white z-40 flex flex-col p-6 gap-4 border-t border-black/5 md:hidden nav-menu">
+            <a class="font-display-lg text-lg uppercase tracking-widest text-secondary hover:text-primary transition-colors py-2 border-b border-black/5 nav-link" href="home.html">Koleksi</a>
+            <a class="font-display-lg text-lg uppercase tracking-widest text-secondary hover:text-primary transition-colors py-2 border-b border-black/5 nav-link" href="catalog.html">Katalog</a>
+            <a class="font-display-lg text-lg uppercase tracking-widest text-secondary hover:text-primary transition-colors py-2 border-b border-black/5 nav-link" href="kolaborasi.html">Kolaborasi</a>
+            <a class="font-display-lg text-lg uppercase tracking-widest text-secondary hover:text-primary transition-colors py-2 border-b border-black/5 nav-link" href="lab.html">Lab</a>
+            <a class="font-display-lg text-lg uppercase tracking-widest text-secondary hover:text-primary transition-colors py-2 border-b border-black/5 nav-link" href="contact.html">Kontak</a>
+            <a class="font-display-lg text-lg uppercase tracking-widest text-secondary hover:text-primary transition-colors py-2 border-b border-black/5 nav-link" href="about.html">Tentang</a>
+        </div>
+    </header>
+
+    <!-- Login Modal Backdrop -->
+    <div class="fixed inset-0 bg-black/60 backdrop-blur-sm z-[100] flex items-center justify-center login-modal-backdrop" id="loginModal" hidden>
+        <div class="bg-white border border-black/10 p-8 max-w-md w-full relative rounded-xl shadow-2xl login-modal-card" role="dialog" aria-modal="true" aria-labelledby="loginTitle">
+            <button class="absolute top-4 right-4 material-symbols-outlined text-secondary hover:text-primary transition-all login-close-btn" type="button" id="closeLoginModal" aria-label="Tutup form login">close</button>
+            <h3 id="loginTitle" class="font-display-lg text-headline-md uppercase text-primary font-bold mb-2 login-title">Masuk ke Sneaker Labs</h3>
+            <p class="font-body-md text-xs text-secondary mb-6 login-subtitle">Gunakan akun demo untuk melihat tampilan login tanpa mengubah fitur lain.</p>
+            
+            <form class="space-y-4 login-form" id="loginForm">
+                <div class="flex flex-col gap-1 login-field">
+                    <span class="font-display-lg text-[10px] text-secondary uppercase tracking-widest">Email</span>
+                    <input type="email" id="loginEmail" placeholder="nama@contoh.com" required class="bg-surface-container-low border border-black/10 focus:border-primary focus:ring-0 text-sm py-2 px-3 outline-none transition-colors">
+                </div>
+                <div class="flex flex-col gap-1 login-field">
+                    <span class="font-display-lg text-[10px] text-secondary uppercase tracking-widest">Password</span>
+                    <input type="password" id="loginPassword" placeholder="••••••••" required class="bg-surface-container-low border border-black/10 focus:border-primary focus:ring-0 text-sm py-2 px-3 outline-none transition-colors">
+                </div>
+                <div class="pt-2 flex flex-col gap-2 login-actions">
+                    <button type="submit" class="w-full bg-primary text-white py-3 font-display-lg text-xs font-bold uppercase tracking-widest hover:bg-primary/95 transition-all rounded-lg login-submit" data-mode="login">Masuk</button>
+                    <button type="submit" class="w-full bg-transparent border border-black/10 text-secondary py-3 font-display-lg text-xs font-bold uppercase tracking-widest hover:border-primary hover:text-primary transition-all rounded-lg login-submit" data-mode="register">Daftar Akun</button>
+                    <button type="button" class="w-full bg-transparent border border-black/10 text-on-background py-3 font-display-lg text-xs font-bold uppercase tracking-widest hover:bg-surface-container-low transition-all rounded-lg flex items-center justify-center gap-2 login-submit" id="googleLoginBtn">
+                        <svg viewBox="0 0 24 24" aria-hidden="true" class="w-4 h-4 google-icon">
+                            <path fill="#4285F4" d="M21.805 10.023H12v4.02h5.39c-.23 1.22-.93 2.26-1.98 2.95v2.46h3.2c1.88-1.73 2.96-4.27 2.96-7.31 0-.69-.06-1.35-.18-1.99z"></path>
+                            <path fill="#34A853" d="M12 22c2.68 0 4.93-.88 6.57-2.38l-3.2-2.46c-.89.6-2.02.95-3.37.95-2.59 0-4.79-1.75-5.58-4.1H3.13v2.58A10 10 0 0 0 12 22z"></path>
+                            <path fill="#FBBC05" d="M6.42 13.01A6.03 6.03 0 0 1 6.42 10.99V8.41H3.13a10 10 0 0 0 0 4.6l3.29-1.99z"></path>
+                            <path fill="#EA4335" d="M12 6.05c1.46 0 2.77.5 3.8 1.48l2.85-2.85C16.93 3.44 14.68 2.5 12 2.5A10 10 0 0 0 3.13 8.41l3.29 2.58C7.21 7.8 9.41 6.05 12 6.05z"></path>
+                        </svg>
+                        Masuk dengan Google
+                    </button>
+                </div>
+                <p class="text-[10px] text-secondary text-center uppercase tracking-widest mt-4 login-note">Tip: gunakan email demo@sneakerlabs.com &amp; demo123.</p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Catalog Page Content -->
+    <main class="pt-32 pb-16 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+        <div class="flex flex-col md:flex-row gap-lg">
+            
+            <!-- Sidebar: Filters -->
+            <aside class="w-full md:w-1/4 sticky top-28 h-fit overflow-y-auto pr-4 space-y-8 border-b md:border-b-0 md:border-r border-black/5 pb-8 md:pb-0 filter-sidebar">
+                <div class="flex justify-between items-center border-b border-black/5 pb-4 filter-section">
+                    <h3 class="font-display-lg text-lg uppercase font-bold text-on-background">Filter Specs</h3>
+                    <a href="#" class="reset-filters font-display-lg text-xs uppercase tracking-widest text-primary hover:text-primary-fixed-variant transition-colors font-bold">Reset</a>
+                </div>
+
+                <!-- Sort -->
+                <div class="space-y-3 filter-group">
+                    <label class="font-display-lg text-[10px] text-secondary uppercase tracking-[0.2em] block font-bold">Urutkan</label>
+                    <select class="w-full bg-surface-container-low border border-black/10 font-label-md text-sm text-primary py-2 px-3 focus:ring-0 focus:border-primary transition-colors cursor-pointer outline-none filter-select" id="sortSelect">
+                        <option value="newest">Terbaru</option>
+                        <option value="price-low">Harga: Terendah</option>
+                        <option value="price-high">Harga: Tertinggi</option>
+                        <option value="popular">Populer</option>
+                    </select>
+                </div>
+
+                <!-- Category -->
+                <div class="space-y-3 filter-group">
+                    <label class="font-display-lg text-[10px] text-secondary uppercase tracking-[0.2em] block font-bold">Kategori</label>
+                    <div class="space-y-2 checkbox-group">
+                        <label class="flex items-center gap-sm group cursor-pointer checkbox-label">
+                            <input type="checkbox" class="category-filter w-4 h-4 rounded-none bg-white border-black/10 text-primary focus:ring-primary/20" value="running">
+                            <span class="font-body-md text-sm text-secondary group-hover:text-primary transition-colors">Running</span>
+                        </label>
+                        <label class="flex items-center gap-sm group cursor-pointer checkbox-label">
+                            <input type="checkbox" class="category-filter w-4 h-4 rounded-none bg-white border-black/10 text-primary focus:ring-primary/20" value="lifestyle">
+                            <span class="font-body-md text-sm text-secondary group-hover:text-primary transition-colors">Lifestyle</span>
+                        </label>
+                        <label class="flex items-center gap-sm group cursor-pointer checkbox-label">
+                            <input type="checkbox" class="category-filter w-4 h-4 rounded-none bg-white border-black/10 text-primary focus:ring-primary/20" value="basketball">
+                            <span class="font-body-md text-sm text-secondary group-hover:text-primary transition-colors">Basketball</span>
+                        </label>
+                        <label class="flex items-center gap-sm group cursor-pointer checkbox-label">
+                            <input type="checkbox" class="category-filter w-4 h-4 rounded-none bg-white border-black/10 text-primary focus:ring-primary/20" value="lifestyle">
+                            <span class="font-body-md text-sm text-secondary group-hover:text-primary transition-colors">Lifestyle</span>
+                        </label>
+                        <label class="flex items-center gap-sm group cursor-pointer checkbox-label">
+                            <input type="checkbox" class="category-filter w-4 h-4 rounded-none bg-white border-black/10 text-primary focus:ring-primary/20" value="apparel">
+                            <span class="font-body-md text-sm text-secondary group-hover:text-primary transition-colors">Apparel</span>
+                        </label>
+                        <label class="flex items-center gap-sm group cursor-pointer checkbox-label">
+                            <input type="checkbox" class="category-filter w-4 h-4 rounded-none bg-white border-black/10 text-primary focus:ring-primary/20" value="apparel">
+                            <span class="font-body-md text-sm text-secondary group-hover:text-primary transition-colors">Apparel</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Size -->
+                <div class="space-y-3 filter-group">
+                    <label class="font-display-lg text-[10px] text-secondary uppercase tracking-[0.2em] block font-bold">Ukuran</label>
+                    <div class="grid grid-cols-4 gap-1 size-buttons">
+                        <button class="size-btn border border-black/10 bg-white py-1.5 text-xs font-display-lg hover:border-primary hover:text-primary transition-all font-bold" data-size="XS">XS</button>
+                        <button class="size-btn border border-black/10 bg-white py-1.5 text-xs font-display-lg hover:border-primary hover:text-primary transition-all font-bold" data-size="S">S</button>
+                        <button class="size-btn border border-black/10 bg-white py-1.5 text-xs font-display-lg hover:border-primary hover:text-primary transition-all font-bold" data-size="M">M</button>
+                        <button class="size-btn border border-black/10 bg-white py-1.5 text-xs font-display-lg hover:border-primary hover:text-primary transition-all font-bold" data-size="L">L</button>
+                        <button class="size-btn border border-black/10 bg-white py-1.5 text-xs font-display-lg hover:border-primary hover:text-primary transition-all font-bold" data-size="XL">XL</button>
+                        <button class="size-btn border border-black/10 bg-white py-1.5 text-xs font-display-lg hover:border-primary hover:text-primary transition-all font-bold" data-size="38">38</button>
+                        <button class="size-btn border border-black/10 bg-white py-1.5 text-xs font-display-lg hover:border-primary hover:text-primary transition-all font-bold" data-size="39">39</button>
+                        <button class="size-btn border border-black/10 bg-white py-1.5 text-xs font-display-lg hover:border-primary hover:text-primary transition-all font-bold" data-size="40">40</button>
+                        <button class="size-btn border border-black/10 bg-white py-1.5 text-xs font-display-lg hover:border-primary hover:text-primary transition-all font-bold" data-size="41">41</button>
+                        <button class="size-btn border border-black/10 bg-white py-1.5 text-xs font-display-lg hover:border-primary hover:text-primary transition-all font-bold" data-size="42">42</button>
+                        <button class="size-btn border border-black/10 bg-white py-1.5 text-xs font-display-lg hover:border-primary hover:text-primary transition-all font-bold" data-size="43">43</button>
+                        <button class="size-btn border border-black/10 bg-white py-1.5 text-xs font-display-lg hover:border-primary hover:text-primary transition-all font-bold" data-size="44">44</button>
+                        <button class="size-btn border border-black/10 bg-white py-1.5 text-xs font-display-lg hover:border-primary hover:text-primary transition-all font-bold" data-size="45">45</button>
+                    </div>
+                </div>
+
+                <!-- Color -->
+                <div class="space-y-3 filter-group">
+                    <label class="font-display-lg text-[10px] text-secondary uppercase tracking-[0.2em] block font-bold">Warna</label>
+                    <div class="flex flex-wrap gap-2 color-options">
+                        <button class="color-btn w-6 h-6 bg-black border border-black/20 ring-1 ring-offset-2 ring-transparent hover:ring-primary" data-color="black" title="Black"></button>
+                        <button class="color-btn w-6 h-6 bg-slate-400 border border-black/20 ring-1 ring-offset-2 ring-transparent hover:ring-primary" data-color="gray" title="Gray"></button>
+                        <button class="color-btn w-6 h-6 bg-white border border-black/20 ring-1 ring-offset-2 ring-transparent hover:ring-primary" data-color="white" title="White"></button>
+                        <button class="color-btn w-6 h-6 bg-[#d4a574] border border-black/20 ring-1 ring-offset-2 ring-transparent hover:ring-primary" data-color="beige" title="Beige"></button>
+                    </div>
+                </div>
+
+                <!-- Price Range -->
+                <div class="space-y-3 filter-group">
+                    <label class="font-display-lg text-[10px] text-secondary uppercase tracking-[0.2em] block font-bold">Rentang Harga</label>
+                    <div class="flex gap-2 items-center price-range">
+                        <input type="number" placeholder="$0" min="0" id="minPrice" class="w-1/2 bg-surface-container-low border border-black/10 text-xs py-2 px-2 focus:ring-0 focus:border-primary transition-colors">
+                        <span class="text-secondary">-</span>
+                        <input type="number" placeholder="$1000" min="0" id="maxPrice" class="w-1/2 bg-surface-container-low border border-black/10 text-xs py-2 px-2 focus:ring-0 focus:border-primary transition-colors">
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Main Content Area -->
+            <section class="flex-1 catalog-main">
+                <!-- Header -->
+                <div class="flex flex-col md:flex-row md:items-end justify-between gap-md mb-8 results-header">
+                    <div>
+                        <h1 class="font-display-lg text-display-sm uppercase mb-1 text-on-background font-bold tracking-tighter">LAB ARCHIVE</h1>
+                        <p class="font-body-md text-secondary text-sm">Menampilkan <span id="productCount" class="font-bold text-primary">0</span> dari <span id="totalCount" class="font-bold">0</span> produk</p>
+                    </div>
+                </div>
+
+                <!-- Grid -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-gutter products-grid" id="productsGrid">
+                    <!-- Products will be loaded by JavaScript -->
+                </div>
+
+                <!-- Pagination -->
+                <div class="pagination flex justify-center gap-2 mt-12" id="pagination">
+                    <!-- Pagination generated dynamically -->
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-surface w-full py-16 px-margin-desktop border-t border-outline-variant">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-12 w-full max-w-container-max mx-auto">
+            <div class="flex flex-col gap-6">
+                <a class="font-display-lg text-headline-md text-primary tracking-tighter font-bold" href="#">SNEAKER LABS</a>
+                <p class="font-display-lg text-[10px] uppercase tracking-widest text-secondary max-w-[240px] leading-relaxed">
+                    Engineering the future of high-tech footwear curation.
+                </p>
+            </div>
+            <div class="flex flex-col gap-3">
+                <h4 class="font-display-lg text-xs uppercase tracking-widest text-on-surface font-bold mb-2">SHOP</h4>
+                <a class="font-display-lg text-[10px] uppercase tracking-widest text-secondary hover:text-primary transition-colors hover:translate-x-1" href="catalog.html">NEW ARRIVALS</a>
+                <a class="font-display-lg text-[10px] uppercase tracking-widest text-secondary hover:text-primary transition-colors hover:translate-x-1" href="catalog.html">BEST SELLERS</a>
+                <a class="font-display-lg text-[10px] uppercase tracking-widest text-secondary hover:text-primary transition-colors hover:translate-x-1" href="catalog.html">VAULT ARCHIVE</a>
+            </div>
+            <div class="flex flex-col gap-3">
+                <h4 class="font-display-lg text-xs uppercase tracking-widest text-on-surface font-bold mb-2">POLICIES</h4>
+                <a class="font-display-lg text-[10px] uppercase tracking-widest text-secondary hover:text-primary transition-colors hover:translate-x-1" href="#">SHIPPING DATA</a>
+                <a class="font-display-lg text-[10px] uppercase tracking-widest text-secondary hover:text-primary transition-colors hover:translate-x-1" href="#">RETURNS/EXCHANGE</a>
+                <a class="font-display-lg text-[10px] uppercase tracking-widest text-secondary hover:text-primary transition-colors hover:translate-x-1" href="#">PRIVACY PROTOCOL</a>
+            </div>
+            <div class="flex flex-col gap-3">
+                <h4 class="font-display-lg text-xs uppercase tracking-widest text-on-surface font-bold mb-2">SOCIAL</h4>
+                <div class="flex gap-4">
+                    <a class="material-symbols-outlined text-secondary hover:text-primary transition-all" href="#">share</a>
+                    <a class="material-symbols-outlined text-secondary hover:text-primary transition-all" href="#">camera</a>
+                    <a class="material-symbols-outlined text-secondary hover:text-primary transition-all" href="#">cloud</a>
+                </div>
+                <div class="mt-4">
+                    <p class="font-display-lg text-[10px] uppercase tracking-widest text-secondary/50">
+                        &copy; 2024 SNEAKER LABS. ENGINEERED FOR THE ARCHIVE.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="products.js"></script>
+    <script>
+        (function() {
+            const hideLoginModalEarly = function() {
+                const modal = document.getElementById('loginModal');
+                if (!modal) return;
+                modal.hidden = true;
+                modal.setAttribute('hidden', '');
+                modal.style.display = 'none';
+                modal.style.visibility = 'hidden';
+                modal.style.opacity = '0';
+                modal.setAttribute('aria-hidden', 'true');
+                document.body.style.overflow = '';
+                document.documentElement.style.overflow = '';
+            };
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', hideLoginModalEarly, { once: true });
+            } else {
+                hideLoginModalEarly();
+            }
+        })();
+    </script>
+    <script src="script.js"></script>
+    <script src="catalog.js"></script>
+</body>
+</html>

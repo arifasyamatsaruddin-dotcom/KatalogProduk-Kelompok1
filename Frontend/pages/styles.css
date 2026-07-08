@@ -1,0 +1,124 @@
+/* Custom variables matching SneakerLabs style */
+:root {
+  --primary-color: #0040df;
+  --secondary-color: #505f76;
+  --background-color: #faf8ff;
+  --on-background: #131b2e;
+  --outline-variant: #c4c5d9;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f2f3ff;
+}
+::-webkit-scrollbar-thumb {
+  background: #c4c5d9;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #0040df;
+}
+
+/* Custom classes for JS events */
+.size-btn.active {
+  background-color: #0040df !important;
+  color: white !important;
+  border-color: #0040df !important;
+}
+
+.color-btn.active {
+  outline: 2px solid #0040df !important;
+  outline-offset: 2px;
+}
+
+.nav-menu.active {
+  display: flex !important;
+}
+
+/* Animations */
+@keyframes slideIn {
+  from {
+    transform: translateX(400px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOut {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(400px);
+    opacity: 0;
+  }
+}
+
+/* Search Suggestions Popover */
+.search-suggestions {
+  position: absolute;
+  top: calc(100% + 0.35rem);
+  left: 0;
+  right: 0;
+  background: white;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+}
+.search-suggestion-item {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+  cursor: pointer;
+  transition: background 0.2s;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+.search-suggestion-item:hover {
+  background: #faf8ff;
+}
+.search-suggestion-item strong {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.875rem;
+  color: #131b2e;
+  text-transform: uppercase;
+}
+.search-suggestion-item span {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  color: #505f76;
+}
+
+/* Welcome Loading Screen animations */
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(200%);
+  }
+}
+.animate-shimmer {
+  animation: shimmer 1.5s infinite ease-in-out;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-fade-in {
+  animation: fadeIn 0.8s forwards ease-out;
+}

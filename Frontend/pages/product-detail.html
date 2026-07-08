@@ -1,0 +1,381 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<meta name="theme-color" content="#0040df">
+<title>SNEAKER LABS | NIKE AIR MAX ALPHA</title>
+<link rel="stylesheet" href="../styles/main.css">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-edge {
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        .cyber-glow:hover {
+            box-shadow: 0 0 20px rgba(0, 64, 223, 0.2);
+        }
+        ::-webkit-scrollbar {
+            width: 4px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f2f3ff;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #c4c5d9;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #0040df;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-container": "#efefff",
+                        "surface-container": "#eaedff",
+                        "surface-tint": "#104af0",
+                        "error-container": "#ffdad6",
+                        "background": "#faf8ff",
+                        "secondary-fixed-dim": "#b7c8e1",
+                        "on-primary": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "surface": "#faf8ff",
+                        "inverse-surface": "#283044",
+                        "error": "#ba1a1a",
+                        "tertiary-fixed": "#e0e3e5",
+                        "secondary-fixed": "#d3e4fe",
+                        "on-error-container": "#93000a",
+                        "primary-fixed": "#dde1ff",
+                        "on-error": "#ffffff",
+                        "surface-container-highest": "#dae2fd",
+                        "primary": "#0040df",
+                        "surface-variant": "#dae2fd",
+                        "on-secondary-fixed": "#0b1c30",
+                        "on-primary-fixed-variant": "#0035bd",
+                        "primary-fixed-dim": "#b8c3ff",
+                        "inverse-primary": "#b8c3ff",
+                        "surface-container-high": "#e2e7ff",
+                        "surface-dim": "#d2d9f4",
+                        "on-primary-fixed": "#001355",
+                        "tertiary": "#525557",
+                        "secondary-container": "#d0e1fb",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-container": "#eef0f2",
+                        "outline": "#747688",
+                        "surface-container-low": "#f2f3ff",
+                        "on-surface-variant": "#434656",
+                        "secondary": "#505f76",
+                        "on-background": "#131b2e",
+                        "outline-variant": "#c4c5d9",
+                        "inverse-on-surface": "#eef0ff",
+                        "on-secondary-fixed-variant": "#38485d",
+                        "on-tertiary-fixed-variant": "#444749",
+                        "primary-container": "#2d5bff",
+                        "on-tertiary-fixed": "#191c1e",
+                        "tertiary-container": "#6a6d6f",
+                        "surface-bright": "#faf8ff",
+                        "on-surface": "#131b2e",
+                        "on-secondary-container": "#54647a",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-fixed-dim": "#c4c7c9"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "margin-mobile": "16px",
+                        "margin-desktop": "64px",
+                        "gutter": "24px",
+                        "unit": "4px",
+                        "container-max": "1440px",
+                        "sm": "16px",
+                        "md": "24px",
+                        "base": "4px",
+                        "xs": "8px",
+                        "xl": "80px",
+                        "lg": "48px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Space Grotesk"],
+                        "body-lg": ["Inter"],
+                        "headline-lg-mobile": ["Space Grotesk"],
+                        "headline-md": ["Space Grotesk"],
+                        "button": ["Space Grotesk"],
+                        "body-md": ["Inter"],
+                        "label-caps": ["JetBrains Mono"],
+                        "headline-lg": ["Space Grotesk"],
+                        "label-md": ["Space Grotesk"],
+                        "label-sm": ["Space Grotesk"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["72px", {"lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "headline-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "500"}],
+                        "button": ["14px", {"lineHeight": "1.0", "letterSpacing": "0.02em", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "label-caps": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                        "headline-lg": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                        "label-md": ["14px", {"lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                        "label-sm": ["12px", {"lineHeight": "1.0", "fontWeight": "500"}]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background font-body-md selection:bg-primary-container selection:text-on-primary-container overflow-x-hidden">
+<header class="navbar-shell fixed top-0 w-full z-50 bg-white/80 backdrop-blur-xl border-b border-black/5 h-20 font-display-lg text-label-md">
+        <nav class="flex justify-between items-center px-margin-mobile md:px-margin-desktop h-full w-full max-w-container-max mx-auto">
+            <div class="navbar-brand-group flex items-center gap-10">
+                <a class="brand-logo font-display-lg text-headline-md" href="home.html">SNEAKER LABS</a>
+                <div class="hidden md:flex items-center gap-6 navbar-links">
+                    <a href="home.html" class="nav-link font-display-lg text-label-sm uppercase tracking-widest text-secondary hover:text-primary transition-colors pb-1">Koleksi</a>
+                    <a href="catalog.html" class="nav-link font-display-lg text-label-sm uppercase tracking-widest text-secondary hover:text-primary transition-colors pb-1">Katalog</a>
+                    <a href="kolaborasi.html" class="nav-link font-display-lg text-label-sm uppercase tracking-widest text-secondary hover:text-primary transition-colors pb-1">Kolaborasi</a>
+                    <a href="lab.html" class="nav-link font-display-lg text-label-sm uppercase tracking-widest text-secondary hover:text-primary transition-colors pb-1">Lab</a>
+                    <a href="contact.html" class="nav-link font-display-lg text-label-sm uppercase tracking-widest text-secondary hover:text-primary transition-colors pb-1">Kontak</a>
+                    <a href="about.html" class="nav-link font-display-lg text-label-sm uppercase tracking-widest text-secondary hover:text-primary transition-colors pb-1">Tentang</a>
+                </div>
+            </div>
+            
+            <div class="nav-actions flex items-center gap-4">
+                <!-- Search Box -->
+                <div class="hidden lg:flex items-center bg-surface-container px-4 py-1.5 rounded-full border border-outline-variant search-container">
+                    <span class="material-symbols-outlined text-secondary scale-90">search</span>
+                    <input class="bg-transparent border-none focus:ring-0 text-xs uppercase tracking-widest text-on-surface placeholder-secondary w-40 search-input" placeholder="CARI SNEAKER..." type="text" id="searchInput">
+                    <button class="hidden" id="searchBtn"></button>
+                </div>
+                
+                <!-- Auth Actions -->
+                <div class="auth-actions">
+                    <span class="auth-control login-status text-secondary text-xs uppercase tracking-wider opacity-0 invisible pointer-events-none" id="loginStatus"></span>
+                    <button class="auth-control icon-btn login-btn bg-transparent border border-primary text-primary px-4 py-2 text-xs font-bold uppercase tracking-wider hover:bg-primary hover:text-white transition-colors" id="loginBtn">Masuk</button>
+                    <button class="auth-control icon-btn register-btn bg-primary text-white px-4 py-2 text-xs font-bold uppercase tracking-wider hover:bg-primary/95 transition-colors" id="registerBtn">Daftar</button>
+                    <button class="auth-control icon-btn logout-btn bg-transparent border border-red-500 text-red-500 px-4 py-2 text-xs font-bold uppercase tracking-wider hover:bg-red-500 hover:text-white transition-colors opacity-0 invisible pointer-events-none" id="logoutBtn">Keluar</button>
+                </div>
+
+                <!-- Wishlist -->
+                <button class="icon-btn wishlist-btn text-on-surface hover:text-primary transition-all duration-300 relative flex items-center p-1" id="wishlistBtn" title="Wishlist">
+                    <span class="material-symbols-outlined">favorite</span>
+                    <span class="absolute -top-1 -right-1 bg-primary text-white text-[9px] font-bold rounded-full w-4 h-4 flex items-center justify-center wishlist-count">0</span>
+                </button>
+
+                <!-- Cart -->
+                <button class="icon-btn cart-btn text-on-surface hover:text-primary transition-all duration-300 relative flex items-center p-1" id="cartPanelBtn" title="Shopping Cart">
+                    <span class="material-symbols-outlined">shopping_cart</span>
+                    <span class="absolute -top-1 -right-1 bg-primary text-white text-[9px] font-bold rounded-full w-4 h-4 flex items-center justify-center cart-count">0</span>
+                </button>
+
+                <!-- Mobile Menu Toggle -->
+                <button class="icon-btn mobile-menu-toggle md:hidden material-symbols-outlined text-on-surface hover:text-primary" id="mobileMenuToggle" aria-label="Buka menu">menu</button>
+            </div>
+        </nav>
+        
+        <!-- Mobile Navigation Overlay -->
+        <div class="hidden fixed inset-0 top-20 bg-white z-40 flex flex-col p-6 gap-4 border-t border-black/5 md:hidden nav-menu">
+            <a class="font-display-lg text-lg uppercase tracking-widest text-secondary hover:text-primary transition-colors py-2 border-b border-black/5 nav-link" href="home.html">Koleksi</a>
+            <a class="font-display-lg text-lg uppercase tracking-widest text-secondary hover:text-primary transition-colors py-2 border-b border-black/5 nav-link" href="catalog.html">Katalog</a>
+            <a class="font-display-lg text-lg uppercase tracking-widest text-secondary hover:text-primary transition-colors py-2 border-b border-black/5 nav-link" href="kolaborasi.html">Kolaborasi</a>
+            <a class="font-display-lg text-lg uppercase tracking-widest text-secondary hover:text-primary transition-colors py-2 border-b border-black/5 nav-link" href="lab.html">Lab</a>
+            <a class="font-display-lg text-lg uppercase tracking-widest text-secondary hover:text-primary transition-colors py-2 border-b border-black/5 nav-link" href="contact.html">Kontak</a>
+            <a class="font-display-lg text-lg uppercase tracking-widest text-secondary hover:text-primary transition-colors py-2 border-b border-black/5 nav-link" href="about.html">Tentang</a>
+        </div>
+</header>
+
+<!-- Main Content -->
+<main class="pt-20 pb-xl max-w-container-max mx-auto px-0 md:px-margin-desktop">
+<div class="flex flex-col md:flex-row gap-0 md:gap-xl">
+<!-- Left: Product Gallery -->
+<div class="w-full md:w-1/2">
+<!-- Mobile Carousel / Main Hero -->
+<div class="relative aspect-square w-full bg-surface-container-lowest flex items-center justify-center overflow-hidden">
+<div class="absolute top-md left-md z-10">
+<span class="bg-on-background text-background font-label-md px-sm py-xs uppercase tracking-widest">LAB SPECIMEN #0042</span>
+</div>
+<img alt="Nike Air Max Alpha" class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700" data-alt="A high-end studio photograph of a vibrant red Nike sneaker captured against a minimalist, dark charcoal grey background." data-product-image src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzYTe2ccssxDAfhJ7J5_iyEYa8_y3ZZPb4J3DVtpjoVCf0sq_wa3Q5s5IBwEVItkcHzE5ctF5PSgG9E2VnVz5OtG9AsRn7hv3rzguIUUHh1QB5KmfE0orKMdme1wmSaOiciIaMA_l-6jgUASwaIMFq-4GpjfuGf8C08wglNq2Z9duHugN6zfeVLiNC8b3WeuDuOW52CH9n1Ykz4bTQRkHBflu4Ey1tMbQ_9jsaKDYa9Uj0P13K9MnwVQEWyOa0uaEAeZLVF9QpjGk">
+<!-- Mobile Controls -->
+<div class="absolute bottom-md left-1/2 -translate-x-1/2 flex gap-xs md:hidden">
+<div class="w-8 h-1 bg-primary"></div>
+<div class="w-8 h-1 bg-outline-variant"></div>
+<div class="w-8 h-1 bg-outline-variant"></div>
+</div>
+</div>
+<!-- Thumbnail Row (Desktop Only) -->
+<div class="hidden md:grid grid-cols-4 gap-sm mt-sm">
+<div class="aspect-square bg-surface-container-low border border-outline-variant cursor-pointer hover:border-primary transition-colors">
+<img class="w-full h-full object-cover opacity-70 hover:opacity-100 transition-opacity" data-alt="Close up detailed shot" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCOAp9Sju2cK3bk0aTQoFGMl7mIt5TODBq2icPeN3kWl4PRR4wymEUvIFiDUj0vcta8Lff4SjIOTpnFhishSDm0tm4mSijOibWbju51s_VOoBz5L-_2rTtGH-9hhZ5OdGMsGltnvE3U6rluJCIoeJ-mwlvHhkn_38m2UlB_o_jpJxqOv0C5k3BDVhIVb1UKImxKEiMDbnfFS05263t07C8VNc6_drr32h9EZ1bbZxtK_E0U3aj8XOyh0Kq50TffpigRphIqOxXwUaQ">
+</div>
+<div class="aspect-square bg-surface-container-low border-2 border-primary cursor-pointer">
+<img class="w-full h-full object-cover" data-alt="Top-down perspective" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC3_r4weEyQI0m6_AaYvTx_bnTStHXFGY2-DT6rkYBg-n_zodLYhj5pUOLd5z8MttOUxy6Vp3QzHHMMNYGUh-DG2SmN9kKHGLARsIBk-OKNsVFMuZlDf24rjksbKsSfV8cvclA8JefA7GH7sG2D2AMFRMcN4c2DShP2XxRBt_HOo_mvqQaQicTVjQ7HH_0P3jpSe2FY0zRoaNkE43jXto0nZfhFSqp23T9h9A9HNymY97BdhfPY207Fc03jmenFlS2vYI--5veAMH8">
+</div>
+<div class="aspect-square bg-surface-container-low border border-outline-variant cursor-pointer hover:border-primary transition-colors">
+<img class="w-full h-full object-cover opacity-70 hover:opacity-100 transition-opacity" data-alt="Extreme macro shot" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCF5rolH8p92EmxwyYuS35PePvix_rvZveD5u6yrRvNVpQR0KYNE_NSDkrVuTbrz1VHqfyM385yVNGX4pG6BpumeD5rh_RZftUstCKh2uSNzqzpxtd5lLCjT1Kk2f_EMxYlDFc8LneLcVYvFKONk9dS6V7nhbj_ZN9J0pM7APAXS1mT59hpjcq61Cmz06ro7YIYgRVdNnaQ88hYnpxaiNHeWtrPb0dLGVUW5SlkT5vAtXnZ_RgOuzyAKKwZxIiA4deXR8pdkXEtODo">
+</div>
+<div class="aspect-square bg-surface-container-low border border-outline-variant cursor-pointer hover:border-primary transition-colors flex items-center justify-center group">
+<span class="material-symbols-outlined text-secondary group-hover:text-primary transition-colors">play_circle</span>
+</div>
+</div>
+</div>
+<!-- Right: Product Information -->
+<div class="w-full md:w-1/2 px-margin-mobile md:px-0 py-md md:py-0">
+<div class="md:sticky md:top-28">
+<!-- Breadcrumbs -->
+<nav class="flex items-center gap-xs text-secondary font-label-sm uppercase tracking-widest mb-md">
+<a class="hover:text-primary transition-colors" href="#">ARCHIVE</a>
+<span class="material-symbols-outlined text-[12px]">chevron_right</span>
+<a class="hover:text-primary transition-colors" href="#">NIKE</a>
+<span class="material-symbols-outlined text-[12px]">chevron_right</span>
+<span class="text-primary font-bold">PERFORMANCE</span>
+</nav>
+<!-- Title & Price -->
+<div class="mb-md" data-product-status></div>
+<h1 class="font-display-lg text-display-sm md:text-headline-lg uppercase mb-xs tracking-tighter text-on-background" data-product-title>NIKE AIR MAX ALPHA</h1>
+<div class="flex justify-between items-baseline mb-lg">
+<span class="font-display-lg text-headline-md text-primary" data-product-price>$210.00</span>
+<div class="flex items-center gap-xs">
+<div class="flex text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<span class="font-label-md text-on-surface">4.9 / 5.0</span>
+</div>
+</div>
+<!-- Material Description -->
+<div class="mb-lg">
+<h3 class="font-label-md text-secondary uppercase mb-sm tracking-widest border-b border-outline-variant pb-base">MATERIAL SPECIFICATIONS</h3>
+<p class="font-body-md text-on-surface-variant leading-relaxed" data-product-description>
+                        Engineered with a high-tensile carbon-fiber plate and dual-density foam for maximum energy return. The upper utilizes "Lab-Mesh" technology—a breathable synthetic weave designed for ultra-marathon endurance. Treated with a hydrophobic finish for all-condition environmental adaptation.
+                    </p>
+</div>
+<!-- Size Selection -->
+<div class="mb-lg">
+<div class="flex justify-between items-center mb-sm">
+<h3 class="font-label-md text-secondary uppercase tracking-widest">SELECT FRAME SIZE (US)</h3>
+<button class="font-label-sm text-primary underline underline-offset-4 uppercase">View Chart</button>
+</div>
+<div class="grid grid-cols-4 md:grid-cols-5 gap-xs">
+<button class="border border-outline-variant py-md text-label-md hover:border-primary hover:text-primary transition-all">08</button>
+<button class="border border-outline-variant py-md text-label-md hover:border-primary hover:text-primary transition-all">08.5</button>
+<button class="border-2 border-primary bg-primary text-on-primary py-md text-label-md font-bold">09</button>
+<button class="border border-outline-variant py-md text-label-md hover:border-primary hover:text-primary transition-all">09.5</button>
+<button class="border border-outline-variant py-md text-label-md hover:border-primary hover:text-primary transition-all">10</button>
+<button class="border border-outline-variant py-md text-label-md hover:border-primary hover:text-primary transition-all">10.5</button>
+<button class="border border-outline-variant py-md text-label-md opacity-30 cursor-not-allowed">11</button>
+<button class="border border-outline-variant py-md text-label-md hover:border-primary hover:text-primary transition-all">11.5</button>
+</div>
+</div>
+<!-- Actions (Desktop Only) -->
+<div class="hidden md:flex gap-sm">
+<button class="flex-grow bg-primary text-on-primary font-display-lg text-label-md py-lg uppercase tracking-widest cyber-glow transition-all active:scale-95 flex items-center justify-center gap-sm" data-add-to-cart>
+<span class="material-symbols-outlined">shopping_cart</span>
+                        INITIALIZE PURCHASE
+                    </button>
+<button class="w-20 border border-outline-variant flex items-center justify-center hover:bg-surface-container-low transition-colors active:scale-95 text-secondary">
+<span class="material-symbols-outlined" data-icon="favorite">favorite</span>
+</button>
+</div>
+<!-- Tech Specs Accordion -->
+<div class="mt-xl border-t border-outline-variant">
+<div class="group py-md border-b border-outline-variant cursor-pointer">
+<div class="flex justify-between items-center text-label-md uppercase tracking-widest text-secondary group-hover:text-primary transition-colors">
+<span class="">LAB TECHNOLOGY</span>
+<span class="material-symbols-outlined">expand_more</span>
+</div>
+</div>
+<div class="group py-md border-b border-outline-variant cursor-pointer">
+<div class="flex justify-between items-center text-label-md uppercase tracking-widest text-secondary group-hover:text-primary transition-colors">
+<span class="">SHIPPING &amp; PROTOCOL</span>
+<span class="material-symbols-outlined">expand_more</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Mobile Sticky CTA -->
+<div class="md:hidden fixed bottom-0 left-0 w-full z-50 p-sm bg-surface/90 backdrop-blur-xl border-t border-outline-variant">
+<div class="flex gap-sm">
+<button class="flex-grow bg-primary text-on-primary font-display-lg text-label-md py-md uppercase tracking-widest flex items-center justify-center gap-sm">
+            ADD TO CART • $210
+        </button>
+<button class="w-14 border border-outline-variant flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+</div>
+</div>
+<!-- Footer -->
+<footer class="bg-surface-container-low border-t border-outline-variant w-full py-xl px-margin-mobile md:px-margin-desktop">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-lg w-full max-w-container-max mx-auto">
+<!-- Brand -->
+<div class="space-y-md">
+<span class="font-display-lg text-headline-md text-primary block">SNEAKER LABS</span>
+<p class="font-label-sm uppercase tracking-widest text-secondary">
+                © 2024 SNEAKER LABS. ENGINEERED FOR THE ARCHIVE.
+            </p>
+</div>
+<!-- Shop -->
+<div class="space-y-sm">
+<h4 class="font-label-md text-on-background uppercase tracking-widest">SHOP</h4>
+<div class="flex flex-col gap-xs">
+<a class="font-label-sm text-secondary hover:text-primary transition-colors hover:translate-x-1 transition-transform inline-block" href="#">POLICIES</a>
+<a class="font-label-sm text-secondary hover:text-primary transition-colors hover:translate-x-1 transition-transform inline-block" href="#">RETURNS</a>
+<a class="font-label-sm text-secondary hover:text-primary transition-colors hover:translate-x-1 transition-transform inline-block" href="#">WARRANTY</a>
+</div>
+</div>
+<!-- Tech/Specs -->
+<div class="space-y-sm">
+<h4 class="font-label-md text-on-background uppercase tracking-widest">TECH</h4>
+<div class="flex flex-col gap-xs">
+<a class="font-label-sm text-secondary hover:text-primary transition-colors hover:translate-x-1 transition-transform inline-block" href="#">LAB NOTES</a>
+<a class="font-label-sm text-secondary hover:text-primary transition-colors hover:translate-x-1 transition-transform inline-block" href="#">AUTHENTICATION</a>
+<a class="font-label-sm text-secondary hover:text-primary transition-colors hover:translate-x-1 transition-transform inline-block" href="#">MATERIALS</a>
+</div>
+</div>
+<!-- Social/Contact -->
+<div class="space-y-sm">
+<h4 class="font-label-md text-on-background uppercase tracking-widest">SOCIAL</h4>
+<div class="flex flex-col gap-xs">
+<a class="font-label-sm text-secondary hover:text-primary transition-colors hover:translate-x-1 transition-transform inline-block" href="#">INSTAGRAM</a>
+<a class="font-label-sm text-secondary hover:text-primary transition-colors hover:translate-x-1 transition-transform inline-block" href="#">CONTACT</a>
+<a class="font-label-sm text-secondary hover:text-primary transition-colors hover:translate-x-1 transition-transform inline-block" href="#">PAYMENT</a>
+</div>
+</div>
+</div>
+</footer>
+<script>
+    // Simple Interaction logic
+    document.querySelectorAll('.aspect-square').forEach(thumb => {
+        thumb.addEventListener('click', function() {
+            const mainImg = document.querySelector('main img');
+            const thumbImg = this.querySelector('img');
+            if (thumbImg) {
+                mainImg.src = thumbImg.src;
+                mainImg.dataset.alt = thumbImg.dataset.alt;
+                
+                // Reset borders
+                document.querySelectorAll('.aspect-square').forEach(t => {
+                    t.classList.remove('border-2', 'border-primary');
+                    t.classList.add('border', 'border-outline-variant');
+                });
+                this.classList.add('border-2', 'border-primary');
+                this.classList.remove('border', 'border-outline-variant');
+            }
+        });
+    });
+</script>
+
+<script src="../scripts/utils/helpers.js"></script>
+<script src="../scripts/services/api.js"></script>
+<script src="../scripts/main.js"></script>
+<script src="../scripts/components/navbar.js"></script>
+<script src="../scripts/pages/product-detail.js"></script>
+</body></html>

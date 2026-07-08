@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0040df">
+    <title>SNEAKER LABS | ABOUT</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-primary-container": "#efefff",
+                        "surface-container": "#eaedff",
+                        "surface-tint": "#104af0",
+                        "error-container": "#ffdad6",
+                        "background": "#faf8ff",
+                        "secondary-fixed-dim": "#b7c8e1",
+                        "on-primary": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "surface": "#faf8ff",
+                        "inverse-surface": "#283044",
+                        "error": "#ba1a1a",
+                        "tertiary-fixed": "#e0e3e5",
+                        "secondary-fixed": "#d3e4fe",
+                        "on-error-container": "#93000a",
+                        "primary-fixed": "#dde1ff",
+                        "on-error": "#ffffff",
+                        "surface-container-highest": "#dae2fd",
+                        "primary": "#0040df",
+                        "surface-variant": "#dae2fd",
+                        "on-secondary-fixed": "#0b1c30",
+                        "on-primary-fixed-variant": "#0035bd",
+                        "primary-fixed-dim": "#b8c3ff",
+                        "inverse-primary": "#b8c3ff",
+                        "surface-container-high": "#e2e7ff",
+                        "surface-dim": "#d2d9f4",
+                        "on-primary-fixed": "#001355",
+                        "tertiary": "#525557",
+                        "secondary-container": "#d0e1fb",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-container": "#eef0f2",
+                        "outline": "#747688",
+                        "surface-container-low": "#f2f3ff",
+                        "on-surface-variant": "#434656",
+                        "secondary": "#505f76",
+                        "on-background": "#131b2e",
+                        "outline-variant": "#c4c5d9",
+                        "inverse-on-surface": "#eef0ff",
+                        "on-secondary-fixed-variant": "#38485d",
+                        "on-tertiary-fixed-variant": "#444749",
+                        "primary-container": "#2d5bff",
+                        "on-tertiary-fixed": "#191c1e",
+                        "tertiary-container": "#6a6d6f",
+                        "surface-bright": "#faf8ff",
+                        "on-surface": "#131b2e",
+                        "on-secondary-container": "#54647a",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-fixed-dim": "#c4c7c9"
+                    },
+                    spacing: {
+                        "margin-mobile": "20px",
+                        "margin-desktop": "64px",
+                        "gutter": "24px",
+                        "container-max": "1440px"
+                    },
+                    fontFamily: {
+                        "display-lg": ["Space Grotesk"],
+                        "body-md": ["Inter"],
+                        "label-md": ["Space Grotesk"],
+                        "display-sm": ["Space Grotesk"],
+                        "body-lg": ["Inter"],
+                        "label-sm": ["Space Grotesk"],
+                        "headline-lg": ["Space Grotesk"],
+                        "headline-md": ["Space Grotesk"],
+                        "headline-lg-mobile": ["Space Grotesk"]
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #faf8ff;
+            color: #131b2e;
+            -webkit-font-smoothing: antialiased;
+        }
+        .glass-edge {
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .cyber-glow:hover {
+            box-shadow: 0 0 20px rgba(0, 64, 223, 0.2);
+        }
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: #0040df !important;
+        }
+    </style>
+</head>
+<body class="font-body-md text-on-background bg-background overflow-x-hidden">
+
+    <!-- Header/Navigation -->
+    <header class="navbar-shell fixed top-0 w-full z-50 bg-white/80 backdrop-blur-xl border-b border-black/5 h-20 font-display-lg text-label-md">
+        <nav class="flex justify-between items-center px-margin-mobile md:px-margin-desktop h-full w-full max-w-container-max mx-auto">
+            <div class="navbar-brand-group flex items-center gap-10">
+                <a class="brand-logo font-display-lg text-headline-md" href="home.html">SNEAKER LABS</a>
+                <div class="hidden md:flex items-center gap-6 navbar-links">
+                    <a href="home.html" class="nav-link font-display-lg text-label-sm uppercase tracking-widest text-secondary hover:text-primary transition-colors pb-1">Koleksi</a>
+                    <a href="catalog.html" class="nav-link font-display-lg text-label-sm uppercase tracking-widest text-secondary hover:text-primary transition-colors pb-1">Katalog</a>
+                    <a href="kolaborasi.html" class="nav-link font-display-lg text-label-sm uppercase tracking-widest text-secondary hover:text-primary transition-colors pb-1">Kolaborasi</a>
+                    <a href="lab.html" class="nav-link font-display-lg text-label-sm uppercase tracking-widest text-secondary hover:text-primary transition-colors pb-1">Lab</a>
+                    <a href="contact.html" class="nav-link font-display-lg text-label-sm uppercase tracking-widest text-secondary hover:text-primary transition-colors pb-1">Kontak</a>
+                    <a href="about.html" class="nav-link font-display-lg text-label-sm uppercase tracking-widest text-secondary hover:text-primary transition-colors pb-1">Tentang</a>
+                </div>
+            </div>
+            
+            <div class="nav-actions flex items-center gap-4">
+                <!-- Search Box -->
+                <div class="hidden lg:flex items-center bg-surface-container px-4 py-1.5 rounded-full border border-outline-variant search-container">
+                    <span class="material-symbols-outlined text-secondary scale-90">search</span>
+                    <input class="bg-transparent border-none focus:ring-0 text-xs uppercase tracking-widest text-on-surface placeholder-secondary w-40 search-input" placeholder="CARI SNEAKER..." type="text" id="searchInput">
+                    <button class="hidden" id="searchBtn"></button>
+                </div>
+                
+                <!-- Auth Actions -->
+                <div class="auth-actions">
+                    <span class="auth-control login-status text-secondary text-xs uppercase tracking-wider opacity-0 invisible pointer-events-none" id="loginStatus"></span>
+                    <button class="auth-control icon-btn login-btn bg-transparent border border-primary text-primary px-4 py-2 text-xs font-bold uppercase tracking-wider hover:bg-primary hover:text-white transition-colors" id="loginBtn">Masuk</button>
+                    <button class="auth-control icon-btn register-btn bg-primary text-white px-4 py-2 text-xs font-bold uppercase tracking-wider hover:bg-primary/95 transition-colors" id="registerBtn">Daftar</button>
+                    <button class="auth-control icon-btn logout-btn bg-transparent border border-red-500 text-red-500 px-4 py-2 text-xs font-bold uppercase tracking-wider hover:bg-red-500 hover:text-white transition-colors opacity-0 invisible pointer-events-none" id="logoutBtn">Keluar</button>
+                </div>
+
+                <!-- Wishlist -->
+                <button class="icon-btn wishlist-btn text-on-surface hover:text-primary transition-all duration-300 relative flex items-center p-1" id="wishlistBtn" title="Wishlist">
+                    <span class="material-symbols-outlined">favorite</span>
+                    <span class="absolute -top-1 -right-1 bg-primary text-white text-[9px] font-bold rounded-full w-4 h-4 flex items-center justify-center wishlist-count">0</span>
+                </button>
+
+                <!-- Cart -->
+                <button class="icon-btn cart-btn text-on-surface hover:text-primary transition-all duration-300 relative flex items-center p-1" id="cartPanelBtn" title="Shopping Cart">
+                    <span class="material-symbols-outlined">shopping_cart</span>
+                    <span class="absolute -top-1 -right-1 bg-primary text-white text-[9px] font-bold rounded-full w-4 h-4 flex items-center justify-center cart-count">0</span>
+                </button>
+
+                <!-- Mobile Menu Toggle -->
+                <button class="icon-btn mobile-menu-toggle md:hidden material-symbols-outlined text-on-surface hover:text-primary" id="mobileMenuToggle" aria-label="Buka menu">menu</button>
+            </div>
+        </nav>
+        
+        <!-- Mobile Navigation Overlay -->
+        <div class="hidden fixed inset-0 top-20 bg-white z-40 flex flex-col p-6 gap-4 border-t border-black/5 md:hidden nav-menu">
+            <a class="font-display-lg text-lg uppercase tracking-widest text-secondary hover:text-primary transition-colors py-2 border-b border-black/5 nav-link" href="home.html">Koleksi</a>
+            <a class="font-display-lg text-lg uppercase tracking-widest text-secondary hover:text-primary transition-colors py-2 border-b border-black/5 nav-link" href="catalog.html">Katalog</a>
+            <a class="font-display-lg text-lg uppercase tracking-widest text-secondary hover:text-primary transition-colors py-2 border-b border-black/5 nav-link" href="kolaborasi.html">Kolaborasi</a>
+            <a class="font-display-lg text-lg uppercase tracking-widest text-secondary hover:text-primary transition-colors py-2 border-b border-black/5 nav-link" href="lab.html">Lab</a>
+            <a class="font-display-lg text-lg uppercase tracking-widest text-secondary hover:text-primary transition-colors py-2 border-b border-black/5 nav-link" href="contact.html">Kontak</a>
+            <a class="font-display-lg text-lg uppercase tracking-widest text-secondary hover:text-primary transition-colors py-2 border-b border-black/5 nav-link" href="about.html">Tentang</a>
+        </div>
+    </header>
+
+    <!-- Login Modal Backdrop -->
+    <div class="fixed inset-0 bg-black/60 backdrop-blur-sm z-[100] flex items-center justify-center login-modal-backdrop" id="loginModal" hidden>
+        <div class="bg-white border border-black/10 p-8 max-w-md w-full relative rounded-xl shadow-2xl login-modal-card" role="dialog" aria-modal="true" aria-labelledby="loginTitle">
+            <button class="absolute top-4 right-4 material-symbols-outlined text-secondary hover:text-primary transition-all login-close-btn" type="button" id="closeLoginModal" aria-label="Tutup form login">close</button>
+            <h3 id="loginTitle" class="font-display-lg text-headline-md uppercase text-primary font-bold mb-2 login-title">Masuk ke Sneaker Labs</h3>
+            <p class="font-body-md text-xs text-secondary mb-6 login-subtitle">Gunakan akun demo untuk melihat tampilan login tanpa mengubah fitur lain.</p>
+            
+            <form class="space-y-4 login-form" id="loginForm">
+                <div class="flex flex-col gap-1 login-field">
+                    <span class="font-display-lg text-[10px] text-secondary uppercase tracking-widest">Email</span>
+                    <input type="email" id="loginEmail" placeholder="nama@contoh.com" required class="bg-surface-container-low border border-black/10 focus:border-primary focus:ring-0 text-sm py-2 px-3 outline-none transition-colors">
+                </div>
+                <div class="flex flex-col gap-1 login-field">
+                    <span class="font-display-lg text-[10px] text-secondary uppercase tracking-widest">Password</span>
+                    <input type="password" id="loginPassword" placeholder="••••••••" required class="bg-surface-container-low border border-black/10 focus:border-primary focus:ring-0 text-sm py-2 px-3 outline-none transition-colors">
+                </div>
+                <div class="pt-2 flex flex-col gap-2 login-actions">
+                    <button type="submit" class="w-full bg-primary text-white py-3 font-display-lg text-xs font-bold uppercase tracking-widest hover:bg-primary/95 transition-all rounded-lg login-submit" data-mode="login">Masuk</button>
+                    <button type="submit" class="w-full bg-transparent border border-black/10 text-secondary py-3 font-display-lg text-xs font-bold uppercase tracking-widest hover:border-primary hover:text-primary transition-all rounded-lg login-submit" data-mode="register">Daftar Akun</button>
+                    <button type="button" class="w-full bg-transparent border border-black/10 text-on-background py-3 font-display-lg text-xs font-bold uppercase tracking-widest hover:bg-surface-container-low transition-all rounded-lg flex items-center justify-center gap-2 login-submit" id="googleLoginBtn">
+                        <svg viewBox="0 0 24 24" aria-hidden="true" class="w-4 h-4 google-icon">
+                            <path fill="#4285F4" d="M21.805 10.023H12v4.02h5.39c-.23 1.22-.93 2.26-1.98 2.95v2.46h3.2c1.88-1.73 2.96-4.27 2.96-7.31 0-.69-.06-1.35-.18-1.99z"></path>
+                            <path fill="#34A853" d="M12 22c2.68 0 4.93-.88 6.57-2.38l-3.2-2.46c-.89.6-2.02.95-3.37.95-2.59 0-4.79-1.75-5.58-4.1H3.13v2.58A10 10 0 0 0 12 22z"></path>
+                            <path fill="#FBBC05" d="M6.42 13.01A6.03 6.03 0 0 1 6.42 10.99V8.41H3.13a10 10 0 0 0 0 4.6l3.29-1.99z"></path>
+                            <path fill="#EA4335" d="M12 6.05c1.46 0 2.77.5 3.8 1.48l2.85-2.85C16.93 3.44 14.68 2.5 12 2.5A10 10 0 0 0 3.13 8.41l3.29 2.58C7.21 7.8 9.41 6.05 12 6.05z"></path>
+                        </svg>
+                        Masuk dengan Google
+                    </button>
+                </div>
+                <p class="text-[10px] text-secondary text-center uppercase tracking-widest mt-4 login-note">Tip: gunakan email demo@sneakerlabs.com &amp; demo123.</p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="pt-20 min-h-screen">
+        <!-- Hero Section -->
+        <section class="py-20 px-margin-mobile md:px-margin-desktop bg-gradient-to-br from-surface via-surface-container to-surface-container-low">
+            <div class="max-w-container-max mx-auto text-center">
+                <h1 class="font-display-lg text-headline-lg md:text-display-lg uppercase text-primary mb-6 tracking-tighter">The Trend Laboratory</h1>
+                <p class="font-body-lg text-secondary max-w-2xl mx-auto">We curate, archive, and celebrate the evolution of sneaker culture. From vintage classics to cutting-edge releases, SNEAKER LABS is your gateway to footwear history.</p>
+            </div>
+        </section>
+
+        <!-- Mission Section -->
+        <section class="py-20 px-margin-mobile md:px-margin-desktop border-b border-outline-variant">
+            <div class="max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-2 gap-20">
+                <div class="flex flex-col justify-center">
+                    <span class="text-primary font-display-lg text-label-sm uppercase tracking-[0.2em] mb-4">Our Mission</span>
+                    <h2 class="font-display-lg text-headline-lg uppercase text-on-surface mb-6">Archiving Sneaker Culture</h2>
+                    <p class="font-body-lg text-secondary mb-4">Since inception, SNEAKER LABS has served as a digital archive dedicated to preserving and celebrating sneaker heritage. We document every release, every collaboration, and every moment that defines modern footwear.</p>
+                    <p class="font-body-lg text-secondary">Our community of collectors, designers, and enthusiasts work together to maintain the most comprehensive database of sneaker knowledge.</p>
+                </div>
+                <div class="bg-surface-container rounded-xl p-12 flex items-center justify-center">
+                    <div class="text-center">
+                        <span class="material-symbols-outlined text-primary scale-150 block mb-4">storefront</span>
+                        <p class="font-display-lg text-headline-md text-on-surface">Est. 2024</p>
+                        <p class="font-body-md text-secondary uppercase tracking-widest">The Archive Opens</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Values Section -->
+        <section class="py-20 px-margin-mobile md:px-margin-desktop">
+            <div class="max-w-container-max mx-auto">
+                <h2 class="font-display-lg text-headline-lg uppercase text-on-surface mb-12 text-center">Our Values</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="border border-outline-variant rounded-lg p-8 hover:border-primary hover:shadow-lg transition-all">
+                        <span class="material-symbols-outlined text-primary text-3xl block mb-4">verified</span>
+                        <h3 class="font-display-lg text-headline-md text-on-surface uppercase mb-3">Authenticity</h3>
+                        <p class="font-body-md text-secondary">Every sneaker in our catalog is verified for authenticity. We work with industry experts to ensure the integrity of our archive.</p>
+                    </div>
+                    <div class="border border-outline-variant rounded-lg p-8 hover:border-primary hover:shadow-lg transition-all">
+                        <span class="material-symbols-outlined text-primary text-3xl block mb-4">community</span>
+                        <h3 class="font-display-lg text-headline-md text-on-surface uppercase mb-3">Community</h3>
+                        <p class="font-body-md text-secondary">We believe in the power of collective knowledge. Our community drives innovation and keeps sneaker culture alive.</p>
+                    </div>
+                    <div class="border border-outline-variant rounded-lg p-8 hover:border-primary hover:shadow-lg transition-all">
+                        <span class="material-symbols-outlined text-primary text-3xl block mb-4">timeline</span>
+                        <h3 class="font-display-lg text-headline-md text-on-surface uppercase mb-3">Heritage</h3>
+                        <p class="font-body-md text-secondary">Sneaker history matters. We preserve the stories and significance behind every iconic release.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="py-20 px-margin-mobile md:px-margin-desktop bg-surface-container border-y border-outline-variant">
+            <div class="max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 text-center">
+                <div>
+                    <p class="font-display-lg text-headline-lg text-primary mb-2">500+</p>
+                    <p class="font-display-lg text-label-sm uppercase tracking-widest text-secondary">Brands Archived</p>
+                </div>
+                <div>
+                    <p class="font-display-lg text-headline-lg text-primary mb-2">10K+</p>
+                    <p class="font-display-lg text-label-sm uppercase tracking-widest text-secondary">Models Catalogued</p>
+                </div>
+                <div>
+                    <p class="font-display-lg text-headline-lg text-primary mb-2">100K+</p>
+                    <p class="font-display-lg text-label-sm uppercase tracking-widest text-secondary">Community Members</p>
+                </div>
+                <div>
+                    <p class="font-display-lg text-headline-lg text-primary mb-2">24/7</p>
+                    <p class="font-display-lg text-label-sm uppercase tracking-widest text-secondary">Lab Operations</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="py-20 px-margin-mobile md:px-margin-desktop">
+            <div class="max-w-container-max mx-auto text-center">
+                <h2 class="font-display-lg text-headline-lg uppercase text-on-surface mb-6">Join the Archive</h2>
+                <p class="font-body-lg text-secondary mb-12 max-w-2xl mx-auto">Become part of the global sneaker community. Share your collection, discover rare finds, and help us build the ultimate sneaker archive.</p>
+                <button class="bg-primary text-on-primary font-display-lg text-label-md px-12 py-4 uppercase tracking-widest cyber-glow transition-all active:scale-95">Explore Catalog</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-black/5 w-full py-xl px-margin-mobile md:px-margin-desktop">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-lg w-full max-w-container-max mx-auto">
+            <div class="flex flex-col gap-md">
+                <span class="font-display-lg text-headline-md text-primary font-bold tracking-tighter">SNEAKER LABS</span>
+                <p class="font-display-lg text-label-sm uppercase tracking-widest text-secondary">© 2024 SNEAKER LABS. ENGINEERED FOR THE ARCHIVE.</p>
+            </div>
+            <div class="flex flex-col gap-sm">
+                <span class="font-display-lg text-label-md text-primary uppercase mb-xs">SHOP</span>
+                <a class="font-display-lg text-label-sm uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors hover:translate-x-1 transition-transform" href="#">NEW ARRIVALS</a>
+                <a class="font-display-lg text-label-sm uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors hover:translate-x-1 transition-transform" href="#">BRANDS</a>
+                <a class="font-display-lg text-label-sm uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors hover:translate-x-1 transition-transform" href="#">COLLABS</a>
+            </div>
+            <div class="flex flex-col gap-sm">
+                <span class="font-display-lg text-label-md text-primary uppercase mb-xs">TECH/SPECS</span>
+                <a class="font-display-lg text-label-sm uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors hover:translate-x-1 transition-transform" href="#">POLICIES</a>
+                <a class="font-display-lg text-label-sm uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors hover:translate-x-1 transition-transform" href="#">PAYMENT</a>
+                <a class="font-display-lg text-label-sm uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors hover:translate-x-1 transition-transform" href="#">ARCHIVE LOGS</a>
+            </div>
+            <div class="flex flex-col gap-sm">
+                <span class="font-display-lg text-label-md text-primary uppercase mb-xs">SOCIAL</span>
+                <a class="font-display-lg text-label-sm uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors hover:translate-x-1 transition-transform" href="#">INSTAGRAM</a>
+                <a class="font-display-lg text-label-sm uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors hover:translate-x-1 transition-transform" href="#">X.CORP</a>
+                <a class="font-display-lg text-label-sm uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors hover:translate-x-1 transition-transform" href="#">CONTACT</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+</html>

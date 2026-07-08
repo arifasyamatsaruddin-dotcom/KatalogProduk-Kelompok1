@@ -1,0 +1,6 @@
+@import url('./base.css');
+@import url('./components/navbar.css');
+@import url('./components/product-card.css');
+@import url('./pages/catalog.css');
+@import url('./pages/product-detail.css');
+@import url('./loading.css');
